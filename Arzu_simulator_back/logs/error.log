@@ -1,0 +1,307 @@
+2025-09-25 11:29:41 [ERROR]: SQL执行失败 {"sql":"\n\n-- 创建触发器用于自动更新 updated_at 字段\nCREATE TRIGGER IF NOT EXISTS update_users_updated_at \nAFTER UPDATE ON users\nBEGIN\n  UPDATE users SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id","params":[],"error":"SQLITE_ERROR: incomplete input"}
+2025-09-25 13:42:51 [ERROR]: 用户登录失败 {"username":"tasktestuser","clientIp":"::1","error":"用户名或密码错误"}
+2025-09-25 13:42:51 [ERROR]: 用户登录失败 {"username":"tasktestuser","ip":"::1","error":"用户名或密码错误"}
+2025-09-25 13:44:31 [ERROR]: 用户注册失败 {"username":"tasktestuser","email":"tasktest@example.com","error":"用户名已存在"}
+2025-09-25 13:44:31 [ERROR]: 用户注册失败 {"username":"tasktestuser","email":"tasktest@example.com","ip":"::1","error":"用户名已存在"}
+2025-09-25 13:44:32 [ERROR]: SQL查询失败 {"sql":"\n        WITH daily_completions AS (\n          SELECT DATE(completed_at) as date, COUNT(*) as completed\n          FROM tasks\n          WHERE user_id = ? AND completed = 1 AND completed_at IS NOT NULL\n          GROUP BY DATE(completed_at)\n        )\n        SELECT COUNT(*) as streakDays\n        FROM daily_completions\n        WHERE date >= datetime('now', '-30 days')\n      ","params":[1],"error":"SQLITE_ERROR: no such column: completed_at"}
+2025-09-25 13:44:32 [ERROR]: 任务分析数据查询失败 {"userId":1,"days":7,"error":"SQLITE_ERROR: no such column: completed_at"}
+2025-09-25 13:44:32 [ERROR]: 获取任务分析数据失败 {"userId":1,"days":7,"error":"SQLITE_ERROR: no such column: completed_at"}
+2025-09-25 13:44:32 [ERROR]: 获取任务分析数据失败 {"userId":1,"days":7,"ip":"::1","error":"获取任务分析数据失败"}
+2025-09-25 13:45:59 [ERROR]: 用户注册失败 {"username":"tasktestuser","email":"tasktest@example.com","error":"用户名已存在"}
+2025-09-25 13:45:59 [ERROR]: 用户注册失败 {"username":"tasktestuser","email":"tasktest@example.com","ip":"::1","error":"用户名已存在"}
+2025-09-25 13:45:59 [ERROR]: 创建番茄钟会话失败 {"userId":1,"sessionData":{"taskId":3,"durationMinutes":25},"error":"已有活跃的番茄钟会话"}
+2025-09-25 13:45:59 [ERROR]: 创建番茄钟会话失败 {"userId":1,"sessionData":{"taskId":3,"durationMinutes":25},"ip":"::1","error":"已有活跃的番茄钟会话"}
+2025-09-25 13:45:59 [ERROR]: SQL查询失败 {"sql":"\n        WITH daily_completions AS (\n          SELECT DATE(completed_at) as date, COUNT(*) as completed\n          FROM tasks\n          WHERE user_id = ? AND completed = 1 AND completed_at IS NOT NULL\n          GROUP BY DATE(completed_at)\n        )\n        SELECT COUNT(*) as streakDays\n        FROM daily_completions\n        WHERE date >= datetime('now', '-30 days')\n      ","params":[1],"error":"SQLITE_ERROR: no such column: completed_at"}
+2025-09-25 13:45:59 [ERROR]: 任务分析数据查询失败 {"userId":1,"days":7,"error":"SQLITE_ERROR: no such column: completed_at"}
+2025-09-25 13:45:59 [ERROR]: 获取任务分析数据失败 {"userId":1,"days":7,"error":"SQLITE_ERROR: no such column: completed_at"}
+2025-09-25 13:45:59 [ERROR]: 获取任务分析数据失败 {"userId":1,"days":7,"ip":"::1","error":"获取任务分析数据失败"}
+2025-09-25 13:47:34 [ERROR]: 用户注册失败 {"username":"tasktestuser","email":"tasktest@example.com","error":"用户名已存在"}
+2025-09-25 13:47:34 [ERROR]: 用户注册失败 {"username":"tasktestuser","email":"tasktest@example.com","ip":"::1","error":"用户名已存在"}
+2025-09-25 13:47:35 [ERROR]: 创建番茄钟会话失败 {"userId":1,"sessionData":{"taskId":4,"durationMinutes":25},"error":"已有活跃的番茄钟会话"}
+2025-09-25 13:47:35 [ERROR]: 创建番茄钟会话失败 {"userId":1,"sessionData":{"taskId":4,"durationMinutes":25},"ip":"::1","error":"已有活跃的番茄钟会话"}
+2025-09-25 13:47:57 [ERROR]: 用户注册失败 {"username":"tasktestuser","email":"tasktest@example.com","error":"用户名已存在"}
+2025-09-25 13:47:57 [ERROR]: 用户注册失败 {"username":"tasktestuser","email":"tasktest@example.com","ip":"::1","error":"用户名已存在"}
+2025-09-25 13:47:57 [ERROR]: 创建番茄钟会话失败 {"userId":1,"sessionData":{"taskId":5,"durationMinutes":25},"error":"已有活跃的番茄钟会话（会话ID: 1，开始时间: undefined）"}
+2025-09-25 13:47:57 [ERROR]: 创建番茄钟会话失败 {"userId":1,"sessionData":{"taskId":5,"durationMinutes":25},"ip":"::1","error":"已有活跃的番茄钟会话（会话ID: 1，开始时间: undefined）"}
+2025-09-25 13:48:40 [ERROR]: 获取任务失败 {"userId":2,"taskId":7,"error":"任务不存在或无权限访问"}
+2025-09-25 13:48:40 [ERROR]: 获取任务失败 {"userId":2,"taskId":7,"ip":"::1","error":"任务不存在或无权限访问"}
+2025-09-25 13:48:40 [ERROR]: 获取任务失败 {"userId":3,"taskId":6,"error":"任务不存在或无权限访问"}
+2025-09-25 13:48:40 [ERROR]: 获取任务失败 {"userId":3,"taskId":6,"ip":"::1","error":"任务不存在或无权限访问"}
+2025-09-25 18:06:23 [ERROR]: SQL查询失败 {"sql":"SELECT * FROM users WHERE usernam = ? OR mail = ? LIMIT 1","params":["amber","1952710912@qq.com"],"error":"SQLITE_ERROR: no such column: usernam"}
+2025-09-25 18:06:23 [ERROR]: 用户注册失败 {"usernam":"amber","mail":"1952710912@qq.com","error":"SQLITE_ERROR: no such column: usernam"}
+2025-09-25 18:06:23 [ERROR]: 用户注册失败 {"usernam":"amber","mail":"1952710912@qq.com","ip":"::1","error":"SQLITE_ERROR: no such column: usernam"}
+2025-09-25 18:06:25 [ERROR]: SQL查询失败 {"sql":"SELECT * FROM users WHERE usernam = ? OR mail = ? LIMIT 1","params":["amber_test","amber@example.com"],"error":"SQLITE_ERROR: no such column: usernam"}
+2025-09-25 18:06:25 [ERROR]: 用户注册失败 {"usernam":"amber_test","mail":"amber@example.com","error":"SQLITE_ERROR: no such column: usernam"}
+2025-09-25 18:06:25 [ERROR]: 用户注册失败 {"usernam":"amber_test","mail":"amber@example.com","ip":"::1","error":"SQLITE_ERROR: no such column: usernam"}
+2025-09-25 18:07:15 [ERROR]: SQL文件执行失败 {"file":"001-initial-schema.sql","error":"SQLITE_ERROR: no such column: username"}
+2025-09-25 18:39:22 [ERROR]: 未捕获的异常 {"error":"EPIPE: broken pipe, write"}
+Error: EPIPE: broken pipe, write
+    at Socket._write (node:internal/net:75:18)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston\lib\winston\transports\console.js:87:23)
+    at Console._write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston-transport\modern.js:103:17)
+    at doWrite (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Console.Writable.write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+2025-09-26 10:48:10 [ERROR]: 用户注册失败 {"usernam":"amber","mail":"1952710912@qq.com","error":"邮箱已存在"}
+2025-09-26 10:48:10 [ERROR]: 用户注册失败 {"usernam":"amber","mail":"1952710912@qq.com","ip":"::1","error":"邮箱已存在"}
+2025-09-26 10:49:27 [ERROR]: SQL文件执行失败 {"file":"003-reinitialize-database.sql","error":"SQLITE_BUSY: database is locked"}
+2025-09-26 10:56:28 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","error":"邮箱或密码无效"}
+2025-09-26 10:56:28 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-20 14:10:54 [ERROR]: 未捕获的异常 {"error":"EPIPE: broken pipe, write"}
+Error: EPIPE: broken pipe, write
+    at Socket._write (node:internal/net:75:18)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston\lib\winston\transports\console.js:87:23)
+    at Console._write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston-transport\modern.js:103:17)
+    at doWrite (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Console.Writable.write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+2025-10-20 17:02:27 [ERROR]: SQL查询失败 {"sql":"SELECT * FROM users WHERE username = ? OR mail = ? LIMIT 1","params":["testuser","test@example.com"],"error":"SQLITE_ERROR: no such column: username"}
+2025-10-20 17:02:27 [ERROR]: 用户注册失败 {"username":"testuser","mail":"test@example.com","error":"SQLITE_ERROR: no such column: username"}
+2025-10-20 17:02:27 [ERROR]: 用户注册失败 {"username":"testuser","mail":"test@example.com","ip":"::ffff:127.0.0.1","error":"SQLITE_ERROR: no such column: username"}
+2025-10-20 17:26:51 [ERROR]: SQL文件执行失败 {"file":"003-reinitialize-database.sql","error":"SQLITE_ERROR: no such table: main.tasks"}
+2025-10-20 17:27:15 [ERROR]: 用户登录失败 {"username":"testuser","clientIp":"::ffff:127.0.0.1","error":"账户已被禁用"}
+2025-10-20 17:27:15 [ERROR]: 用户登录失败 {"username":"testuser","ip":"::ffff:127.0.0.1","error":"账户已被禁用"}
+2025-10-20 17:28:24 [ERROR]: SQL执行失败 {"sql":"INSERT INTO refresh_tokens (user_id, token_hash, expires_at) VALUES (?, ?, ?)","params":[null,"70514b2326866f0d109213f916010572cd736e90c170f5c7b28053eb3a78d80b","2025-10-27T09:28:24.510Z"],"error":"SQLITE_ERROR: no such table: refresh_tokens"}
+2025-10-20 17:28:24 [ERROR]: 用户登录失败 {"username":"testuser","clientIp":"::ffff:127.0.0.1","error":"SQLITE_ERROR: no such table: refresh_tokens"}
+2025-10-20 17:28:24 [ERROR]: 用户登录失败 {"username":"testuser","ip":"::ffff:127.0.0.1","error":"SQLITE_ERROR: no such table: refresh_tokens"}
+2025-10-20 19:02:52 [ERROR]: SQL执行失败 {"sql":"INSERT INTO refresh_tokens (user_id, token_hash, expires_at) VALUES (?, ?, ?)","params":[null,"c31516626838df8902cb857c52548dc8a067c7281c7547e06ae0dcb1f01c559f","2025-10-27T11:02:52.385Z"],"error":"SQLITE_ERROR: table refresh_tokens has no column named token_hash"}
+2025-10-20 19:02:52 [ERROR]: 用户登录失败 {"username":"newuser","clientIp":"::ffff:127.0.0.1","error":"SQLITE_ERROR: table refresh_tokens has no column named token_hash"}
+2025-10-20 19:02:52 [ERROR]: 用户登录失败 {"username":"newuser","ip":"::ffff:127.0.0.1","error":"SQLITE_ERROR: table refresh_tokens has no column named token_hash"}
+2025-10-20 19:05:07 [ERROR]: SQL执行失败 {"sql":"INSERT INTO refresh_tokens (user_id, token_hash, expires_at) VALUES (?, ?, ?)","params":[null,"09e56c0f111b3641301c6018f0ce3d8d7e606a831b27276b87eb519e83a21f68","2025-10-27T11:05:07.242Z"],"error":"SQLITE_CONSTRAINT: NOT NULL constraint failed: refresh_tokens.user_id"}
+2025-10-20 19:05:07 [ERROR]: 用户登录失败 {"username":"finaluser","clientIp":"::ffff:127.0.0.1","error":"SQLITE_CONSTRAINT: NOT NULL constraint failed: refresh_tokens.user_id"}
+2025-10-20 19:05:07 [ERROR]: 用户登录失败 {"username":"finaluser","ip":"::ffff:127.0.0.1","error":"SQLITE_CONSTRAINT: NOT NULL constraint failed: refresh_tokens.user_id"}
+2025-10-20 19:05:38 [ERROR]: SQL文件执行失败 {"file":"003-reinitialize-database.sql","error":"SQLITE_ERROR: no such table: main.tasks"}
+2025-10-20 19:06:01 [ERROR]: SQL文件执行失败 {"file":"003-reinitialize-database.sql","error":"SQLITE_ERROR: no such table: main.tasks"}
+2025-10-20 19:06:18 [ERROR]: SQL文件执行失败 {"file":"003-reinitialize-database.sql","error":"SQLITE_ERROR: no such table: main.tasks"}
+2025-10-20 19:06:27 [ERROR]: SQL文件执行失败 {"file":"003-reinitialize-database.sql","error":"SQLITE_ERROR: no such table: main.tasks"}
+2025-10-20 19:07:12 [ERROR]: SQL文件执行失败 {"file":"003-reinitialize-database.sql","error":"SQLITE_ERROR: no such table: main.tasks"}
+2025-10-20 19:13:57 [ERROR]: SQL文件执行失败 {"file":"003-reinitialize-database.sql","error":"SQLITE_ERROR: no such table: main.tasks"}
+2025-10-20 19:15:34 [ERROR]: SQL执行失败 {"sql":"INSERT INTO refresh_tokens (user_id, token_hash, expires_at) VALUES (?, ?, ?)","params":[1,"efa1e3a13cf395b1115e4048773e54dc042c5969fa38d20b5468bffcf9fc0763","2025-10-27T11:15:34.747Z"],"error":"SQLITE_ERROR: no such table: refresh_tokens"}
+2025-10-20 19:15:34 [ERROR]: 用户登录失败 {"username":"finaltest","clientIp":"::ffff:127.0.0.1","error":"SQLITE_ERROR: no such table: refresh_tokens"}
+2025-10-20 19:15:34 [ERROR]: 用户登录失败 {"username":"finaltest","ip":"::ffff:127.0.0.1","error":"SQLITE_ERROR: no such table: refresh_tokens"}
+2025-10-20 19:27:26 [ERROR]: 用户登录失败 {"username":"finaltest","clientIp":"::ffff:127.0.0.1","error":"用户名或密码错误"}
+2025-10-20 19:27:26 [ERROR]: 用户登录失败 {"username":"finaltest","ip":"::ffff:127.0.0.1","error":"用户名或密码错误"}
+2025-10-21 15:38:24 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","error":"邮箱或密码无效"}
+2025-10-21 15:38:24 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-21 15:50:03 [ERROR]: 更新任务失败 {"userId":2,"taskId":1761032988757,"updateData":{"changeReason":"修改测试","priority":"银","dueDate":"2025-10-23T20:00:00+08:00"},"error":"任务不存在或无权限访问"}
+2025-10-21 15:50:03 [ERROR]: 更新任务失败 {"userId":2,"taskId":1761032988757,"updateData":{"changeReason":"修改测试","priority":"银","dueDate":"2025-10-23T20:00:00+08:00"},"ip":"::1","error":"任务不存在或无权限访问"}
+2025-10-21 16:10:01 [ERROR]: SQL执行失败 {"sql":"UPDATE tasks SET priority = ?, dueDate = ?, updated_at = datetime('now') WHERE id = ?","params":["金","2025-10-22T20:00:00+08:00",8],"error":"SQLITE_ERROR: no such column: dueDate"}
+2025-10-21 16:10:01 [ERROR]: 任务更新失败 {"taskId":8,"updateData":{"priority":"金","dueDate":"2025-10-22T20:00:00+08:00"},"error":"SQLITE_ERROR: no such column: dueDate"}
+2025-10-21 16:10:01 [ERROR]: 事务执行失败 {"error":"SQLITE_ERROR: no such column: dueDate"}
+2025-10-21 16:10:01 [ERROR]: 更新任务失败 {"userId":2,"taskId":8,"updateData":{"changeReason":"修改测试","priority":"金","dueDate":"2025-10-22T20:00:00+08:00"},"error":"SQLITE_ERROR: no such column: dueDate"}
+2025-10-21 16:10:01 [ERROR]: 更新任务失败 {"userId":2,"taskId":8,"updateData":{"changeReason":"修改测试","priority":"金","dueDate":"2025-10-22T20:00:00+08:00"},"ip":"::1","error":"更新任务失败"}
+2025-10-21 16:21:28 [ERROR]: 创建任务变更日志失败 {"data":{"task_id":10,"user_id":2,"brief_type":"PRIORITY_CHANGE","brief_content":"修改测试"},"error":"日志创建成功但无法获取"}
+2025-10-21 16:21:28 [ERROR]: 批量创建任务变更日志失败 {"count":2,"error":"日志创建成功但无法获取"}
+2025-10-21 16:21:28 [ERROR]: 事务执行失败 {"error":"日志创建成功但无法获取"}
+2025-10-21 16:21:28 [ERROR]: 更新任务失败 {"userId":2,"taskId":10,"updateData":{"changeReason":"修改测试","priority":"银","dueDate":"2025-10-23T20:00:00+08:00"},"error":"日志创建成功但无法获取"}
+2025-10-21 16:21:28 [ERROR]: 更新任务失败 {"userId":2,"taskId":10,"updateData":{"changeReason":"修改测试","priority":"银","dueDate":"2025-10-23T20:00:00+08:00"},"ip":"::1","error":"更新任务失败"}
+2025-10-21 17:02:47 [ERROR]: SQL执行失败 {"sql":"INSERT INTO task_brieflogs (session_id, task_id, user_id, brief_type, brief_content, created_at)\n         VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)","params":[null,16,2,3,"修改测试"],"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN ('DELETE_REASON','INTERRUPT_REMARK','PRIORITY_CHANGE','CATEGORY_CHANGE','DUE_DATE_CHANGE','COMPLETION_REMARK')"}
+2025-10-21 17:02:47 [ERROR]: 创建任务变更日志失败 {"data":{"task_id":16,"user_id":2,"brief_type":3,"brief_content":"修改测试"},"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN ('DELETE_REASON','INTERRUPT_REMARK','PRIORITY_CHANGE','CATEGORY_CHANGE','DUE_DATE_CHANGE','COMPLETION_REMARK')"}
+2025-10-21 17:02:47 [ERROR]: 批量创建任务变更日志失败 {"count":2,"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN ('DELETE_REASON','INTERRUPT_REMARK','PRIORITY_CHANGE','CATEGORY_CHANGE','DUE_DATE_CHANGE','COMPLETION_REMARK')"}
+2025-10-21 17:02:47 [ERROR]: 事务执行失败 {"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN ('DELETE_REASON','INTERRUPT_REMARK','PRIORITY_CHANGE','CATEGORY_CHANGE','DUE_DATE_CHANGE','COMPLETION_REMARK')"}
+2025-10-21 17:02:47 [ERROR]: 更新任务失败 {"userId":2,"taskId":16,"updateData":{"changeReason":"修改测试","priority":"金","dueDate":"2025-10-22T20:00:00+08:00"},"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN ('DELETE_REASON','INTERRUPT_REMARK','PRIORITY_CHANGE','CATEGORY_CHANGE','DUE_DATE_CHANGE','COMPLETION_REMARK')"}
+2025-10-21 17:02:47 [ERROR]: 更新任务失败 {"userId":2,"taskId":16,"updateData":{"changeReason":"修改测试","priority":"金","dueDate":"2025-10-22T20:00:00+08:00"},"ip":"::1","error":"更新任务失败"}
+2025-10-21 17:26:49 [ERROR]: SQL执行失败 {"sql":"INSERT INTO task_brieflogs (session_id, task_id, user_id, brief_type, brief_content, created_at)\n         VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)","params":[null,18,2,3,"log测试"],"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN ('DELETE_REASON','INTERRUPT_REMARK','PRIORITY_CHANGE','CATEGORY_CHANGE','DUE_DATE_CHANGE','COMPLETION_REMARK')"}
+2025-10-21 17:26:49 [ERROR]: 创建任务变更日志失败 {"data":{"task_id":18,"user_id":2,"brief_type":3,"brief_content":"log测试"},"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN ('DELETE_REASON','INTERRUPT_REMARK','PRIORITY_CHANGE','CATEGORY_CHANGE','DUE_DATE_CHANGE','COMPLETION_REMARK')"}
+2025-10-21 17:26:49 [ERROR]: 批量创建任务变更日志失败 {"count":2,"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN ('DELETE_REASON','INTERRUPT_REMARK','PRIORITY_CHANGE','CATEGORY_CHANGE','DUE_DATE_CHANGE','COMPLETION_REMARK')"}
+2025-10-21 17:26:49 [ERROR]: 事务执行失败 {"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN ('DELETE_REASON','INTERRUPT_REMARK','PRIORITY_CHANGE','CATEGORY_CHANGE','DUE_DATE_CHANGE','COMPLETION_REMARK')"}
+2025-10-21 17:26:49 [ERROR]: 更新任务失败 {"userId":2,"taskId":18,"updateData":{"changeReason":"log测试","priority":"银","dueDate":"2025-10-22T20:00:00+08:00"},"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN ('DELETE_REASON','INTERRUPT_REMARK','PRIORITY_CHANGE','CATEGORY_CHANGE','DUE_DATE_CHANGE','COMPLETION_REMARK')"}
+2025-10-21 17:26:49 [ERROR]: 更新任务失败 {"userId":2,"taskId":18,"updateData":{"changeReason":"log测试","priority":"银","dueDate":"2025-10-22T20:00:00+08:00"},"ip":"::1","error":"更新任务失败"}
+2025-10-21 18:26:25 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/20","error":"访问令牌已过期"}
+2025-10-21 19:31:58 [ERROR]: SQL执行失败 {"sql":"INSERT INTO tasks (user_id, title, description, category, priority, due_date, alarm, repeat_days) \n         VALUES (?, ?, ?, ?, ?, ?, ?, ?)","params":[2,"额废物GV","不过日本","勤政","铜","2025-10-21T20:00:00+08:00","2025-10-21T20:00:00+08:00",0],"error":"SQLITE_BUSY: database is locked"}
+2025-10-21 19:31:58 [ERROR]: 任务创建失败 {"userId":2,"taskData":{"category":"勤政","priority":"铜","title":"额废物GV","description":"不过日本","dueDate":"2025-10-21T20:00:00+08:00","alarm":"2025-10-21T20:00:00+08:00","repeatDays":0},"error":"SQLITE_BUSY: database is locked"}
+2025-10-21 19:31:58 [ERROR]: 任务创建失败 {"userId":2,"taskData":{"title":"额废物GV","description":"不过日本","category":"勤政","priority":"铜","dueDate":"2025-10-21T20:00:00+08:00","alarm":"2025-10-21T20:00:00+08:00","repeatDays":0},"error":"SQLITE_BUSY: database is locked"}
+2025-10-21 19:31:58 [ERROR]: 任务创建失败 {"userId":2,"taskData":{"title":"额废物GV","description":"不过日本","category":"勤政","priority":"铜","dueDate":"2025-10-21T20:00:00+08:00","alarm":"2025-10-21T20:00:00+08:00","repeatDays":0},"ip":"::1","error":"任务创建失败"}
+2025-10-21 19:32:34 [ERROR]: SQL执行失败 {"sql":"INSERT INTO tasks (user_id, title, description, category, priority, due_date, alarm, repeat_days) \n         VALUES (?, ?, ?, ?, ?, ?, ?, ?)","params":[2,"哥天花板","不过也就能","勤政","铜","2025-10-21T20:00:00+08:00","2025-10-21T20:00:00+08:00",0],"error":"SQLITE_BUSY: database is locked"}
+2025-10-21 19:32:34 [ERROR]: 任务创建失败 {"userId":2,"taskData":{"category":"勤政","priority":"铜","title":"哥天花板","description":"不过也就能","dueDate":"2025-10-21T20:00:00+08:00","alarm":"2025-10-21T20:00:00+08:00","repeatDays":0},"error":"SQLITE_BUSY: database is locked"}
+2025-10-21 19:32:34 [ERROR]: 任务创建失败 {"userId":2,"taskData":{"title":"哥天花板","description":"不过也就能","category":"勤政","priority":"铜","dueDate":"2025-10-21T20:00:00+08:00","alarm":"2025-10-21T20:00:00+08:00","repeatDays":0},"error":"SQLITE_BUSY: database is locked"}
+2025-10-21 19:32:34 [ERROR]: 任务创建失败 {"userId":2,"taskData":{"title":"哥天花板","description":"不过也就能","category":"勤政","priority":"铜","dueDate":"2025-10-21T20:00:00+08:00","alarm":"2025-10-21T20:00:00+08:00","repeatDays":0},"ip":"::1","error":"任务创建失败"}
+2025-10-22 09:26:13 [ERROR]: 启用 WAL 模式失败 {"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 09:27:33 [ERROR]: 启用 WAL 模式失败 {"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 10:01:49 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","error":"邮箱或密码无效"}
+2025-10-22 10:01:49 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-22 10:02:17 [ERROR]: 更新任务失败 {"userId":2,"taskId":21,"updateData":{"changeReason":"任务类型修改","priority":"铜","dueDate":"2025-10-21T20:00:00+08:00"},"error":"任务截止日期不能早于当前时间"}
+2025-10-22 10:02:17 [ERROR]: 更新任务失败 {"userId":2,"taskId":21,"updateData":{"changeReason":"任务类型修改","priority":"铜","dueDate":"2025-10-21T20:00:00+08:00"},"ip":"::1","error":"任务截止日期不能早于当前时间"}
+2025-10-22 11:48:55 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/","error":"访问令牌已过期"}
+2025-10-22 16:21:56 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-22 16:22:07 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-22 16:26:23 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-22 16:28:04 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌无效"}
+2025-10-22 16:28:13 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌无效"}
+2025-10-22 16:28:50 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌无效"}
+2025-10-22 16:30:13 [ERROR]: 创建番茄钟会话失败 {"userId":2,"sessionData":{"taskId":8,"durationMinutes":5},"error":"已有活跃的番茄钟会话（会话ID: 1，开始时间: undefined）"}
+2025-10-22 16:30:13 [ERROR]: 创建番茄钟会话失败 {"userId":2,"sessionData":{"taskId":8,"durationMinutes":5},"ip":"::1","error":"已有活跃的番茄钟会话（会话ID: 1，开始时间: undefined）"}
+2025-10-22 16:32:29 [ERROR]: 创建番茄钟会话失败 {"userId":2,"sessionData":{"taskId":8,"durationMinutes":25},"error":"已有活跃的番茄钟会话（会话ID: 1，开始时间: undefined）"}
+2025-10-22 16:32:29 [ERROR]: 创建番茄钟会话失败 {"userId":2,"sessionData":{"taskId":8,"durationMinutes":25},"ip":"::1","error":"已有活跃的番茄钟会话（会话ID: 1，开始时间: undefined）"}
+2025-10-22 16:43:59 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T08:43:54.356Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:43:59 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:43:59 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:05 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T08:43:59.901Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T08:43:59.902Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T08:43:59.902Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T08:43:59.902Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T08:43:59.902Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:22 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:27 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T08:44:22.074Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:27 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:27 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:33 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T08:44:27.604Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:38 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:38 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:38 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T08:44:27.604Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:38 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:44:38 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:46:31 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T08:46:26.212Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:46:31 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 16:46:31 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:12 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:07.313Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:12 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:12 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:18 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:12.851Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:18 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:18 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:39 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:34.374Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:39 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:39.905Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:39 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:39.905Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:39 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:39.905Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:39 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:39.905Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:39 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:39.906Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:39 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:39.917Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:39 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:45 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:39.920Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:56 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:56 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:56 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:39.920Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:56 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:56 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 17:07:56 [ERROR]: SQL执行失败 {"sql":"INSERT INTO focus_periods (session_id, start_time, created_at) \n         VALUES (?, datetime(?), datetime('now'))","params":[1,"2025-10-22T09:07:39.920Z"],"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:56 [ERROR]: 细分时间段创建失败 {"data":{"session_id":1},"error":"SQLITE_BUSY: database is locked"}
+2025-10-22 17:07:56 [ERROR]: 开始细分时间段失败 {"sessionId":"1","error":"SQLITE_BUSY: database is locked"}
+Error: SQLITE_BUSY: database is locked
+2025-10-22 19:14:52 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","error":"邮箱或密码无效"}
+2025-10-22 19:14:52 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-23 14:39:02 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/active","error":"访问令牌已过期"}
+2025-10-23 14:39:04 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-23 14:39:07 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-23 14:39:07 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-23 14:39:07 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-23 14:39:07 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-23 14:39:07 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-23 14:39:07 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-23 14:39:07 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro","error":"访问令牌已过期"}
+2025-10-23 14:44:02 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/active","error":"访问令牌已过期"}
+2025-10-23 14:44:02 [ERROR]: 刷新访问令牌失败 {"error":"jwt expired"}
+2025-10-23 14:44:02 [ERROR]: 刷新访问令牌失败 {"ip":"::1","error":"刷新令牌已过期"}
+2025-10-23 15:14:16 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/","error":"访问令牌已过期"}
+2025-10-23 15:34:56 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/","error":"访问令牌已过期"}
+2025-10-23 15:54:58 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/11/periods/37/end","error":"访问令牌已过期"}
+2025-10-23 15:54:58 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/11/end","error":"访问令牌缺失"}
+2025-10-23 15:59:36 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/1/pomodoro/1/complete","error":"访问令牌无效"}
+2025-10-25 19:44:01 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/29/periods/start","error":"访问令牌缺失"}
+2025-10-25 19:44:48 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/29/periods/start","error":"访问令牌缺失"}
+2025-10-25 21:02:31 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","error":"邮箱或密码无效"}
+2025-10-25 21:02:31 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-25 21:02:40 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","error":"邮箱或密码无效"}
+2025-10-25 21:02:40 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-25 21:15:36 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/","error":"访问令牌缺失"}
+2025-10-25 21:40:42 [ERROR]: SQL执行失败 {"sql":"INSERT INTO task_brieflogs (session_id, task_id, user_id, brief_type, brief_content, created_at)\n         VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)","params":[32,2,2,7,"做完测试"],"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN (1, 2, 3, 4, 5, 6)"}
+2025-10-25 21:40:42 [ERROR]: 创建任务变更日志失败 {"data":{"session_id":32,"task_id":2,"user_id":2,"brief_type":7,"brief_content":"做完测试"},"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN (1, 2, 3, 4, 5, 6)"}
+2025-10-25 21:40:42 [ERROR]: 创建brieflog失败 {"data":{"session_id":32,"task_id":2,"user_id":2,"brief_type":7,"brief_content":"做完测试"},"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN (1, 2, 3, 4, 5, 6)"}
+2025-10-25 21:40:42 [ERROR]: Brieflog创建失败 {"userId":2,"task_id":2,"brief_type":7,"error":"SQLITE_CONSTRAINT: CHECK constraint failed: brief_type IN (1, 2, 3, 4, 5, 6)"}
+2025-10-25 21:45:38 [ERROR]: SQL执行失败 {"sql":"INSERT INTO task_brieflogs (session_id, task_id, user_id, brief_type, brief_content, created_at)\n         VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)","params":[33,31,2,7,"做完测试"],"error":"SQLITE_ERROR: foreign key mismatch - \"task_brieflogs\" referencing \"users\""}
+2025-10-25 21:45:38 [ERROR]: 创建任务变更日志失败 {"data":{"session_id":33,"task_id":31,"user_id":2,"brief_type":7,"brief_content":"做完测试"},"error":"SQLITE_ERROR: foreign key mismatch - \"task_brieflogs\" referencing \"users\""}
+2025-10-25 21:45:38 [ERROR]: 创建brieflog失败 {"data":{"session_id":33,"task_id":31,"user_id":2,"brief_type":7,"brief_content":"做完测试"},"error":"SQLITE_ERROR: foreign key mismatch - \"task_brieflogs\" referencing \"users\""}
+2025-10-25 21:45:38 [ERROR]: Brieflog创建失败 {"userId":2,"task_id":31,"brief_type":7,"error":"SQLITE_ERROR: foreign key mismatch - \"task_brieflogs\" referencing \"users\""}
+2025-10-25 21:54:09 [ERROR]: SQL执行失败 {"sql":"INSERT INTO task_brieflogs (session_id, task_id, user_id, brief_type, brief_content, created_at)\n         VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)","params":[34,32,2,7,"完成测试"],"error":"SQLITE_ERROR: foreign key mismatch - \"task_brieflogs\" referencing \"users\""}
+2025-10-25 21:54:09 [ERROR]: 创建任务变更日志失败 {"data":{"session_id":34,"task_id":32,"user_id":2,"brief_type":7,"brief_content":"完成测试"},"error":"SQLITE_ERROR: foreign key mismatch - \"task_brieflogs\" referencing \"users\""}
+2025-10-25 21:54:09 [ERROR]: 创建brieflog失败 {"data":{"session_id":34,"task_id":32,"user_id":2,"brief_type":7,"brief_content":"完成测试"},"error":"SQLITE_ERROR: foreign key mismatch - \"task_brieflogs\" referencing \"users\""}
+2025-10-25 21:54:09 [ERROR]: Brieflog创建失败 {"userId":2,"task_id":32,"brief_type":7,"error":"SQLITE_ERROR: foreign key mismatch - \"task_brieflogs\" referencing \"users\""}
+2025-10-25 22:02:48 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/","error":"访问令牌缺失"}
+2025-10-27 13:27:20 [ERROR]: 用户登录失败 {"username":"testuser","clientIp":"::1","error":"用户名或密码错误"}
+2025-10-27 13:27:20 [ERROR]: 用户登录失败 {"username":"testuser","ip":"::1","error":"用户名或密码错误"}
+2025-10-27 15:03:29 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","error":"邮箱或密码无效"}
+2025-10-27 15:03:29 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-27 15:09:19 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","error":"邮箱或密码无效"}
+2025-10-27 15:09:19 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-27 15:25:21 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/habit-stats","error":"访问令牌无效"}
+2025-10-27 15:25:38 [ERROR]: 用户登录失败 {"username":"user2","clientIp":"::1","error":"用户名或密码错误"}
+2025-10-27 15:25:38 [ERROR]: 用户登录失败 {"username":"user2","ip":"::1","error":"用户名或密码错误"}
+2025-10-27 15:32:18 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","error":"邮箱或密码无效"}
+2025-10-27 15:32:18 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-27 15:36:46 [ERROR]: 未捕获的异常 {"error":"EPIPE: broken pipe, write"}
+Error: EPIPE: broken pipe, write
+    at Socket._write (node:internal/net:75:18)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston\lib\winston\transports\console.js:87:23)
+    at Console._write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston-transport\modern.js:103:17)
+    at doWrite (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Console.Writable.write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+2025-10-27 15:48:20 [ERROR]: 用户登录失败 {"username":"amber","clientIp":"::1","error":"用户名或密码错误"}
+2025-10-27 15:48:20 [ERROR]: 用户登录失败 {"username":"amber","ip":"::1","error":"用户名或密码错误"}
+2025-10-27 15:48:39 [ERROR]: 邮箱登录失败 {"mail":"test@example.com","error":"邮箱或密码无效"}
+2025-10-27 15:48:39 [ERROR]: 邮箱登录失败 {"mail":"test@example.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-27 15:49:12 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","error":"邮箱或密码无效"}
+2025-10-27 15:49:12 [ERROR]: 邮箱登录失败 {"mail":"1952710912@qq.com","ip":"::1","error":"邮箱或密码无效"}
+2025-10-27 15:51:23 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/habit-stats","error":"访问令牌无效"}
+2025-10-27 15:52:08 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/habit-stats","error":"用户账户无效"}
+2025-10-27 15:52:48 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/habit-stats","error":"用户账户无效"}
+2025-10-27 15:53:52 [ERROR]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/habit-stats","error":"用户账户无效"}
+2025-10-27 16:42:32 [ERROR]: SQL查询失败 {"sql":"SELECT COALESCE(SUM(fp.duration_min), 0) as total_minutes\n         FROM focus_periods fp\n         INNER JOIN pomodoro_sessions ps ON fp.session_id = ps.session_id\n         WHERE ps.user_id = ?","params":[2],"error":"SQLITE_ERROR: no such column: ps.session_id"}
+2025-10-27 16:42:32 [ERROR]: 获取用户统计数据失败 {"userId":2,"error":"SQLITE_ERROR: no such column: ps.session_id"}
+2025-10-27 20:16:04 [ERROR]: SQL查询失败 {"sql":"SELECT \n          urc.id,\n          urc.user_id,\n          urc.gift_id,\n          urc.obtained_at,\n          urc.trigger_time_minutes,\n          urc.is_viewed,\n          urc.created_at,\n          gc.title,\n          gc.description\n         FROM user_reward_cards urc\n         INNER JOIN gift_card gc ON urc.gift_id = gc.gift_id\n         WHERE urc.user_id = ?\n         ORDER BY urc.obtained_at DESC","params":[2],"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+2025-10-27 20:16:04 [ERROR]: 获取用户奖励卡失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+2025-10-27 20:16:04 [ERROR]: 获取用户奖励列表失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+2025-10-27 20:17:15 [ERROR]: SQL查询失败 {"sql":"SELECT \n          urc.id,\n          urc.user_id,\n          urc.gift_id,\n          urc.obtained_at,\n          urc.trigger_time_minutes,\n          urc.is_viewed,\n          urc.created_at,\n          gc.title,\n          gc.description\n         FROM user_reward_cards urc\n         INNER JOIN gift_card gc ON urc.gift_id = gc.gift_id\n         WHERE urc.user_id = ?\n         ORDER BY urc.obtained_at DESC","params":[2],"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+2025-10-27 20:17:15 [ERROR]: 获取用户奖励卡失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+2025-10-27 20:17:15 [ERROR]: 获取用户奖励列表失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+2025-10-27 20:18:04 [ERROR]: SQL查询失败 {"sql":"SELECT \n          urc.id,\n          urc.user_id,\n          urc.gift_id,\n          urc.obtained_at,\n          urc.trigger_time_minutes,\n          urc.is_viewed,\n          urc.created_at,\n          gc.title,\n          gc.description\n         FROM user_reward_cards urc\n         INNER JOIN gift_card gc ON urc.gift_id = gc.gift_id\n         WHERE urc.user_id = ?\n         ORDER BY urc.obtained_at DESC","params":[2],"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+2025-10-27 20:18:04 [ERROR]: 获取用户奖励卡失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+2025-10-27 20:18:04 [ERROR]: 获取用户奖励列表失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+2025-10-27 20:18:13 [ERROR]: 任务创建失败 {"userId":2,"taskData":{"title":"111","description":"11111","category":"勤政","priority":"铜","dueDate":"2025-10-27T20:00:00+08:00","alarm":"2025-10-27T20:00:00+08:00","repeatDays":0},"error":"任务截止日期不能早于当前时间"}
+2025-10-27 20:18:13 [ERROR]: 任务创建失败 {"userId":2,"taskData":{"title":"111","description":"11111","category":"勤政","priority":"铜","dueDate":"2025-10-27T20:00:00+08:00","alarm":"2025-10-27T20:00:00+08:00","repeatDays":0},"ip":"::1","error":"任务截止日期不能早于当前时间"}

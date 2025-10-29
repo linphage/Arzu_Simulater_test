@@ -1,0 +1,107 @@
+-- 完全重新初始化数据库，使用loginplan.md规范的新表结构
+-- 这将删除所有现有数据并创建新的表结构
+
+-- 删除所有现有表（包括依赖关系）
+DROP TABLE IF EXISTS refresh_tokens;
+DROP TABLE IF EXISTS pomodoro_sessions;
+DROP TABLE IF EXISTS tasks;
+DROP TABLE IF EXISTS audit_logs;
+DROP TABLE IF EXISTS users;
+
+-- 创建新的users表（符合loginplan.md规范）
+CREATE TABLE IF NOT EXISTS users (
+  user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  mail VARCHAR(255) UNIQUE NOT NULL,
+  usernam VARCHAR(255) NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  api_ds VARCHAR(120) NULL,
+  work_count INTEGER DEFAULT 0,
+  worktime_count INTEGER DEFAULT 0
+);
+
+-- 创建任务表（支持三维分类和四级优先级）
+CREATE TABLE IF NOT EXISTS tasks (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  category VARCHAR(20) CHECK(category IN ('勤政', '恕己', '爱人')) DEFAULT '勤政',
+  priority VARCHAR(10) CHECK(priority IN ('金', '银', '铜', '石')) DEFAULT '铜',
+  completed BOOLEAN DEFAULT FALSE,
+  pomodoro_count INTEGER DEFAULT 0,
+  due_date DATETIME,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
+);
+
+-- 创建番茄钟记录表
+CREATE TABLE IF NOT EXISTS pomodoro_sessions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  task_id INTEGER,
+  duration_minutes INTEGER DEFAULT 25,
+  completed BOOLEAN DEFAULT FALSE,
+  started_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  completed_at DATETIME,
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE,
+  FOREIGN KEY (task_id) REFERENCES tasks (id) ON DELETE SET NULL
+);
+
+-- 创建刷新令牌表（安全存储）
+CREATE TABLE IF NOT EXISTS refresh_tokens (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  token_hash VARCHAR(255) NOT NULL,
+  expires_at DATETIME NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
+);
+
+-- 创建审计日志表
+CREATE TABLE IF NOT EXISTS audit_logs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER,
+  action VARCHAR(100) NOT NULL,
+  resource_type VARCHAR(50),
+  resource_id INTEGER,
+  old_values TEXT,
+  new_values TEXT,
+  ip_address VARCHAR(45),
+  user_agent TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE SET NULL
+);
+
+-- 为新表创建索引
+CREATE INDEX IF NOT EXISTS idx_users_mail ON users(mail);
+CREATE INDEX IF NOT EXISTS idx_users_usernam ON users(usernam);
+
+CREATE INDEX IF NOT EXISTS idx_tasks_user_id ON tasks(user_id);
+CREATE INDEX IF NOT EXISTS idx_tasks_category ON tasks(category);
+CREATE INDEX IF NOT EXISTS idx_tasks_priority ON tasks(priority);
+CREATE INDEX IF NOT EXISTS idx_tasks_completed ON tasks(completed);
+CREATE INDEX IF NOT EXISTS idx_tasks_due_date ON tasks(due_date);
+
+CREATE INDEX IF NOT EXISTS idx_pomodoro_user_id ON pomodoro_sessions(user_id);
+CREATE INDEX IF NOT EXISTS idx_pomodoro_task_id ON pomodoro_sessions(task_id);
+CREATE INDEX IF NOT EXISTS idx_pomodoro_started_at ON pomodoro_sessions(started_at);
+
+CREATE INDEX IF NOT EXISTS idx_refresh_tokens_user_id ON refresh_tokens(user_id);
+CREATE INDEX IF NOT EXISTS idx_refresh_tokens_expires_at ON refresh_tokens(expires_at);
+
+CREATE INDEX IF NOT EXISTS idx_audit_logs_user_id ON audit_logs(user_id);
+CREATE INDEX IF NOT EXISTS idx_audit_logs_action ON audit_logs(action);
+CREATE INDEX IF NOT EXISTS idx_audit_logs_created_at ON audit_logs(created_at);
+
+-- 创建触发器用于自动更新 updated_at 字段
+CREATE TRIGGER IF NOT EXISTS update_tasks_updated_at 
+AFTER UPDATE ON tasks
+BEGIN
+  UPDATE tasks SET updated_at = CURRENT_TIMESTAMP WHERE id = NEW.id;
+END;
+
+-- 记录数据库初始化操作
+INSERT INTO audit_logs (action, resource_type, new_values, created_at) 
+VALUES ('DATABASE_REINITIALIZED', 'database', '{"description": "Database reinitialized with loginplan.md specification"}', CURRENT_TIMESTAMP);

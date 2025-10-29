@@ -1,0 +1,24 @@
+import { Request, Response, NextFunction } from 'express';
+export declare const taskCategoryValidation: import("express-validator").ValidationChain;
+export declare const taskPriorityValidation: import("express-validator").ValidationChain;
+export declare const taskTitleValidation: import("express-validator").ValidationChain;
+export declare const taskDescriptionValidation: import("express-validator").ValidationChain;
+export declare const taskDueDateValidation: import("express-validator").ValidationChain;
+export declare const taskDueDateUpdateValidation: import("express-validator").ValidationChain;
+export declare const taskCompletedValidation: import("express-validator").ValidationChain;
+export declare const taskPomodoroCountValidation: import("express-validator").ValidationChain;
+export declare const taskIdParamValidation: import("express-validator").ValidationChain;
+export declare const paginationValidation: import("express-validator").ValidationChain[];
+export declare const taskFilterValidation: import("express-validator").ValidationChain[];
+export declare const taskSortValidation: import("express-validator").ValidationChain[];
+export declare const batchTaskValidation: import("express-validator").ValidationChain[];
+export declare const createTaskValidation: import("express-validator").ValidationChain[];
+export declare const deleteTaskValidation: import("express-validator").ValidationChain[];
+export declare const updateTaskValidation: import("express-validator").ValidationChain[];
+export declare const taskStatsValidation: import("express-validator").ValidationChain[];
+export declare const createPomodoroSessionValidation: import("express-validator").ValidationChain[];
+export declare const validateTaskRequest: (req: Request, res: Response, next: NextFunction) => void;
+export declare const taskQueryValidation: (import("express-validator").ValidationChain | ((req: Request, res: Response, next: NextFunction) => void))[];
+export declare const validateTaskExists: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+export declare const validateTaskOwnership: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+//# sourceMappingURL=task-validators.d.ts.map

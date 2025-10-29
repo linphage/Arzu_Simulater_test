@@ -1,0 +1,709 @@
+2025-09-25 13:40:01 [ERROR]: uncaughtException: ⨯ Unable to compile TypeScript:
+src/controllers/task.controller.ts(312,113): error TS1005: '(' expected.
+
+Error: ⨯ Unable to compile TypeScript:
+src/controllers/task.controller.ts(312,113): error TS1005: '(' expected.
+
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1470:32)
+    at Module._load (node:internal/modules/cjs/loader:1290:12) {"error":{},"exception":true,"date":"Thu Sep 25 2025 13:40:01 GMT+0800 (中国标准时间)","process":{"pid":664,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":75157504,"heapTotal":32530432,"heapUsed":20502312,"external":2240188,"arrayBuffers":89843}},"os":{"loadavg":[0,0,0],"uptime":101446.234},"trace":[{"column":7,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\controllers\\task.controller.ts","function":null,"line":1,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false},{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\source-map-support\\source-map-support.js","function":"Module._compile","line":568,"method":"_compile","native":false},{"column":33,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-293164015023205.js","function":"Module.m._compile","line":69,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":null,"line":1871,"method":null,"native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-293164015023205.js","function":"require.extensions..jsx.require.extensions..js","line":114,"method":".js","native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-293164015023205.js","function":"require.extensions.<computed>","line":71,"method":"<computed>","native":false},{"column":13,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\ts-node-dev\\lib\\hook.js","function":"Object.nodeDevHook [as .ts]","line":63,"method":"ts]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":1470,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1290,"method":"_load","native":false}]}
+Error: ⨯ Unable to compile TypeScript:
+src/controllers/task.controller.ts(312,113): error TS1005: '(' expected.
+
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1470:32)
+    at Module._load (node:internal/modules/cjs/loader:1290:12)
+2025-09-25 13:40:27 [ERROR]: uncaughtException: ⨯ Unable to compile TypeScript:
+src/controllers/task.controller.ts(312,113): error TS1005: '(' expected.
+
+Error: ⨯ Unable to compile TypeScript:
+src/controllers/task.controller.ts(312,113): error TS1005: '(' expected.
+
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-02519744183961148.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-02519744183961148.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-02519744183961148.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1470:32)
+    at Module._load (node:internal/modules/cjs/loader:1290:12) {"error":{},"exception":true,"date":"Thu Sep 25 2025 13:40:27 GMT+0800 (中国标准时间)","process":{"pid":11940,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":76369920,"heapTotal":32587776,"heapUsed":19635304,"external":2240188,"arrayBuffers":89843}},"os":{"loadavg":[0,0,0],"uptime":101472.203},"trace":[{"column":7,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\controllers\\task.controller.ts","function":null,"line":1,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false},{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\source-map-support\\source-map-support.js","function":"Module._compile","line":568,"method":"_compile","native":false},{"column":33,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-02519744183961148.js","function":"Module.m._compile","line":69,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":null,"line":1871,"method":null,"native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-02519744183961148.js","function":"require.extensions..jsx.require.extensions..js","line":114,"method":".js","native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-02519744183961148.js","function":"require.extensions.<computed>","line":71,"method":"<computed>","native":false},{"column":13,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\ts-node-dev\\lib\\hook.js","function":"Object.nodeDevHook [as .ts]","line":63,"method":"ts]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":1470,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1290,"method":"_load","native":false}]}
+Error: ⨯ Unable to compile TypeScript:
+src/controllers/task.controller.ts(312,113): error TS1005: '(' expected.
+
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts:1:7)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-02519744183961148.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-02519744183961148.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-02519744183961148.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1470:32)
+    at Module._load (node:internal/modules/cjs/loader:1290:12)
+2025-09-25 14:00:05 [ERROR]: uncaughtException: Cannot find module './user.routes'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+Error: Cannot find module './user.routes'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14) {"error":{"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\server.ts"]},"exception":true,"date":"Thu Sep 25 2025 14:00:05 GMT+0800 (中国标准时间)","process":{"pid":44712,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":87089152,"heapTotal":33087488,"heapUsed":22775528,"external":2254510,"arrayBuffers":106401}},"os":{"loadavg":[0,0,0],"uptime":102651.046},"trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":1410,"method":"_resolveFilename","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"defaultResolveImpl","line":1051,"method":null,"native":false},{"column":22,"file":"node:internal/modules/cjs/loader","function":"resolveForCJSWithHooks","line":1056,"method":null,"native":false},{"column":37,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1219,"method":"_load","native":false},{"column":14,"file":"node:diagnostics_channel","function":"TracingChannel.traceSync","line":322,"method":"traceSync","native":false},{"column":24,"file":"node:internal/modules/cjs/loader","function":"wrapModuleLoad","line":238,"method":null,"native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1493,"method":"require","native":false},{"column":16,"file":"node:internal/modules/helpers","function":"require","line":152,"method":null,"native":false},{"column":1,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","function":null,"line":4,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false}]}
+Error: Cannot find module './user.routes'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+2025-09-25 14:16:15 [ERROR]: uncaughtException: Cannot find module './user.routes'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+Error: Cannot find module './user.routes'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14) {"error":{"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\server.ts"]},"exception":true,"date":"Thu Sep 25 2025 14:16:15 GMT+0800 (中国标准时间)","process":{"pid":58088,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":90705920,"heapTotal":35241984,"heapUsed":19252704,"external":2240188,"arrayBuffers":92079}},"os":{"loadavg":[0,0,0],"uptime":103620.406},"trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":1410,"method":"_resolveFilename","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"defaultResolveImpl","line":1051,"method":null,"native":false},{"column":22,"file":"node:internal/modules/cjs/loader","function":"resolveForCJSWithHooks","line":1056,"method":null,"native":false},{"column":37,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1219,"method":"_load","native":false},{"column":14,"file":"node:diagnostics_channel","function":"TracingChannel.traceSync","line":322,"method":"traceSync","native":false},{"column":24,"file":"node:internal/modules/cjs/loader","function":"wrapModuleLoad","line":238,"method":null,"native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1493,"method":"require","native":false},{"column":16,"file":"node:internal/modules/helpers","function":"require","line":152,"method":null,"native":false},{"column":1,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","function":null,"line":4,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false}]}
+Error: Cannot find module './user.routes'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts:4:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+2025-09-25 14:16:36 [ERROR]: uncaughtException: userRoutes is not defined
+ReferenceError: userRoutes is not defined
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts:17:25)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1470:32)
+    at Module._load (node:internal/modules/cjs/loader:1290:12) {"error":{},"exception":true,"date":"Thu Sep 25 2025 14:16:36 GMT+0800 (中国标准时间)","process":{"pid":56748,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":87433216,"heapTotal":33611776,"heapUsed":22708376,"external":2254390,"arrayBuffers":106071}},"os":{"loadavg":[0,0,0],"uptime":103641.39},"trace":[{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","function":null,"line":17,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false},{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\source-map-support\\source-map-support.js","function":"Module._compile","line":568,"method":"_compile","native":false},{"column":33,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-293164015023205.js","function":"Module.m._compile","line":69,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":null,"line":1871,"method":null,"native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-293164015023205.js","function":"require.extensions..jsx.require.extensions..js","line":114,"method":".js","native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-293164015023205.js","function":"require.extensions.<computed>","line":71,"method":"<computed>","native":false},{"column":13,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\ts-node-dev\\lib\\hook.js","function":"Object.nodeDevHook [as .ts]","line":63,"method":"ts]","native":false},{"column":32,"file":"node:internal/modules/cjs/loader","function":"Module.load","line":1470,"method":"load","native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1290,"method":"_load","native":false}]}
+ReferenceError: userRoutes is not defined
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts:17:25)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-293164015023205.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1470:32)
+    at Module._load (node:internal/modules/cjs/loader:1290:12)
+2025-09-25 18:39:22 [ERROR]: uncaughtException: EPIPE: broken pipe, write
+Error: EPIPE: broken pipe, write
+    at Socket._write (node:internal/net:75:18)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston\lib\winston\transports\console.js:87:23)
+    at Console._write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston-transport\modern.js:103:17)
+    at doWrite (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Console.Writable.write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_readable.js:629:20) {"error":{"errno":-4047,"syscall":"write","code":"EPIPE"},"exception":true,"date":"Thu Sep 25 2025 18:39:22 GMT+0800 (中国标准时间)","process":{"pid":57132,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":53825536,"heapTotal":21086208,"heapUsed":18764832,"external":2512389,"arrayBuffers":39576}},"os":{"loadavg":[0,0,0],"uptime":119406.031},"trace":[{"column":18,"file":"node:internal/net","function":"Socket._write","line":75,"method":"_write","native":false},{"column":12,"file":"node:internal/streams/writable","function":"writeOrBuffer","line":570,"method":null,"native":false},{"column":10,"file":"node:internal/streams/writable","function":"_write","line":499,"method":null,"native":false},{"column":10,"file":"node:internal/streams/writable","function":"Socket.Writable.write","line":508,"method":"write","native":false},{"column":23,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\winston\\lib\\winston\\transports\\console.js","function":"Console.log","line":87,"method":"log","native":false},{"column":17,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\winston-transport\\modern.js","function":"Console._write","line":103,"method":"_write","native":false},{"column":139,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_writable.js","function":"doWrite","line":390,"method":null,"native":false},{"column":5,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_writable.js","function":"writeOrBuffer","line":381,"method":null,"native":false},{"column":11,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_writable.js","function":"Console.Writable.write","line":302,"method":"write","native":false},{"column":20,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_readable.js","function":"DerivedLogger.ondata","line":629,"method":"ondata","native":false}]}
+Error: EPIPE: broken pipe, write
+    at Socket._write (node:internal/net:75:18)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston\lib\winston\transports\console.js:87:23)
+    at Console._write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston-transport\modern.js:103:17)
+    at doWrite (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Console.Writable.write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+2025-10-20 14:10:54 [ERROR]: uncaughtException: EPIPE: broken pipe, write
+Error: EPIPE: broken pipe, write
+    at Socket._write (node:internal/net:75:18)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston\lib\winston\transports\console.js:87:23)
+    at Console._write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston-transport\modern.js:103:17)
+    at doWrite (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Console.Writable.write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_readable.js:629:20) {"error":{"errno":-4047,"syscall":"write","code":"EPIPE"},"exception":true,"date":"Mon Oct 20 2025 14:10:54 GMT+0800 (中国标准时间)","process":{"pid":34340,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":86462464,"heapTotal":53616640,"heapUsed":17409392,"external":2417658,"arrayBuffers":18928}},"os":{"loadavg":[0,0,0],"uptime":412822.718},"trace":[{"column":18,"file":"node:internal/net","function":"Socket._write","line":75,"method":"_write","native":false},{"column":12,"file":"node:internal/streams/writable","function":"writeOrBuffer","line":570,"method":null,"native":false},{"column":10,"file":"node:internal/streams/writable","function":"_write","line":499,"method":null,"native":false},{"column":10,"file":"node:internal/streams/writable","function":"Socket.Writable.write","line":508,"method":"write","native":false},{"column":23,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\winston\\lib\\winston\\transports\\console.js","function":"Console.log","line":87,"method":"log","native":false},{"column":17,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\winston-transport\\modern.js","function":"Console._write","line":103,"method":"_write","native":false},{"column":139,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_writable.js","function":"doWrite","line":390,"method":null,"native":false},{"column":5,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_writable.js","function":"writeOrBuffer","line":381,"method":null,"native":false},{"column":11,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_writable.js","function":"Console.Writable.write","line":302,"method":"write","native":false},{"column":20,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_readable.js","function":"DerivedLogger.ondata","line":629,"method":"ondata","native":false}]}
+Error: EPIPE: broken pipe, write
+    at Socket._write (node:internal/net:75:18)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston\lib\winston\transports\console.js:87:23)
+    at Console._write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston-transport\modern.js:103:17)
+    at doWrite (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Console.Writable.write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+2025-10-21 14:34:04 [ERROR]: uncaughtException: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14) {"error":{"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\services\\task.service.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\controllers\\task.controller.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\task.routes.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\server.ts"]},"exception":true,"date":"Tue Oct 21 2025 14:34:04 GMT+0800 (中国标准时间)","process":{"pid":40544,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":90284032,"heapTotal":34058240,"heapUsed":21182808,"external":2246401,"arrayBuffers":98726}},"os":{"loadavg":[0,0,0],"uptime":14505.656},"trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":1410,"method":"_resolveFilename","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"defaultResolveImpl","line":1051,"method":null,"native":false},{"column":22,"file":"node:internal/modules/cjs/loader","function":"resolveForCJSWithHooks","line":1056,"method":null,"native":false},{"column":37,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1219,"method":"_load","native":false},{"column":14,"file":"node:diagnostics_channel","function":"TracingChannel.traceSync","line":322,"method":"traceSync","native":false},{"column":24,"file":"node:internal/modules/cjs/loader","function":"wrapModuleLoad","line":238,"method":null,"native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1493,"method":"require","native":false},{"column":16,"file":"node:internal/modules/helpers","function":"require","line":152,"method":null,"native":false},{"column":1,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","function":null,"line":1,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false}]}
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+2025-10-21 14:34:34 [ERROR]: uncaughtException: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14) {"error":{"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\services\\task.service.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\controllers\\task.controller.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\task.routes.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\server.ts"]},"exception":true,"date":"Tue Oct 21 2025 14:34:34 GMT+0800 (中国标准时间)","process":{"pid":19972,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":89939968,"heapTotal":34865152,"heapUsed":21141720,"external":2246401,"arrayBuffers":98726}},"os":{"loadavg":[0,0,0],"uptime":14535.828},"trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":1410,"method":"_resolveFilename","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"defaultResolveImpl","line":1051,"method":null,"native":false},{"column":22,"file":"node:internal/modules/cjs/loader","function":"resolveForCJSWithHooks","line":1056,"method":null,"native":false},{"column":37,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1219,"method":"_load","native":false},{"column":14,"file":"node:diagnostics_channel","function":"TracingChannel.traceSync","line":322,"method":"traceSync","native":false},{"column":24,"file":"node:internal/modules/cjs/loader","function":"wrapModuleLoad","line":238,"method":null,"native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1493,"method":"require","native":false},{"column":16,"file":"node:internal/modules/helpers","function":"require","line":152,"method":null,"native":false},{"column":1,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","function":null,"line":1,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false}]}
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+2025-10-21 14:38:33 [ERROR]: uncaughtException: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14) {"error":{"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\services\\task.service.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\controllers\\task.controller.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\task.routes.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\server.ts"]},"exception":true,"date":"Tue Oct 21 2025 14:38:33 GMT+0800 (中国标准时间)","process":{"pid":29288,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":76218368,"heapTotal":33599488,"heapUsed":22232216,"external":2246401,"arrayBuffers":98726}},"os":{"loadavg":[0,0,0],"uptime":14774.296},"trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":1410,"method":"_resolveFilename","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"defaultResolveImpl","line":1051,"method":null,"native":false},{"column":22,"file":"node:internal/modules/cjs/loader","function":"resolveForCJSWithHooks","line":1056,"method":null,"native":false},{"column":37,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1219,"method":"_load","native":false},{"column":14,"file":"node:diagnostics_channel","function":"TracingChannel.traceSync","line":322,"method":"traceSync","native":false},{"column":24,"file":"node:internal/modules/cjs/loader","function":"wrapModuleLoad","line":238,"method":null,"native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1493,"method":"require","native":false},{"column":16,"file":"node:internal/modules/helpers","function":"require","line":152,"method":null,"native":false},{"column":1,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","function":null,"line":1,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false}]}
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+2025-10-21 14:48:41 [ERROR]: uncaughtException: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14) {"error":{"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\services\\task.service.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\controllers\\task.controller.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\task.routes.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\server.ts"]},"exception":true,"date":"Tue Oct 21 2025 14:48:41 GMT+0800 (中国标准时间)","process":{"pid":34308,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":79843328,"heapTotal":34385920,"heapUsed":22114912,"external":2246401,"arrayBuffers":98726}},"os":{"loadavg":[0,0,0],"uptime":138.89},"trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":1410,"method":"_resolveFilename","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"defaultResolveImpl","line":1051,"method":null,"native":false},{"column":22,"file":"node:internal/modules/cjs/loader","function":"resolveForCJSWithHooks","line":1056,"method":null,"native":false},{"column":37,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1219,"method":"_load","native":false},{"column":14,"file":"node:diagnostics_channel","function":"TracingChannel.traceSync","line":322,"method":"traceSync","native":false},{"column":24,"file":"node:internal/modules/cjs/loader","function":"wrapModuleLoad","line":238,"method":null,"native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1493,"method":"require","native":false},{"column":16,"file":"node:internal/modules/helpers","function":"require","line":152,"method":null,"native":false},{"column":1,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","function":null,"line":1,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false}]}
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+2025-10-21 14:53:12 [ERROR]: uncaughtException: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14) {"error":{"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\services\\task.service.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\controllers\\task.controller.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\task.routes.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\server.ts"]},"exception":true,"date":"Tue Oct 21 2025 14:53:12 GMT+0800 (中国标准时间)","process":{"pid":23096,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":82862080,"heapTotal":34385920,"heapUsed":22062752,"external":2246401,"arrayBuffers":98726}},"os":{"loadavg":[0,0,0],"uptime":409.609},"trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":1410,"method":"_resolveFilename","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"defaultResolveImpl","line":1051,"method":null,"native":false},{"column":22,"file":"node:internal/modules/cjs/loader","function":"resolveForCJSWithHooks","line":1056,"method":null,"native":false},{"column":37,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1219,"method":"_load","native":false},{"column":14,"file":"node:diagnostics_channel","function":"TracingChannel.traceSync","line":322,"method":"traceSync","native":false},{"column":24,"file":"node:internal/modules/cjs/loader","function":"wrapModuleLoad","line":238,"method":null,"native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1493,"method":"require","native":false},{"column":16,"file":"node:internal/modules/helpers","function":"require","line":152,"method":null,"native":false},{"column":1,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","function":null,"line":1,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false}]}
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+2025-10-21 15:23:22 [ERROR]: uncaughtException: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14) {"error":{"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\services\\task.service.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\controllers\\task.controller.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\task.routes.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\server.ts"]},"exception":true,"date":"Tue Oct 21 2025 15:23:22 GMT+0800 (中国标准时间)","process":{"pid":16320,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":83247104,"heapTotal":34123776,"heapUsed":22273008,"external":2246401,"arrayBuffers":98726}},"os":{"loadavg":[0,0,0],"uptime":2219.828},"trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":1410,"method":"_resolveFilename","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"defaultResolveImpl","line":1051,"method":null,"native":false},{"column":22,"file":"node:internal/modules/cjs/loader","function":"resolveForCJSWithHooks","line":1056,"method":null,"native":false},{"column":37,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1219,"method":"_load","native":false},{"column":14,"file":"node:diagnostics_channel","function":"TracingChannel.traceSync","line":322,"method":"traceSync","native":false},{"column":24,"file":"node:internal/modules/cjs/loader","function":"wrapModuleLoad","line":238,"method":null,"native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1493,"method":"require","native":false},{"column":16,"file":"node:internal/modules/helpers","function":"require","line":152,"method":null,"native":false},{"column":1,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\repositories\\brieflog.repository.ts","function":null,"line":1,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false}]}
+Error: Cannot find module '../database'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\task.service.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\task.controller.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts:1:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+2025-10-22 11:50:12 [ERROR]: uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as post] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts:44:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-6894800405036813.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-6894800405036813.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-6894800405036813.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13) {"error":{},"exception":true,"date":"Wed Oct 22 2025 11:50:12 GMT+0800 (中国标准时间)","process":{"pid":36224,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":91226112,"heapTotal":33832960,"heapUsed":23022824,"external":2248534,"arrayBuffers":100669}},"os":{"loadavg":[0,0,0],"uptime":8501.093},"trace":[{"column":15,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\lib\\route.js","function":"Route.<computed> [as post]","line":228,"method":"<computed> [as post]","native":false},{"column":19,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\index.js","function":"router.Router.<computed> [as post]","line":448,"method":"<computed> [as post]","native":false},{"column":8,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\task.routes.ts","function":null,"line":44,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false},{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\source-map-support\\source-map-support.js","function":"Module._compile","line":568,"method":"_compile","native":false},{"column":33,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-6894800405036813.js","function":"Module.m._compile","line":69,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":null,"line":1871,"method":null,"native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-6894800405036813.js","function":"require.extensions..jsx.require.extensions..js","line":114,"method":".js","native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-6894800405036813.js","function":"require.extensions.<computed>","line":71,"method":"<computed>","native":false},{"column":13,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\ts-node-dev\\lib\\hook.js","function":"Object.nodeDevHook [as .ts]","line":63,"method":"ts]","native":false}]}
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as post] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts:44:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-6894800405036813.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-6894800405036813.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-6894800405036813.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+2025-10-22 11:50:12 [ERROR]: uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as post] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts:44:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7020133270800921.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7020133270800921.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7020133270800921.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13) {"error":{},"exception":true,"date":"Wed Oct 22 2025 11:50:12 GMT+0800 (中国标准时间)","process":{"pid":35864,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":91639808,"heapTotal":34619392,"heapUsed":22786680,"external":2248534,"arrayBuffers":100669}},"os":{"loadavg":[0,0,0],"uptime":8501.093},"trace":[{"column":15,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\lib\\route.js","function":"Route.<computed> [as post]","line":228,"method":"<computed> [as post]","native":false},{"column":19,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\index.js","function":"router.Router.<computed> [as post]","line":448,"method":"<computed> [as post]","native":false},{"column":8,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\task.routes.ts","function":null,"line":44,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false},{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\source-map-support\\source-map-support.js","function":"Module._compile","line":568,"method":"_compile","native":false},{"column":33,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-7020133270800921.js","function":"Module.m._compile","line":69,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":null,"line":1871,"method":null,"native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-7020133270800921.js","function":"require.extensions..jsx.require.extensions..js","line":114,"method":".js","native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-7020133270800921.js","function":"require.extensions.<computed>","line":71,"method":"<computed>","native":false},{"column":13,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\ts-node-dev\\lib\\hook.js","function":"Object.nodeDevHook [as .ts]","line":63,"method":"ts]","native":false}]}
+TypeError: argument handler must be a function
+    at Route.<computed> [as post] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as post] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts:44:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7020133270800921.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7020133270800921.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7020133270800921.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+2025-10-23 13:18:37 [ERROR]: uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as patch] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as patch] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts:138:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-09379514677085088.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-09379514677085088.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-09379514677085088.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13) {"error":{},"exception":true,"date":"Thu Oct 23 2025 13:18:37 GMT+0800 (中国标准时间)","process":{"pid":41676,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":90251264,"heapTotal":33853440,"heapUsed":23649472,"external":2251381,"arrayBuffers":104435}},"os":{"loadavg":[0,0,0],"uptime":72534.5},"trace":[{"column":15,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\lib\\route.js","function":"Route.<computed> [as patch]","line":228,"method":"<computed> [as patch]","native":false},{"column":19,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\index.js","function":"router.Router.<computed> [as patch]","line":448,"method":"<computed> [as patch]","native":false},{"column":8,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\task.routes.ts","function":null,"line":138,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false},{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\source-map-support\\source-map-support.js","function":"Module._compile","line":568,"method":"_compile","native":false},{"column":33,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-09379514677085088.js","function":"Module.m._compile","line":69,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":null,"line":1871,"method":null,"native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-09379514677085088.js","function":"require.extensions..jsx.require.extensions..js","line":114,"method":".js","native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-09379514677085088.js","function":"require.extensions.<computed>","line":71,"method":"<computed>","native":false},{"column":13,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\ts-node-dev\\lib\\hook.js","function":"Object.nodeDevHook [as .ts]","line":63,"method":"ts]","native":false}]}
+TypeError: argument handler must be a function
+    at Route.<computed> [as patch] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as patch] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\task.routes.ts:138:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-09379514677085088.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-09379514677085088.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-09379514677085088.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+2025-10-25 20:20:23 [ERROR]: uncaughtException: Cannot find module '../controllers/brieflog.controller'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+Error: Cannot find module '../controllers/brieflog.controller'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14) {"error":{"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\brieflog.routes.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\server.ts"]},"exception":true,"date":"Sat Oct 25 2025 20:20:23 GMT+0800 (中国标准时间)","process":{"pid":48996,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":91226112,"heapTotal":33656832,"heapUsed":23847168,"external":2240188,"arrayBuffers":93974}},"os":{"loadavg":[0,0,0],"uptime":270639.437},"trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":1410,"method":"_resolveFilename","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"defaultResolveImpl","line":1051,"method":null,"native":false},{"column":22,"file":"node:internal/modules/cjs/loader","function":"resolveForCJSWithHooks","line":1056,"method":null,"native":false},{"column":37,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1219,"method":"_load","native":false},{"column":14,"file":"node:diagnostics_channel","function":"TracingChannel.traceSync","line":322,"method":"traceSync","native":false},{"column":24,"file":"node:internal/modules/cjs/loader","function":"wrapModuleLoad","line":238,"method":null,"native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1493,"method":"require","native":false},{"column":16,"file":"node:internal/modules/helpers","function":"require","line":152,"method":null,"native":false},{"column":1,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\brieflog.routes.ts","function":null,"line":2,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false}]}
+Error: Cannot find module '../controllers/brieflog.controller'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+2025-10-25 20:20:23 [ERROR]: uncaughtException: Cannot find module '../controllers/brieflog.controller'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+Error: Cannot find module '../controllers/brieflog.controller'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14) {"error":{"code":"MODULE_NOT_FOUND","requireStack":["C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\brieflog.routes.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\index.ts","C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\server.ts"]},"exception":true,"date":"Sat Oct 25 2025 20:20:23 GMT+0800 (中国标准时间)","process":{"pid":43784,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":91631616,"heapTotal":33394688,"heapUsed":24022440,"external":2241322,"arrayBuffers":93974}},"os":{"loadavg":[0,0,0],"uptime":270639.484},"trace":[{"column":15,"file":"node:internal/modules/cjs/loader","function":"Module._resolveFilename","line":1410,"method":"_resolveFilename","native":false},{"column":19,"file":"node:internal/modules/cjs/loader","function":"defaultResolveImpl","line":1051,"method":null,"native":false},{"column":22,"file":"node:internal/modules/cjs/loader","function":"resolveForCJSWithHooks","line":1056,"method":null,"native":false},{"column":37,"file":"node:internal/modules/cjs/loader","function":"Module._load","line":1219,"method":"_load","native":false},{"column":14,"file":"node:diagnostics_channel","function":"TracingChannel.traceSync","line":322,"method":"traceSync","native":false},{"column":24,"file":"node:internal/modules/cjs/loader","function":"wrapModuleLoad","line":238,"method":null,"native":false},{"column":12,"file":"node:internal/modules/cjs/loader","function":"Module.require","line":1493,"method":"require","native":false},{"column":16,"file":"node:internal/modules/helpers","function":"require","line":152,"method":null,"native":false},{"column":1,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\brieflog.routes.ts","function":null,"line":2,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false}]}
+Error: Cannot find module '../controllers/brieflog.controller'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1410:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1051:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1056:22)
+    at Module._load (node:internal/modules/cjs/loader:1219:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:238:24)
+    at Module.require (node:internal/modules/cjs/loader:1493:12)
+    at require (node:internal/modules/helpers:152:16)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts:2:1)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+2025-10-27 15:36:46 [ERROR]: uncaughtException: EPIPE: broken pipe, write
+Error: EPIPE: broken pipe, write
+    at Socket._write (node:internal/net:75:18)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston\lib\winston\transports\console.js:87:23)
+    at Console._write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston-transport\modern.js:103:17)
+    at doWrite (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Console.Writable.write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_readable.js:629:20) {"error":{"errno":-4047,"syscall":"write","code":"EPIPE"},"exception":true,"date":"Mon Oct 27 2025 15:36:46 GMT+0800 (中国标准时间)","process":{"pid":7504,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":79343616,"heapTotal":23605248,"heapUsed":20627544,"external":2434065,"arrayBuffers":35371}},"os":{"loadavg":[0,0,0],"uptime":1857.734},"trace":[{"column":18,"file":"node:internal/net","function":"Socket._write","line":75,"method":"_write","native":false},{"column":12,"file":"node:internal/streams/writable","function":"writeOrBuffer","line":570,"method":null,"native":false},{"column":10,"file":"node:internal/streams/writable","function":"_write","line":499,"method":null,"native":false},{"column":10,"file":"node:internal/streams/writable","function":"Socket.Writable.write","line":508,"method":"write","native":false},{"column":23,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\winston\\lib\\winston\\transports\\console.js","function":"Console.log","line":87,"method":"log","native":false},{"column":17,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\winston-transport\\modern.js","function":"Console._write","line":103,"method":"_write","native":false},{"column":139,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_writable.js","function":"doWrite","line":390,"method":null,"native":false},{"column":5,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_writable.js","function":"writeOrBuffer","line":381,"method":null,"native":false},{"column":11,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_writable.js","function":"Console.Writable.write","line":302,"method":"write","native":false},{"column":20,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\readable-stream\\lib\\_stream_readable.js","function":"DerivedLogger.ondata","line":629,"method":"ondata","native":false}]}
+Error: EPIPE: broken pipe, write
+    at Socket._write (node:internal/net:75:18)
+    at writeOrBuffer (node:internal/streams/writable:570:12)
+    at _write (node:internal/streams/writable:499:10)
+    at Socket.Writable.write (node:internal/streams/writable:508:10)
+    at Console.log (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston\lib\winston\transports\console.js:87:23)
+    at Console._write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\winston-transport\modern.js:103:17)
+    at doWrite (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Console.Writable.write (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+2025-10-27 20:26:41 [ERROR]: uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\reward.routes.ts:9:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-32872922457983333.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-32872922457983333.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-32872922457983333.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13) {"error":{},"exception":true,"date":"Mon Oct 27 2025 20:26:41 GMT+0800 (中国标准时间)","process":{"pid":3580,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":89010176,"heapTotal":55062528,"heapUsed":18079728,"external":2241322,"arrayBuffers":98839}},"os":{"loadavg":[0,0,0],"uptime":19252.656},"trace":[{"column":15,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\lib\\route.js","function":"Route.<computed> [as get]","line":228,"method":"<computed> [as get]","native":false},{"column":19,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\index.js","function":"router.Router.<computed> [as get]","line":448,"method":"<computed> [as get]","native":false},{"column":8,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\reward.routes.ts","function":null,"line":9,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false},{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\source-map-support\\source-map-support.js","function":"Module._compile","line":568,"method":"_compile","native":false},{"column":33,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-32872922457983333.js","function":"Module.m._compile","line":69,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":null,"line":1871,"method":null,"native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-32872922457983333.js","function":"require.extensions..jsx.require.extensions..js","line":114,"method":".js","native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-32872922457983333.js","function":"require.extensions.<computed>","line":71,"method":"<computed>","native":false},{"column":13,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\ts-node-dev\\lib\\hook.js","function":"Object.nodeDevHook [as .ts]","line":63,"method":"ts]","native":false}]}
+TypeError: argument handler must be a function
+    at Route.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\reward.routes.ts:9:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-32872922457983333.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-32872922457983333.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-32872922457983333.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+2025-10-27 20:26:41 [ERROR]: uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\reward.routes.ts:9:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-8922577271324901.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-8922577271324901.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-8922577271324901.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13) {"error":{},"exception":true,"date":"Mon Oct 27 2025 20:26:41 GMT+0800 (中国标准时间)","process":{"pid":23004,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":88633344,"heapTotal":54538240,"heapUsed":18016592,"external":2240188,"arrayBuffers":98839}},"os":{"loadavg":[0,0,0],"uptime":19252.656},"trace":[{"column":15,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\lib\\route.js","function":"Route.<computed> [as get]","line":228,"method":"<computed> [as get]","native":false},{"column":19,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\index.js","function":"router.Router.<computed> [as get]","line":448,"method":"<computed> [as get]","native":false},{"column":8,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\reward.routes.ts","function":null,"line":9,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false},{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\source-map-support\\source-map-support.js","function":"Module._compile","line":568,"method":"_compile","native":false},{"column":33,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-8922577271324901.js","function":"Module.m._compile","line":69,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":null,"line":1871,"method":null,"native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-8922577271324901.js","function":"require.extensions..jsx.require.extensions..js","line":114,"method":".js","native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-8922577271324901.js","function":"require.extensions.<computed>","line":71,"method":"<computed>","native":false},{"column":13,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\ts-node-dev\\lib\\hook.js","function":"Object.nodeDevHook [as .ts]","line":63,"method":"ts]","native":false}]}
+TypeError: argument handler must be a function
+    at Route.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\reward.routes.ts:9:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-8922577271324901.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-8922577271324901.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-8922577271324901.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+2025-10-27 20:26:41 [ERROR]: uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\reward.routes.ts:9:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7627882202461709.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7627882202461709.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7627882202461709.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13) {"error":{},"exception":true,"date":"Mon Oct 27 2025 20:26:41 GMT+0800 (中国标准时间)","process":{"pid":47080,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":88199168,"heapTotal":36712448,"heapUsed":18109920,"external":2241322,"arrayBuffers":98839}},"os":{"loadavg":[0,0,0],"uptime":19252.671},"trace":[{"column":15,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\lib\\route.js","function":"Route.<computed> [as get]","line":228,"method":"<computed> [as get]","native":false},{"column":19,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\index.js","function":"router.Router.<computed> [as get]","line":448,"method":"<computed> [as get]","native":false},{"column":8,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\reward.routes.ts","function":null,"line":9,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false},{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\source-map-support\\source-map-support.js","function":"Module._compile","line":568,"method":"_compile","native":false},{"column":33,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-7627882202461709.js","function":"Module.m._compile","line":69,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":null,"line":1871,"method":null,"native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-7627882202461709.js","function":"require.extensions..jsx.require.extensions..js","line":114,"method":".js","native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-7627882202461709.js","function":"require.extensions.<computed>","line":71,"method":"<computed>","native":false},{"column":13,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\ts-node-dev\\lib\\hook.js","function":"Object.nodeDevHook [as .ts]","line":63,"method":"ts]","native":false}]}
+TypeError: argument handler must be a function
+    at Route.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\reward.routes.ts:9:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7627882202461709.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7627882202461709.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-7627882202461709.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)
+2025-10-27 20:26:41 [ERROR]: uncaughtException: argument handler must be a function
+TypeError: argument handler must be a function
+    at Route.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\reward.routes.ts:9:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-5541569979134776.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-5541569979134776.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-5541569979134776.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13) {"error":{},"exception":true,"date":"Mon Oct 27 2025 20:26:41 GMT+0800 (中国标准时间)","process":{"pid":42924,"uid":null,"gid":null,"cwd":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back","execPath":"D:\\APP\\nodejs\\node.exe","version":"v24.7.0","argv":["D:\\APP\\nodejs\\node.exe","src/server.ts"],"memoryUsage":{"rss":88702976,"heapTotal":37236736,"heapUsed":18149560,"external":2241322,"arrayBuffers":98839}},"os":{"loadavg":[0,0,0],"uptime":19252.671},"trace":[{"column":15,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\lib\\route.js","function":"Route.<computed> [as get]","line":228,"method":"<computed> [as get]","native":false},{"column":19,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\router\\index.js","function":"router.Router.<computed> [as get]","line":448,"method":"<computed> [as get]","native":false},{"column":8,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\src\\api\\reward.routes.ts","function":null,"line":9,"method":null,"native":false},{"column":14,"file":"node:internal/modules/cjs/loader","function":null,"line":1738,"method":null,"native":false},{"column":25,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\source-map-support\\source-map-support.js","function":"Module._compile","line":568,"method":"_compile","native":false},{"column":33,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-5541569979134776.js","function":"Module.m._compile","line":69,"method":"_compile","native":false},{"column":10,"file":"node:internal/modules/cjs/loader","function":null,"line":1871,"method":null,"native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-5541569979134776.js","function":"require.extensions..jsx.require.extensions..js","line":114,"method":".js","native":false},{"column":20,"file":"C:\\Users\\Amber\\AppData\\Local\\Temp\\ts-node-dev-hook-5541569979134776.js","function":"require.extensions.<computed>","line":71,"method":"<computed>","native":false},{"column":13,"file":"C:\\Users\\Amber\\Desktop\\Arzu_simulator\\Arzu_simulator_back\\node_modules\\ts-node-dev\\lib\\hook.js","function":"Object.nodeDevHook [as .ts]","line":63,"method":"ts]","native":false}]}
+TypeError: argument handler must be a function
+    at Route.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\lib\route.js:228:15)
+    at router.Router.<computed> [as get] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\router\index.js:448:19)
+    at Object.<anonymous> (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\reward.routes.ts:9:8)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1738:14)
+    at Module._compile (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\source-map-support\source-map-support.js:568:25)
+    at Module.m._compile (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-5541569979134776.js:69:33)
+    at node:internal/modules/cjs/loader:1871:10
+    at require.extensions..jsx.require.extensions..js (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-5541569979134776.js:114:20)
+    at require.extensions.<computed> (C:\Users\Amber\AppData\Local\Temp\ts-node-dev-hook-5541569979134776.js:71:20)
+    at Object.nodeDevHook [as .ts] (C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\node_modules\ts-node-dev\lib\hook.js:63:13)

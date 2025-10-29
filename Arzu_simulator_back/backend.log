@@ -1,0 +1,228 @@
+
+> arzu_simulator_back@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 16:01:11 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.2)
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+2025-10-23 16:01:13 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-23 16:01:13"}
+2025-10-23 16:01:13 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-23 16:01:13"}
+2025-10-23 16:01:13 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-23 16:01:13"}
+2025-10-23 16:01:13 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-23 16:01:13"}
+2025-10-23 16:01:13 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-23 16:01:13"}
+2025-10-23 16:01:13 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-23 16:01:13"}
+2025-10-23 16:01:13 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-23 16:01:13"}
+2025-10-23 16:01:13 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-23 16:01:13"}
+2025-10-23 16:01:13 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-23 16:01:13"}
+[INFO] 19:34:17 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\repositories\brieflog.repository.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+[dotenv@17.2.2] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+2025-10-25 19:34:33 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-25 19:34:33"}
+2025-10-25 19:34:33 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-25 19:34:33"}
+2025-10-25 19:34:33 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-25 19:34:33"}
+2025-10-25 19:34:33 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-25 19:34:33"}
+2025-10-25 19:34:33 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-25 19:34:33"}
+2025-10-25 19:34:33 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-25 19:34:33"}
+2025-10-25 19:34:33 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-25 19:34:33"}
+2025-10-25 19:34:33 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-25 19:34:33"}
+2025-10-25 19:34:33 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-25 19:34:33"}
+[INFO] 19:39:15 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+2025-10-25 19:39:16 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-25 19:39:16"}
+2025-10-25 19:39:16 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-25 19:39:16"}
+2025-10-25 19:39:16 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-25 19:39:16"}
+2025-10-25 19:39:16 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-25 19:39:16"}
+2025-10-25 19:39:16 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-25 19:39:16"}
+2025-10-25 19:39:16 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-25 19:39:16"}
+2025-10-25 19:39:16 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-25 19:39:16"}
+2025-10-25 19:39:16 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-25 19:39:16"}
+2025-10-25 19:39:16 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-25 19:39:16"}
+2025-10-25 19:40:33 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks/pomodoro/active","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-25 19:40:33","url":"/api/v1/tasks/pomodoro/active","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:40:33 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks/pomodoro/active","status":304,"duration":"12ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"12ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-25 19:40:33","url":"/api/v1/tasks/pomodoro/active"}
+2025-10-25 19:41:17 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks/pomodoro/active","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-25 19:41:17","url":"/api/v1/tasks/pomodoro/active","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:41:17 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks/pomodoro/active","status":304,"duration":"4ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"4ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-25 19:41:17","url":"/api/v1/tasks/pomodoro/active"}
+2025-10-25 19:41:32 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks/pomodoro/active","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-25 19:41:32","url":"/api/v1/tasks/pomodoro/active","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:41:32 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks/pomodoro/active","status":304,"duration":"3ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"3ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-25 19:41:32","url":"/api/v1/tasks/pomodoro/active"}
+2025-10-25 19:41:48 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks/pomodoro/active","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-25 19:41:48","url":"/api/v1/tasks/pomodoro/active","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:41:48 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks/pomodoro/active","status":304,"duration":"3ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"3ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-25 19:41:48","url":"/api/v1/tasks/pomodoro/active"}
+2025-10-25 19:42:01 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks/pomodoro/active","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-25 19:42:01","url":"/api/v1/tasks/pomodoro/active","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:42:01 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks/pomodoro/active","status":304,"duration":"4ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"4ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-25 19:42:01","url":"/api/v1/tasks/pomodoro/active"}
+2025-10-25 19:43:21 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/tasks/32/pomodoro/28/complete","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:43:21","url":"/api/v1/tasks/32/pomodoro/28/complete","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:43:21 [[32MINFO[39M]: 收到更新任务完成状态请求（番茄钟） {"userId":2,"taskId":32,"sessionId":28,"markAsCompleted":false,"ip":"::1"}
+[32minfo[39m: 收到更新任务完成状态请求（番茄钟） {"ip":"::1","markAsCompleted":false,"sessionId":28,"taskId":32,"timestamp":"2025-10-25 19:43:21","userId":2}
+2025-10-25 19:43:21 [[32MINFO[39M]: 开始更新任务完成状态（番茄钟） {"userId":2,"taskId":32,"sessionId":28,"markAsCompleted":false}
+[32minfo[39m: 开始更新任务完成状态（番茄钟） {"markAsCompleted":false,"sessionId":28,"taskId":32,"timestamp":"2025-10-25 19:43:21","userId":2}
+2025-10-25 19:43:21 [[32MINFO[39M]: 任务更新（番茄钟，未完成） {"taskId":32,"sessionId":28,"sessionFocusTime":5,"newFocusTime":5,"pomodoroCount":null}
+[32minfo[39m: 任务更新（番茄钟，未完成） {"newFocusTime":5,"pomodoroCount":null,"sessionFocusTime":5,"sessionId":28,"taskId":32,"timestamp":"2025-10-25 19:43:21"}
+2025-10-25 19:43:21 [[32MINFO[39M]: 任务完成状态更新成功（番茄钟） {"taskId":32,"userId":2,"sessionId":28,"markAsCompleted":false}
+[32minfo[39m: 任务完成状态更新成功（番茄钟） {"markAsCompleted":false,"sessionId":28,"taskId":32,"timestamp":"2025-10-25 19:43:21","userId":2}
+2025-10-25 19:43:21 [[32MINFO[39M]: 任务完成状态更新成功（番茄钟） {"taskId":32,"sessionId":28,"userId":2,"markAsCompleted":false}
+[32minfo[39m: 任务完成状态更新成功（番茄钟） {"markAsCompleted":false,"sessionId":28,"taskId":32,"timestamp":"2025-10-25 19:43:21","userId":2}
+2025-10-25 19:43:21 [[32MINFO[39M]: Request completed {"method":"POST","url":"/api/v1/tasks/32/pomodoro/28/complete","status":200,"duration":"12ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"12ms","ip":"::1","method":"POST","status":200,"timestamp":"2025-10-25 19:43:21","url":"/api/v1/tasks/32/pomodoro/28/complete"}
+2025-10-25 19:43:37 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/brieflogs","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:43:37","url":"/api/v1/brieflogs","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:43:37 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/brieflogs","status":401,"duration":"4ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"4ms","ip":"::1","method":"POST","status":401,"timestamp":"2025-10-25 19:43:37","url":"/api/v1/brieflogs"}
+2025-10-25 19:43:50 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/auth/login/email","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:43:50","url":"/api/v1/auth/login/email","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:43:50 [[32MINFO[39M]: 收到邮箱登录请求 {"ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: 收到邮箱登录请求 {"ip":"::1","timestamp":"2025-10-25 19:43:50","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:43:50 [[32MINFO[39M]: 开始邮箱登录 {"mail":"1952710912@qq.com"}
+[32minfo[39m: 开始邮箱登录 {"mail":"1952710912@qq.com","timestamp":"2025-10-25 19:43:50"}
+2025-10-25 19:43:50 [[32MINFO[39M]: 邮箱登录成功 {"userId":2,"mail":"1952710912@qq.com"}
+[32minfo[39m: 邮箱登录成功 {"mail":"1952710912@qq.com","timestamp":"2025-10-25 19:43:50","userId":2}
+2025-10-25 19:43:50 [[32MINFO[39M]: 邮箱登录成功 {"mail":"1952710912@qq.com","ip":"::1"}
+[32minfo[39m: 邮箱登录成功 {"ip":"::1","mail":"1952710912@qq.com","timestamp":"2025-10-25 19:43:50"}
+2025-10-25 19:43:50 [[32MINFO[39M]: Request completed {"method":"POST","url":"/api/v1/auth/login/email","status":200,"duration":"147ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"147ms","ip":"::1","method":"POST","status":200,"timestamp":"2025-10-25 19:43:50","url":"/api/v1/auth/login/email"}
+2025-10-25 19:43:50 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks?completed=false&limit=100","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-25 19:43:50","url":"/api/v1/tasks?completed=false&limit=100","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:43:50 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks?completed=false&limit=100","status":200,"duration":"8ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"8ms","ip":"::1","method":"GET","status":200,"timestamp":"2025-10-25 19:43:50","url":"/api/v1/tasks?completed=false&limit=100"}
+2025-10-25 19:43:51 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks/pomodoro/active","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-25 19:43:51","url":"/api/v1/tasks/pomodoro/active","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:43:51 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks/pomodoro/active","status":304,"duration":"4ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"4ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-25 19:43:51","url":"/api/v1/tasks/pomodoro/active"}
+2025-10-25 19:43:53 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/tasks/pomodoro","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:43:53","url":"/api/v1/tasks/pomodoro","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:43:53 [[32MINFO[39M]: 收到创建番茄钟会话请求 {"userId":2,"ip":"::1"}
+[32minfo[39m: 收到创建番茄钟会话请求 {"ip":"::1","timestamp":"2025-10-25 19:43:53","userId":2}
+2025-10-25 19:43:53 [[32MINFO[39M]: 开始创建番茄钟会话 {"userId":2,"sessionData":{"taskId":2,"durationMinutes":5}}
+[32minfo[39m: 开始创建番茄钟会话 {"sessionData":{"durationMinutes":5,"taskId":2},"timestamp":"2025-10-25 19:43:53","userId":2}
+2025-10-25 19:43:53 [[32MINFO[39M]: 番茄钟会话创建成功 {"sessionId":29,"userId":2,"taskId":2,"durationMinutes":5}
+[32minfo[39m: 番茄钟会话创建成功 {"durationMinutes":5,"sessionId":29,"taskId":2,"timestamp":"2025-10-25 19:43:53","userId":2}
+2025-10-25 19:43:53 [[32MINFO[39M]: 番茄钟会话创建成功 {"sessionId":29,"userId":2,"taskId":2}
+[32minfo[39m: 番茄钟会话创建成功 {"sessionId":29,"taskId":2,"timestamp":"2025-10-25 19:43:53","userId":2}
+2025-10-25 19:43:53 [[32MINFO[39M]: 番茄钟会话创建成功 {"sessionId":29,"userId":2}
+[32minfo[39m: 番茄钟会话创建成功 {"sessionId":29,"timestamp":"2025-10-25 19:43:53","userId":2}
+2025-10-25 19:43:53 [[32MINFO[39M]: Request completed {"method":"POST","url":"/api/v1/tasks/pomodoro","status":201,"duration":"8ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"8ms","ip":"::1","method":"POST","status":201,"timestamp":"2025-10-25 19:43:53","url":"/api/v1/tasks/pomodoro"}
+2025-10-25 19:43:53 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/start","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:43:53","url":"/api/v1/tasks/pomodoro/29/periods/start","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:43:53 [[32MINFO[39M]: 细分时间段创建成功 {"periodId":57,"sessionId":29,"startTime":"2025-10-25T11:43:53.220Z"}
+[32minfo[39m: 细分时间段创建成功 {"periodId":57,"sessionId":29,"startTime":"2025-10-25T11:43:53.220Z","timestamp":"2025-10-25 19:43:53"}
+2025-10-25 19:43:53 [[32MINFO[39M]: 细分时间段开始 {"sessionId":"29","periodId":57}
+[32minfo[39m: 细分时间段开始 {"periodId":57,"sessionId":"29","timestamp":"2025-10-25 19:43:53"}
+2025-10-25 19:43:53 [[32MINFO[39M]: Request completed {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/start","status":201,"duration":"6ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"6ms","ip":"::1","method":"POST","status":201,"timestamp":"2025-10-25 19:43:53","url":"/api/v1/tasks/pomodoro/29/periods/start"}
+2025-10-25 19:43:55 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/57/end","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:43:55","url":"/api/v1/tasks/pomodoro/29/periods/57/end","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:43:55 [[32MINFO[39M]: 细分时间段结束 {"periodId":57,"endTime":"2025-10-25T11:43:55.437Z","durationMin":0,"isInterrupted":true}
+[32minfo[39m: 细分时间段结束 {"durationMin":0,"endTime":"2025-10-25T11:43:55.437Z","isInterrupted":true,"periodId":57,"timestamp":"2025-10-25 19:43:55"}
+2025-10-25 19:43:55 [[32MINFO[39M]: 细分时间段结束 {"periodId":"57","isInterrupted":true}
+[32minfo[39m: 细分时间段结束 {"isInterrupted":true,"periodId":"57","timestamp":"2025-10-25 19:43:55"}
+2025-10-25 19:43:55 [[32MINFO[39M]: Request completed {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/57/end","status":200,"duration":"7ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"7ms","ip":"::1","method":"POST","status":200,"timestamp":"2025-10-25 19:43:55","url":"/api/v1/tasks/pomodoro/29/periods/57/end"}
+2025-10-25 19:44:01 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/brieflogs","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:44:01","url":"/api/v1/brieflogs","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:01 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/brieflogs","status":401,"duration":"2ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"2ms","ip":"::1","method":"POST","status":401,"timestamp":"2025-10-25 19:44:01","url":"/api/v1/brieflogs"}
+2025-10-25 19:44:01 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/start","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:44:01","url":"/api/v1/tasks/pomodoro/29/periods/start","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:01 [[33MWARN[39M]: 认证失败 - 缺少令牌 {"ip":"::1","path":"/pomodoro/29/periods/start","method":"POST"}
+[33mwarn[39m: 认证失败 - 缺少令牌 {"ip":"::1","method":"POST","path":"/pomodoro/29/periods/start","timestamp":"2025-10-25 19:44:01"}
+2025-10-25 19:44:01 [[31MERROR[39M]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/29/periods/start","error":"访问令牌缺失"}
+[31merror[39m: 认证中间件错误 {"error":"访问令牌缺失","ip":"::1","path":"/pomodoro/29/periods/start","timestamp":"2025-10-25 19:44:01"}
+2025-10-25 19:44:01 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/start","status":401,"duration":"3ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"3ms","ip":"::1","method":"POST","status":401,"timestamp":"2025-10-25 19:44:01","url":"/api/v1/tasks/pomodoro/29/periods/start"}
+2025-10-25 19:44:38 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/auth/login/email","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:44:38","url":"/api/v1/auth/login/email","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:38 [[32MINFO[39M]: 收到邮箱登录请求 {"ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: 收到邮箱登录请求 {"ip":"::1","timestamp":"2025-10-25 19:44:38","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:38 [[32MINFO[39M]: 开始邮箱登录 {"mail":"1952710912@qq.com"}
+[32minfo[39m: 开始邮箱登录 {"mail":"1952710912@qq.com","timestamp":"2025-10-25 19:44:38"}
+2025-10-25 19:44:39 [[32MINFO[39M]: 邮箱登录成功 {"userId":2,"mail":"1952710912@qq.com"}
+[32minfo[39m: 邮箱登录成功 {"mail":"1952710912@qq.com","timestamp":"2025-10-25 19:44:39","userId":2}
+2025-10-25 19:44:39 [[32MINFO[39M]: 邮箱登录成功 {"mail":"1952710912@qq.com","ip":"::1"}
+[32minfo[39m: 邮箱登录成功 {"ip":"::1","mail":"1952710912@qq.com","timestamp":"2025-10-25 19:44:39"}
+2025-10-25 19:44:39 [[32MINFO[39M]: Request completed {"method":"POST","url":"/api/v1/auth/login/email","status":200,"duration":"127ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"127ms","ip":"::1","method":"POST","status":200,"timestamp":"2025-10-25 19:44:39","url":"/api/v1/auth/login/email"}
+2025-10-25 19:44:39 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks?completed=false&limit=100","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-25 19:44:39","url":"/api/v1/tasks?completed=false&limit=100","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:39 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks?completed=false&limit=100","status":304,"duration":"5ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"5ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-25 19:44:39","url":"/api/v1/tasks?completed=false&limit=100"}
+2025-10-25 19:44:39 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks/pomodoro/active","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-25 19:44:39","url":"/api/v1/tasks/pomodoro/active","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:39 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks/pomodoro/active","status":200,"duration":"3ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"3ms","ip":"::1","method":"GET","status":200,"timestamp":"2025-10-25 19:44:39","url":"/api/v1/tasks/pomodoro/active"}
+2025-10-25 19:44:40 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks/pomodoro/29/periods/active","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-25 19:44:40","url":"/api/v1/tasks/pomodoro/29/periods/active","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:40 [[32MINFO[39M]: 查询活跃细分时间段 {"sessionId":"29","hasActivePeriod":false}
+[32minfo[39m: 查询活跃细分时间段 {"hasActivePeriod":false,"sessionId":"29","timestamp":"2025-10-25 19:44:40"}
+2025-10-25 19:44:40 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks/pomodoro/29/periods/active","status":200,"duration":"4ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"4ms","ip":"::1","method":"GET","status":200,"timestamp":"2025-10-25 19:44:40","url":"/api/v1/tasks/pomodoro/29/periods/active"}
+2025-10-25 19:44:41 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/start","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:44:41","url":"/api/v1/tasks/pomodoro/29/periods/start","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:41 [[32MINFO[39M]: 细分时间段创建成功 {"periodId":58,"sessionId":29,"startTime":"2025-10-25T11:44:41.632Z"}
+[32minfo[39m: 细分时间段创建成功 {"periodId":58,"sessionId":29,"startTime":"2025-10-25T11:44:41.632Z","timestamp":"2025-10-25 19:44:41"}
+2025-10-25 19:44:41 [[32MINFO[39M]: 细分时间段开始 {"sessionId":"29","periodId":58}
+[32minfo[39m: 细分时间段开始 {"periodId":58,"sessionId":"29","timestamp":"2025-10-25 19:44:41"}
+2025-10-25 19:44:41 [[32MINFO[39M]: Request completed {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/start","status":201,"duration":"6ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"6ms","ip":"::1","method":"POST","status":201,"timestamp":"2025-10-25 19:44:41","url":"/api/v1/tasks/pomodoro/29/periods/start"}
+2025-10-25 19:44:42 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/58/end","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:44:42","url":"/api/v1/tasks/pomodoro/29/periods/58/end","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:42 [[32MINFO[39M]: 细分时间段结束 {"periodId":58,"endTime":"2025-10-25T11:44:42.681Z","durationMin":0,"isInterrupted":true}
+[32minfo[39m: 细分时间段结束 {"durationMin":0,"endTime":"2025-10-25T11:44:42.681Z","isInterrupted":true,"periodId":58,"timestamp":"2025-10-25 19:44:42"}
+2025-10-25 19:44:42 [[32MINFO[39M]: 细分时间段结束 {"periodId":"58","isInterrupted":true}
+[32minfo[39m: 细分时间段结束 {"isInterrupted":true,"periodId":"58","timestamp":"2025-10-25 19:44:42"}
+2025-10-25 19:44:42 [[32MINFO[39M]: Request completed {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/58/end","status":200,"duration":"6ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"6ms","ip":"::1","method":"POST","status":200,"timestamp":"2025-10-25 19:44:42","url":"/api/v1/tasks/pomodoro/29/periods/58/end"}
+2025-10-25 19:44:48 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/brieflogs","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:44:48","url":"/api/v1/brieflogs","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:48 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/brieflogs","status":401,"duration":"3ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"3ms","ip":"::1","method":"POST","status":401,"timestamp":"2025-10-25 19:44:48","url":"/api/v1/brieflogs"}
+2025-10-25 19:44:48 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/start","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-25 19:44:48","url":"/api/v1/tasks/pomodoro/29/periods/start","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-25 19:44:48 [[33MWARN[39M]: 认证失败 - 缺少令牌 {"ip":"::1","path":"/pomodoro/29/periods/start","method":"POST"}
+[33mwarn[39m: 认证失败 - 缺少令牌 {"ip":"::1","method":"POST","path":"/pomodoro/29/periods/start","timestamp":"2025-10-25 19:44:48"}
+2025-10-25 19:44:48 [[31MERROR[39M]: 认证中间件错误 {"ip":"::1","path":"/pomodoro/29/periods/start","error":"访问令牌缺失"}
+[31merror[39m: 认证中间件错误 {"error":"访问令牌缺失","ip":"::1","path":"/pomodoro/29/periods/start","timestamp":"2025-10-25 19:44:48"}
+2025-10-25 19:44:48 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/tasks/pomodoro/29/periods/start","status":401,"duration":"1ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"1ms","ip":"::1","method":"POST","status":401,"timestamp":"2025-10-25 19:44:48","url":"/api/v1/tasks/pomodoro/29/periods/start"}
+[INFO] 20:20:22 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[ERROR] 20:20:23 Error: Cannot find module '../controllers/brieflog.controller'
+Require stack:
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\brieflog.routes.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts
+- C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\server.ts

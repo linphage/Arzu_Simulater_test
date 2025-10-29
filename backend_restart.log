@@ -1,0 +1,322 @@
+
+> arzu_simulator_back@1.0.0 predev
+> npm run cleanup
+
+
+> arzu_simulator_back@1.0.0 cleanup
+> node scripts/cleanup-active-sessions.js
+
+🔧 [清理脚本] 开始清理活跃会话和细分时间段...
+📁 [清理脚本] 数据库路径: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\database_new_2025-09-25T08-54-04-778Z.db
+
+🔍 [清理脚本] 步骤1: 查找未结束的细分时间段...
+✅ [清理脚本] 数据库连接成功
+
+📊 [清理脚本] 找到 0 个未结束的细分时间段
+✅ [清理脚本] 步骤1完成: 无需清理细分时间段
+
+🔍 [清理脚本] 步骤2: 查找未结束的番茄钟会话...
+📊 [清理脚本] 找到 0 个未结束的会话
+✅ [清理脚本] 步骤2完成: 无需清理番茄钟会话
+
+🎉 [清理脚本] 所有清理任务完成！
+✅ [清理脚本] 数据库状态已恢复正常
+
+✅ [清理脚本] 数据库连接已关闭
+
+> arzu_simulator_back@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 15:53:31 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.2)
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+[dotenv@17.2.2] injecting env (0) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+2025-10-27 15:53:33 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-27 15:53:33"}
+2025-10-27 15:53:33 [[32MINFO[39M]: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数
+[32minfo[39m: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数 {"timestamp":"2025-10-27 15:53:33"}
+2025-10-27 15:53:33 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-27 15:53:33"}
+2025-10-27 15:53:33 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-27 15:53:33"}
+2025-10-27 15:53:33 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-27 15:53:33"}
+2025-10-27 15:53:33 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-27 15:53:33"}
+2025-10-27 15:53:33 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-27 15:53:33"}
+2025-10-27 15:53:33 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-27 15:53:33"}
+2025-10-27 15:53:33 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-27 15:53:33"}
+2025-10-27 15:53:33 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-27 15:53:33"}
+[INFO] 16:39:17 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+2025-10-27 16:39:31 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-27 16:39:31"}
+2025-10-27 16:39:31 [[32MINFO[39M]: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数
+[32minfo[39m: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数 {"timestamp":"2025-10-27 16:39:31"}
+2025-10-27 16:39:31 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-27 16:39:31"}
+2025-10-27 16:39:31 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-27 16:39:31"}
+2025-10-27 16:39:31 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-27 16:39:31"}
+2025-10-27 16:39:31 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-27 16:39:31"}
+2025-10-27 16:39:31 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-27 16:39:31"}
+2025-10-27 16:39:31 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-27 16:39:31"}
+2025-10-27 16:39:31 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-27 16:39:31"}
+2025-10-27 16:39:31 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-27 16:39:31"}
+[INFO] 16:43:14 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\user-stats.service.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+2025-10-27 16:43:14 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-27 16:43:14"}
+2025-10-27 16:43:14 [[32MINFO[39M]: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数
+[32minfo[39m: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数 {"timestamp":"2025-10-27 16:43:14"}
+2025-10-27 16:43:14 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-27 16:43:14"}
+2025-10-27 16:43:14 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-27 16:43:14"}
+2025-10-27 16:43:14 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-27 16:43:14"}
+2025-10-27 16:43:14 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-27 16:43:14"}
+2025-10-27 16:43:14 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-27 16:43:14"}
+2025-10-27 16:43:14 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-27 16:43:14"}
+2025-10-27 16:43:14 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-27 16:43:14"}
+2025-10-27 16:43:14 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-27 16:43:14"}
+[INFO] 20:07:20 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[INFO] 20:07:21 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+2025-10-27 20:07:22 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数
+[32minfo[39m: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数 {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:16:04 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/auth/login/email","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-27 20:16:04","url":"/api/v1/auth/login/email","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:04 [[32MINFO[39M]: 收到邮箱登录请求 {"ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: 收到邮箱登录请求 {"ip":"::1","timestamp":"2025-10-27 20:16:04","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:04 [[32MINFO[39M]: 开始邮箱登录 {"mail":"1952710912@qq.com"}
+[32minfo[39m: 开始邮箱登录 {"mail":"1952710912@qq.com","timestamp":"2025-10-27 20:16:04"}
+2025-10-27 20:16:04 [[32MINFO[39M]: 邮箱登录成功 {"userId":2,"mail":"1952710912@qq.com"}
+[32minfo[39m: 邮箱登录成功 {"mail":"1952710912@qq.com","timestamp":"2025-10-27 20:16:04","userId":2}
+2025-10-27 20:16:04 [[32MINFO[39M]: 邮箱登录成功 {"mail":"1952710912@qq.com","ip":"::1"}
+[32minfo[39m: 邮箱登录成功 {"ip":"::1","mail":"1952710912@qq.com","timestamp":"2025-10-27 20:16:04"}
+2025-10-27 20:16:04 [[32MINFO[39M]: Request completed {"method":"POST","url":"/api/v1/auth/login/email","status":200,"duration":"154ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"154ms","ip":"::1","method":"POST","status":200,"timestamp":"2025-10-27 20:16:04","url":"/api/v1/auth/login/email"}
+2025-10-27 20:16:04 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/rewards","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-27 20:16:04","url":"/api/v1/rewards","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:04 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks?completed=false&limit=100","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-27 20:16:04","url":"/api/v1/tasks?completed=false&limit=100","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:04 [[32MINFO[39M]: 收到获取奖励列表请求 {"userId":2}
+[32minfo[39m: 收到获取奖励列表请求 {"timestamp":"2025-10-27 20:16:04","userId":2}
+2025-10-27 20:16:04 [[32MINFO[39M]: 获取用户奖励列表 {"userId":2}
+[32minfo[39m: 获取用户奖励列表 {"timestamp":"2025-10-27 20:16:04","userId":2}
+2025-10-27 20:16:04 [[31MERROR[39M]: SQL查询失败 {"sql":"SELECT \n          urc.id,\n          urc.user_id,\n          urc.gift_id,\n          urc.obtained_at,\n          urc.trigger_time_minutes,\n          urc.is_viewed,\n          urc.created_at,\n          gc.title,\n          gc.description\n         FROM user_reward_cards urc\n         INNER JOIN gift_card gc ON urc.gift_id = gc.gift_id\n         WHERE urc.user_id = ?\n         ORDER BY urc.obtained_at DESC","params":[2],"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+[31merror[39m: SQL查询失败 {"error":"SQLITE_ERROR: no such table: user_reward_cards","params":[2],"sql":"SELECT \n          urc.id,\n          urc.user_id,\n          urc.gift_id,\n          urc.obtained_at,\n          urc.trigger_time_minutes,\n          urc.is_viewed,\n          urc.created_at,\n          gc.title,\n          gc.description\n         FROM user_reward_cards urc\n         INNER JOIN gift_card gc ON urc.gift_id = gc.gift_id\n         WHERE urc.user_id = ?\n         ORDER BY urc.obtained_at DESC","timestamp":"2025-10-27 20:16:04"}
+2025-10-27 20:16:04 [[31MERROR[39M]: 获取用户奖励卡失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+[31merror[39m: 获取用户奖励卡失败 {"error":"SQLITE_ERROR: no such table: user_reward_cards","timestamp":"2025-10-27 20:16:04","userId":2}
+2025-10-27 20:16:04 [[31MERROR[39M]: 获取用户奖励列表失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+[31merror[39m: 获取用户奖励列表失败 {"error":"SQLITE_ERROR: no such table: user_reward_cards","timestamp":"2025-10-27 20:16:04","userId":2}
+2025-10-27 20:16:04 [[33MWARN[39M]: Request completed with error {"method":"GET","url":"/api/v1/rewards","status":500,"duration":"28ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"28ms","ip":"::1","method":"GET","status":500,"timestamp":"2025-10-27 20:16:04","url":"/api/v1/rewards"}
+2025-10-27 20:16:04 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks?completed=false&limit=100","status":304,"duration":"26ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"26ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-27 20:16:04","url":"/api/v1/tasks?completed=false&limit=100"}
+2025-10-27 20:16:07 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/users/stats","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-27 20:16:07","url":"/api/v1/users/stats","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:07 [[32MINFO[39M]: 收到获取用户统计请求 {"userId":2}
+[32minfo[39m: 收到获取用户统计请求 {"timestamp":"2025-10-27 20:16:07","userId":2}
+2025-10-27 20:16:07 [[32MINFO[39M]: 获取用户统计数据 {"userId":2}
+[32minfo[39m: 获取用户统计数据 {"timestamp":"2025-10-27 20:16:07","userId":2}
+2025-10-27 20:16:07 [[32MINFO[39M]: 用户统计数据获取成功 {"userId":2,"stats":{"userInfo":{"userId":2,"username":"amber","email":"1952710912@qq.com"},"statistics":{"completedTasksCount":10,"totalFocusMinutes":3116.6}}}
+[32minfo[39m: 用户统计数据获取成功 {"stats":{"statistics":{"completedTasksCount":10,"totalFocusMinutes":3116.6},"userInfo":{"email":"1952710912@qq.com","userId":2,"username":"amber"}},"timestamp":"2025-10-27 20:16:07","userId":2}
+2025-10-27 20:16:07 [[32MINFO[39M]: 用户统计数据获取成功 {"userId":2}
+[32minfo[39m: 用户统计数据获取成功 {"timestamp":"2025-10-27 20:16:07","userId":2}
+2025-10-27 20:16:07 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/users/stats","status":304,"duration":"6ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"6ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-27 20:16:07","url":"/api/v1/users/stats"}
+2025-10-27 20:16:08 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/rewards/trigger","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-27 20:16:08","url":"/api/v1/rewards/trigger","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:08 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/rewards/trigger","status":400,"duration":"10ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"10ms","ip":"::1","method":"POST","status":400,"timestamp":"2025-10-27 20:16:08","url":"/api/v1/rewards/trigger"}
+2025-10-27 20:16:09 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/rewards/trigger","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-27 20:16:09","url":"/api/v1/rewards/trigger","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:09 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/rewards/trigger","status":400,"duration":"4ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"4ms","ip":"::1","method":"POST","status":400,"timestamp":"2025-10-27 20:16:09","url":"/api/v1/rewards/trigger"}
+2025-10-27 20:16:12 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/users/stats","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-27 20:16:12","url":"/api/v1/users/stats","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:12 [[32MINFO[39M]: 收到获取用户统计请求 {"userId":2}
+[32minfo[39m: 收到获取用户统计请求 {"timestamp":"2025-10-27 20:16:12","userId":2}
+2025-10-27 20:16:12 [[32MINFO[39M]: 获取用户统计数据 {"userId":2}
+[32minfo[39m: 获取用户统计数据 {"timestamp":"2025-10-27 20:16:12","userId":2}
+2025-10-27 20:16:12 [[32MINFO[39M]: 用户统计数据获取成功 {"userId":2,"stats":{"userInfo":{"userId":2,"username":"amber","email":"1952710912@qq.com"},"statistics":{"completedTasksCount":10,"totalFocusMinutes":3116.6}}}
+[32minfo[39m: 用户统计数据获取成功 {"stats":{"statistics":{"completedTasksCount":10,"totalFocusMinutes":3116.6},"userInfo":{"email":"1952710912@qq.com","userId":2,"username":"amber"}},"timestamp":"2025-10-27 20:16:12","userId":2}
+2025-10-27 20:16:12 [[32MINFO[39M]: 用户统计数据获取成功 {"userId":2}
+[32minfo[39m: 用户统计数据获取成功 {"timestamp":"2025-10-27 20:16:12","userId":2}
+2025-10-27 20:16:12 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/users/stats","status":304,"duration":"7ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"7ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-27 20:16:12","url":"/api/v1/users/stats"}
+2025-10-27 20:16:13 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/rewards/trigger","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-27 20:16:13","url":"/api/v1/rewards/trigger","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:13 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/rewards/trigger","status":400,"duration":"2ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"2ms","ip":"::1","method":"POST","status":400,"timestamp":"2025-10-27 20:16:13","url":"/api/v1/rewards/trigger"}
+2025-10-27 20:16:13 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/rewards/trigger","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-27 20:16:13","url":"/api/v1/rewards/trigger","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:13 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/rewards/trigger","status":400,"duration":"3ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"3ms","ip":"::1","method":"POST","status":400,"timestamp":"2025-10-27 20:16:13","url":"/api/v1/rewards/trigger"}
+2025-10-27 20:16:13 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/rewards/trigger","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-27 20:16:13","url":"/api/v1/rewards/trigger","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:13 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/rewards/trigger","status":400,"duration":"3ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"3ms","ip":"::1","method":"POST","status":400,"timestamp":"2025-10-27 20:16:13","url":"/api/v1/rewards/trigger"}
+2025-10-27 20:16:14 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/rewards/trigger","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-27 20:16:14","url":"/api/v1/rewards/trigger","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:16:14 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/rewards/trigger","status":400,"duration":"3ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"3ms","ip":"::1","method":"POST","status":400,"timestamp":"2025-10-27 20:16:14","url":"/api/v1/rewards/trigger"}
+2025-10-27 20:17:15 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks?completed=false&limit=100","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-27 20:17:15","url":"/api/v1/tasks?completed=false&limit=100","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:17:15 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/rewards","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-27 20:17:15","url":"/api/v1/rewards","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:17:15 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks?completed=false&limit=100","status":200,"duration":"5ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"5ms","ip":"::1","method":"GET","status":200,"timestamp":"2025-10-27 20:17:15","url":"/api/v1/tasks?completed=false&limit=100"}
+2025-10-27 20:17:15 [[32MINFO[39M]: 收到获取奖励列表请求 {"userId":2}
+[32minfo[39m: 收到获取奖励列表请求 {"timestamp":"2025-10-27 20:17:15","userId":2}
+2025-10-27 20:17:15 [[32MINFO[39M]: 获取用户奖励列表 {"userId":2}
+[32minfo[39m: 获取用户奖励列表 {"timestamp":"2025-10-27 20:17:15","userId":2}
+2025-10-27 20:17:15 [[31MERROR[39M]: SQL查询失败 {"sql":"SELECT \n          urc.id,\n          urc.user_id,\n          urc.gift_id,\n          urc.obtained_at,\n          urc.trigger_time_minutes,\n          urc.is_viewed,\n          urc.created_at,\n          gc.title,\n          gc.description\n         FROM user_reward_cards urc\n         INNER JOIN gift_card gc ON urc.gift_id = gc.gift_id\n         WHERE urc.user_id = ?\n         ORDER BY urc.obtained_at DESC","params":[2],"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+[31merror[39m: SQL查询失败 {"error":"SQLITE_ERROR: no such table: user_reward_cards","params":[2],"sql":"SELECT \n          urc.id,\n          urc.user_id,\n          urc.gift_id,\n          urc.obtained_at,\n          urc.trigger_time_minutes,\n          urc.is_viewed,\n          urc.created_at,\n          gc.title,\n          gc.description\n         FROM user_reward_cards urc\n         INNER JOIN gift_card gc ON urc.gift_id = gc.gift_id\n         WHERE urc.user_id = ?\n         ORDER BY urc.obtained_at DESC","timestamp":"2025-10-27 20:17:15"}
+2025-10-27 20:17:15 [[31MERROR[39M]: 获取用户奖励卡失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+[31merror[39m: 获取用户奖励卡失败 {"error":"SQLITE_ERROR: no such table: user_reward_cards","timestamp":"2025-10-27 20:17:15","userId":2}
+2025-10-27 20:17:15 [[31MERROR[39M]: 获取用户奖励列表失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+[31merror[39m: 获取用户奖励列表失败 {"error":"SQLITE_ERROR: no such table: user_reward_cards","timestamp":"2025-10-27 20:17:15","userId":2}
+2025-10-27 20:17:15 [[33MWARN[39M]: Request completed with error {"method":"GET","url":"/api/v1/rewards","status":500,"duration":"4ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"4ms","ip":"::1","method":"GET","status":500,"timestamp":"2025-10-27 20:17:15","url":"/api/v1/rewards"}
+2025-10-27 20:18:04 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/auth/login/email","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-27 20:18:04","url":"/api/v1/auth/login/email","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:18:04 [[32MINFO[39M]: 收到邮箱登录请求 {"ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: 收到邮箱登录请求 {"ip":"::1","timestamp":"2025-10-27 20:18:04","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:18:04 [[32MINFO[39M]: 开始邮箱登录 {"mail":"1952710912@qq.com"}
+[32minfo[39m: 开始邮箱登录 {"mail":"1952710912@qq.com","timestamp":"2025-10-27 20:18:04"}
+2025-10-27 20:18:04 [[32MINFO[39M]: 邮箱登录成功 {"userId":2,"mail":"1952710912@qq.com"}
+[32minfo[39m: 邮箱登录成功 {"mail":"1952710912@qq.com","timestamp":"2025-10-27 20:18:04","userId":2}
+2025-10-27 20:18:04 [[32MINFO[39M]: 邮箱登录成功 {"mail":"1952710912@qq.com","ip":"::1"}
+[32minfo[39m: 邮箱登录成功 {"ip":"::1","mail":"1952710912@qq.com","timestamp":"2025-10-27 20:18:04"}
+2025-10-27 20:18:04 [[32MINFO[39M]: Request completed {"method":"POST","url":"/api/v1/auth/login/email","status":200,"duration":"126ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"126ms","ip":"::1","method":"POST","status":200,"timestamp":"2025-10-27 20:18:04","url":"/api/v1/auth/login/email"}
+2025-10-27 20:18:04 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/tasks?completed=false&limit=100","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-27 20:18:04","url":"/api/v1/tasks?completed=false&limit=100","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:18:04 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/rewards","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-27 20:18:04","url":"/api/v1/rewards","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:18:04 [[32MINFO[39M]: 收到获取奖励列表请求 {"userId":2}
+[32minfo[39m: 收到获取奖励列表请求 {"timestamp":"2025-10-27 20:18:04","userId":2}
+2025-10-27 20:18:04 [[32MINFO[39M]: 获取用户奖励列表 {"userId":2}
+[32minfo[39m: 获取用户奖励列表 {"timestamp":"2025-10-27 20:18:04","userId":2}
+2025-10-27 20:18:04 [[31MERROR[39M]: SQL查询失败 {"sql":"SELECT \n          urc.id,\n          urc.user_id,\n          urc.gift_id,\n          urc.obtained_at,\n          urc.trigger_time_minutes,\n          urc.is_viewed,\n          urc.created_at,\n          gc.title,\n          gc.description\n         FROM user_reward_cards urc\n         INNER JOIN gift_card gc ON urc.gift_id = gc.gift_id\n         WHERE urc.user_id = ?\n         ORDER BY urc.obtained_at DESC","params":[2],"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+[31merror[39m: SQL查询失败 {"error":"SQLITE_ERROR: no such table: user_reward_cards","params":[2],"sql":"SELECT \n          urc.id,\n          urc.user_id,\n          urc.gift_id,\n          urc.obtained_at,\n          urc.trigger_time_minutes,\n          urc.is_viewed,\n          urc.created_at,\n          gc.title,\n          gc.description\n         FROM user_reward_cards urc\n         INNER JOIN gift_card gc ON urc.gift_id = gc.gift_id\n         WHERE urc.user_id = ?\n         ORDER BY urc.obtained_at DESC","timestamp":"2025-10-27 20:18:04"}
+2025-10-27 20:18:04 [[31MERROR[39M]: 获取用户奖励卡失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+[31merror[39m: 获取用户奖励卡失败 {"error":"SQLITE_ERROR: no such table: user_reward_cards","timestamp":"2025-10-27 20:18:04","userId":2}
+2025-10-27 20:18:04 [[31MERROR[39M]: 获取用户奖励列表失败 {"userId":2,"error":"SQLITE_ERROR: no such table: user_reward_cards"}
+[31merror[39m: 获取用户奖励列表失败 {"error":"SQLITE_ERROR: no such table: user_reward_cards","timestamp":"2025-10-27 20:18:04","userId":2}
+2025-10-27 20:18:04 [[33MWARN[39M]: Request completed with error {"method":"GET","url":"/api/v1/rewards","status":500,"duration":"6ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"6ms","ip":"::1","method":"GET","status":500,"timestamp":"2025-10-27 20:18:04","url":"/api/v1/rewards"}
+2025-10-27 20:18:04 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/tasks?completed=false&limit=100","status":304,"duration":"9ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"9ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-27 20:18:04","url":"/api/v1/tasks?completed=false&limit=100"}
+2025-10-27 20:18:05 [[32MINFO[39M]: Request started {"method":"GET","url":"/api/v1/users/stats","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"GET","timestamp":"2025-10-27 20:18:05","url":"/api/v1/users/stats","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:18:05 [[32MINFO[39M]: 收到获取用户统计请求 {"userId":2}
+[32minfo[39m: 收到获取用户统计请求 {"timestamp":"2025-10-27 20:18:05","userId":2}
+2025-10-27 20:18:05 [[32MINFO[39M]: 获取用户统计数据 {"userId":2}
+[32minfo[39m: 获取用户统计数据 {"timestamp":"2025-10-27 20:18:05","userId":2}
+2025-10-27 20:18:05 [[32MINFO[39M]: 用户统计数据获取成功 {"userId":2,"stats":{"userInfo":{"userId":2,"username":"amber","email":"1952710912@qq.com"},"statistics":{"completedTasksCount":10,"totalFocusMinutes":3116.6}}}
+[32minfo[39m: 用户统计数据获取成功 {"stats":{"statistics":{"completedTasksCount":10,"totalFocusMinutes":3116.6},"userInfo":{"email":"1952710912@qq.com","userId":2,"username":"amber"}},"timestamp":"2025-10-27 20:18:05","userId":2}
+2025-10-27 20:18:05 [[32MINFO[39M]: 用户统计数据获取成功 {"userId":2}
+[32minfo[39m: 用户统计数据获取成功 {"timestamp":"2025-10-27 20:18:05","userId":2}
+2025-10-27 20:18:05 [[32MINFO[39M]: Request completed {"method":"GET","url":"/api/v1/users/stats","status":304,"duration":"5ms","ip":"::1"}
+[32minfo[39m: Request completed {"duration":"5ms","ip":"::1","method":"GET","status":304,"timestamp":"2025-10-27 20:18:05","url":"/api/v1/users/stats"}
+2025-10-27 20:18:13 [[32MINFO[39M]: Request started {"method":"POST","url":"/api/v1/tasks","ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: Request started {"ip":"::1","method":"POST","timestamp":"2025-10-27 20:18:13","url":"/api/v1/tasks","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+2025-10-27 20:18:13 [[32MINFO[39M]: 收到创建任务请求 {"userId":2,"ip":"::1","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"}
+[32minfo[39m: 收到创建任务请求 {"ip":"::1","timestamp":"2025-10-27 20:18:13","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36","userId":2}
+2025-10-27 20:18:13 [[32MINFO[39M]: 开始创建任务 {"userId":2,"taskData":{"title":"111","description":"11111","category":"勤政","priority":"铜","dueDate":"2025-10-27T20:00:00+08:00","alarm":"2025-10-27T20:00:00+08:00","repeatDays":0}}
+[32minfo[39m: 开始创建任务 {"taskData":{"alarm":"2025-10-27T20:00:00+08:00","category":"勤政","description":"11111","dueDate":"2025-10-27T20:00:00+08:00","priority":"铜","repeatDays":0,"title":"111"},"timestamp":"2025-10-27 20:18:13","userId":2}
+2025-10-27 20:18:13 [[31MERROR[39M]: 任务创建失败 {"userId":2,"taskData":{"title":"111","description":"11111","category":"勤政","priority":"铜","dueDate":"2025-10-27T20:00:00+08:00","alarm":"2025-10-27T20:00:00+08:00","repeatDays":0},"error":"任务截止日期不能早于当前时间"}
+[31merror[39m: 任务创建失败 {"error":"任务截止日期不能早于当前时间","taskData":{"alarm":"2025-10-27T20:00:00+08:00","category":"勤政","description":"11111","dueDate":"2025-10-27T20:00:00+08:00","priority":"铜","repeatDays":0,"title":"111"},"timestamp":"2025-10-27 20:18:13","userId":2}
+2025-10-27 20:18:13 [[31MERROR[39M]: 任务创建失败 {"userId":2,"taskData":{"title":"111","description":"11111","category":"勤政","priority":"铜","dueDate":"2025-10-27T20:00:00+08:00","alarm":"2025-10-27T20:00:00+08:00","repeatDays":0},"ip":"::1","error":"任务截止日期不能早于当前时间"}
+[31merror[39m: 任务创建失败 {"error":"任务截止日期不能早于当前时间","ip":"::1","taskData":{"alarm":"2025-10-27T20:00:00+08:00","category":"勤政","description":"11111","dueDate":"2025-10-27T20:00:00+08:00","priority":"铜","repeatDays":0,"title":"111"},"timestamp":"2025-10-27 20:18:13","userId":2}
+2025-10-27 20:18:13 [[33MWARN[39M]: Request completed with error {"method":"POST","url":"/api/v1/tasks","status":400,"duration":"21ms","ip":"::1"}
+[33mwarn[39m: Request completed with error {"duration":"21ms","ip":"::1","method":"POST","status":400,"timestamp":"2025-10-27 20:18:13","url":"/api/v1/tasks"}
+[INFO] 20:26:39 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\reward.service.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+2025-10-27 20:26:40 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数
+[32minfo[39m: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数 {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-27 20:26:40"}
+[INFO] 20:26:40 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\reward.controller.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+[ERROR] 20:26:41 TypeError: argument handler must be a function
+[INFO] 20:26:41 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\reward.routes.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+2025-10-27 20:26:42 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数
+[32minfo[39m: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数 {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-27 20:26:42"}

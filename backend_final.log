@@ -1,0 +1,126 @@
+
+> arzu_simulator_back@1.0.0 predev
+> npm run cleanup
+
+
+> arzu_simulator_back@1.0.0 cleanup
+> node scripts/cleanup-active-sessions.js
+
+🔧 [清理脚本] 开始清理活跃会话和细分时间段...
+📁 [清理脚本] 数据库路径: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\database_new_2025-09-25T08-54-04-778Z.db
+
+🔍 [清理脚本] 步骤1: 查找未结束的细分时间段...
+✅ [清理脚本] 数据库连接成功
+
+📊 [清理脚本] 找到 0 个未结束的细分时间段
+✅ [清理脚本] 步骤1完成: 无需清理细分时间段
+
+🔍 [清理脚本] 步骤2: 查找未结束的番茄钟会话...
+📊 [清理脚本] 找到 0 个未结束的会话
+✅ [清理脚本] 步骤2完成: 无需清理番茄钟会话
+
+🎉 [清理脚本] 所有清理任务完成！
+✅ [清理脚本] 数据库状态已恢复正常
+
+✅ [清理脚本] 数据库连接已关闭
+
+> arzu_simulator_back@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 16:43:50 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.2)
+[dotenv@17.2.2] injecting env (10) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+2025-10-27 16:43:53 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-27 16:43:53"}
+2025-10-27 16:43:53 [[32MINFO[39M]: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数
+[32minfo[39m: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数 {"timestamp":"2025-10-27 16:43:53"}
+2025-10-27 16:43:53 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-27 16:43:53"}
+2025-10-27 16:43:53 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-27 16:43:53"}
+2025-10-27 16:43:53 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-27 16:43:53"}
+2025-10-27 16:43:53 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-27 16:43:53"}
+2025-10-27 16:43:53 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-27 16:43:53"}
+2025-10-27 16:43:53 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-27 16:43:53"}
+2025-10-27 16:43:53 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-27 16:43:53"}
+2025-10-27 16:43:53 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-27 16:43:53"}
+[INFO] 20:07:20 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[INFO] 20:07:21 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\index.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+2025-10-27 20:07:22 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数
+[32minfo[39m: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数 {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-27 20:07:22"}
+2025-10-27 20:07:22 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-27 20:07:22"}
+[INFO] 20:26:39 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\services\reward.service.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+2025-10-27 20:26:40 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数
+[32minfo[39m: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数 {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-27 20:26:40"}
+2025-10-27 20:26:40 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-27 20:26:40"}
+[INFO] 20:26:40 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\controllers\reward.controller.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+[ERROR] 20:26:41 TypeError: argument handler must be a function
+[INFO] 20:26:41 Restarting: C:\Users\Amber\Desktop\Arzu_simulator\Arzu_simulator_back\src\api\reward.routes.ts has been modified
+[dotenv@17.2.2] injecting env (10) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.2] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+2025-10-27 20:26:42 [[32MINFO[39M]: 开始初始化数据库...
+[32minfo[39m: 开始初始化数据库... {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数
+[32minfo[39m: 定时任务已启动：每月1日凌晨0:00（东八区）重置补打卡次数 {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 🚀 Server is running on http://localhost:3002
+[32minfo[39m: 🚀 Server is running on http://localhost:3002 {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 📊 Health check available at http://localhost:3002/health
+[32minfo[39m: 📊 Health check available at http://localhost:3002/health {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 🔧 Environment: development
+[32minfo[39m: 🔧 Environment: development {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 📁 API documentation available at http://localhost:3002/api
+[32minfo[39m: 📁 API documentation available at http://localhost:3002/api {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db"}
+[32minfo[39m: 数据库连接成功 {"path":"./database_new_2025-09-25T08-54-04-778Z.db","timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 外键约束已启用
+[32minfo[39m: 外键约束已启用 {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 数据库已正确初始化
+[32minfo[39m: 数据库已正确初始化 {"timestamp":"2025-10-27 20:26:42"}
+2025-10-27 20:26:42 [[32MINFO[39M]: 数据库已正确初始化，跳过迁移
+[32minfo[39m: 数据库已正确初始化，跳过迁移 {"timestamp":"2025-10-27 20:26:42"}

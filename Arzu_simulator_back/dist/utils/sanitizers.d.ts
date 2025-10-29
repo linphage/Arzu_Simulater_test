@@ -1,0 +1,11 @@
+export declare const escapeHtml: (text: string) => string;
+export declare const sanitizeInput: (input: string) => string;
+export declare const sanitizeUsername: (username: string) => string;
+export declare const sanitizeEmail: (email: string) => string;
+export declare const escapeSql: (input: string) => string;
+export declare const sanitizeMongoInput: (input: any) => any;
+export declare const sanitizeFilePath: (filePath: string) => string;
+export declare const sanitizeUrlParam: (param: string) => string;
+export declare const stripScriptTags: (html: string) => string;
+export declare const sanitizeRichText: (html: string) => string;
+//# sourceMappingURL=sanitizers.d.ts.map
