@@ -6,6 +6,7 @@ import { logger } from '../config/logger';
 import { asyncHandler } from '../utils/error.utils';
 import { AuthRequest } from './auth.controller';
 import { CreateTaskDto, UpdateTaskDto, TaskQueryParams, BatchTaskOperationDto } from '../types/task.types';
+import { getErrorMessage } from '../utils/error-handler';
 
 export class TaskController {
   private taskService: TaskService;
@@ -60,7 +61,7 @@ export class TaskController {
         userId, 
         taskData, 
         ip: req.ip,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -119,7 +120,7 @@ export class TaskController {
         userId, 
         taskData: { title, description, category, priority }, 
         ip: req.ip,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -190,7 +191,7 @@ export class TaskController {
         userId, 
         query: req.query,
         ip: req.ip,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -219,7 +220,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('获取任务失败', { userId, taskId, ip: req.ip, error: error.message });
+      logger.error('获取任务失败', { userId, taskId, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -260,7 +261,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('更新任务失败', { userId, taskId, updateData, ip: req.ip, error: error.message });
+      logger.error('更新任务失败', { userId, taskId, updateData, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -288,7 +289,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('删除任务失败', { userId, taskId, ip: req.ip, error: error.message });
+      logger.error('删除任务失败', { userId, taskId, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -333,7 +334,7 @@ export class TaskController {
         userId, 
         operationData, 
         ip: req.ip,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -361,7 +362,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('获取任务统计失败', { userId, ip: req.ip, error: error.message });
+      logger.error('获取任务统计失败', { userId, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -393,7 +394,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('获取任务分析数据失败', { userId, days, ip: req.ip, error: error.message });
+      logger.error('获取任务分析数据失败', { userId, days, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -438,7 +439,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('搜索任务失败', { userId, query, limit, ip: req.ip, error: error.message });
+      logger.error('搜索任务失败', { userId, query, limit, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -474,7 +475,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('获取即将到期任务失败', { userId, daysAhead, ip: req.ip, error: error.message });
+      logger.error('获取即将到期任务失败', { userId, daysAhead, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -503,7 +504,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('获取逾期任务失败', { userId, ip: req.ip, error: error.message });
+      logger.error('获取逾期任务失败', { userId, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -539,7 +540,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('归档已完成任务失败', { userId, daysOld, ip: req.ip, error: error.message });
+      logger.error('归档已完成任务失败', { userId, daysOld, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -579,7 +580,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('创建番茄钟会话失败', { userId, sessionData, ip: req.ip, error: error.message });
+      logger.error('创建番茄钟会话失败', { userId, sessionData, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -612,7 +613,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('完成番茄钟会话失败', { userId, sessionId, ip: req.ip, error: error.message });
+      logger.error('完成番茄钟会话失败', { userId, sessionId, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -661,7 +662,7 @@ export class TaskController {
         userId, 
         sessionId, 
         ip: req.ip, 
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       throw error;
     }
@@ -708,7 +709,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('获取番茄钟会话列表失败', { userId, options, ip: req.ip, error: error.message });
+      logger.error('获取番茄钟会话列表失败', { userId, options, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -740,7 +741,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('获取番茄钟统计失败', { userId, days, ip: req.ip, error: error.message });
+      logger.error('获取番茄钟统计失败', { userId, days, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -769,7 +770,7 @@ export class TaskController {
       });
 
     } catch (error) {
-      logger.error('获取活跃番茄钟会话失败', { userId, ip: req.ip, error: error.message });
+      logger.error('获取活跃番茄钟会话失败', { userId, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -829,7 +830,7 @@ export class TaskController {
         taskId,
         sessionId,
         ip: req.ip,
-        error: error.message
+        error: getErrorMessage(error)
       });
       throw error;
     }
@@ -859,7 +860,7 @@ export class TaskController {
         }
       });
     } catch (error) {
-      logger.error('获取打卡日历数据失败', { userId, year, month, ip: req.ip, error: error.message });
+      logger.error('获取打卡日历数据失败', { userId, year, month, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -890,7 +891,7 @@ export class TaskController {
         data: task
       });
     } catch (error) {
-      logger.error('补打卡失败', { userId, checkInDate, ip: req.ip, error: error.message });
+      logger.error('补打卡失败', { userId, checkInDate, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -914,7 +915,7 @@ export class TaskController {
         data: stats
       });
     } catch (error) {
-      logger.error('获取近期任务统计失败', { userId, days, ip: req.ip, error: error.message });
+      logger.error('获取近期任务统计失败', { userId, days, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });
@@ -933,7 +934,7 @@ export class TaskController {
         data: stats
       });
     } catch (error) {
-      logger.error('获取完成度统计数据失败', { userId, ip: req.ip, error: error.message });
+      logger.error('获取完成度统计数据失败', { userId, ip: req.ip, error: getErrorMessage(error) });
       throw error;
     }
   });

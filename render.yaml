@@ -1,0 +1,144 @@
+# Render 自动部署配置文件
+# 使用此文件可以实现一键部署前后端服务
+# 文档: https://render.com/docs/infrastructure-as-code
+
+services:
+  # ============================================
+  # 后端 Web Service
+  # ============================================
+  - type: web
+    name: arzu-simulator-backend
+    runtime: node
+    region: singapore  # 可选: oregon, frankfurt, singapore
+    plan: free  # 免费套餐，可改为 starter ($7/月)
+    branch: main
+    rootDir: Arzu_simulator_back
+    
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    
+    healthCheckPath: /health
+    
+    # 环境变量
+    envVars:
+      - key: NODE_ENV
+        value: production
+      
+      - key: PORT
+        value: 3001
+      
+      # JWT 密钥 - 生产环境请使用 Secret Files 或在 Dashboard 中设置
+      - key: JWT_SECRET
+        generateValue: true  # Render 自动生成随机值
+      
+      - key: JWT_REFRESH_SECRET
+        generateValue: true  # Render 自动生成随机值
+      
+      - key: JWT_EXPIRES_IN
+        value: 15m
+      
+      - key: JWT_REFRESH_EXPIRES_IN
+        value: 7d
+      
+      - key: DATABASE_PATH
+        value: /var/data/database.db
+      
+      # CORS - 需要在部署后手动更新为实际前端 URL
+      - key: CORS_ORIGIN
+        value: https://arzu-simulator-frontend.onrender.com
+      
+      - key: LOG_LEVEL
+        value: info
+      
+      - key: BCRYPT_ROUNDS
+        value: 10
+    
+    # 持久化磁盘 - 存储 SQLite 数据库
+    disk:
+      name: arzu-data
+      mountPath: /var/data
+      sizeGB: 1  # 1GB 免费
+    
+    # 自动部署配置
+    autoDeploy: true  # Git push 自动部署
+
+  # ============================================
+  # 前端 Static Site
+  # ============================================
+  - type: web
+    name: arzu-simulator-frontend
+    runtime: static
+    region: singapore  # 与后端保持一致
+    branch: main
+    rootDir: Arzu_simulator_front
+    
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    
+    # 环境变量
+    envVars:
+      # API 地址 - 需要在部署后手动更新为实际后端 URL
+      - key: VITE_API_URL
+        value: https://arzu-simulator-backend.onrender.com
+      
+      - key: VITE_APP_NAME
+        value: Arzu Simulator
+      
+      - key: VITE_APP_VERSION
+        value: 1.0.0
+    
+    # 路由重定向规则（支持 SPA）
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    
+    # 自定义 HTTP 头
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+      
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    
+    # 自动部署配置
+    autoDeploy: true
+
+# ============================================
+# 数据库（如果未来需要迁移到 PostgreSQL）
+# ============================================
+# databases:
+#   - name: arzu-postgres-db
+#     plan: free
+#     databaseName: arzu_simulator
+#     user: arzu_user
+#     region: singapore
+
+# ============================================
+# 注意事项
+# ============================================
+# 1. 首次部署后，需要手动更新以下环境变量：
+#    - 后端 CORS_ORIGIN: 改为实际前端 URL
+#    - 前端 VITE_API_URL: 改为实际后端 URL
+#
+# 2. JWT 密钥使用 generateValue: true 自动生成
+#    可以在 Render Dashboard 查看生成的值
+#
+# 3. 免费套餐限制：
+#    - 15分钟无请求后休眠
+#    - 每月 750 小时运行时间
+#    - 推荐生产环境升级到 Starter ($7/月)
+#
+# 4. 数据库备份：
+#    - 定期在 Shell 中执行备份命令
+#    - 或使用 Render 的 Disk Snapshot (付费功能)
+#
+# 5. 监控建议：
+#    - 使用 UptimeRobot 防止免费套餐休眠
+#    - 配置 Render 告警通知
+#
+# 6. 自定义域名：
+#    - 在 Render Dashboard 中添加
+#    - 需要在 DNS 提供商配置 CNAME 记录

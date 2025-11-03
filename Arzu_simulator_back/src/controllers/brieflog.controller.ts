@@ -4,6 +4,7 @@ import { ValidationError } from '../utils/error.utils';
 import { logger } from '../config/logger';
 import { asyncHandler } from '../utils/error.utils';
 import { AuthRequest } from './auth.controller';
+import { getErrorMessage } from '../utils/error-handler';
 
 export class BriefLogController {
   private briefLogService: BriefLogService;
@@ -62,7 +63,7 @@ export class BriefLogController {
         userId, 
         task_id,
         brief_type,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -90,7 +91,7 @@ export class BriefLogController {
       logger.error('获取任务brieflog失败', { 
         userId, 
         taskId,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -113,7 +114,7 @@ export class BriefLogController {
     } catch (error: any) {
       logger.error('获取用户brieflog失败', { 
         userId,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;

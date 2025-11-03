@@ -15,11 +15,12 @@ import {
   PomodoroSession,
   CreatePomodoroSessionDto
 } from '../types/task.types';
-import { ApiError, NotFoundError, ValidationError } from '../utils/error.utils';
+import { ApiError, NotFoundError, ValidationError, isErrorWithName } from '../utils/error.utils';
 import { executeTransaction } from '../database/connection';
+import { getErrorMessage } from '../utils/error-handler';
 
 export class TaskService {
-  private taskRepository: TaskRepository;
+  public taskRepository: TaskRepository;
   private pomodoroRepository: PomodoroRepository;
   private briefLogRepository: BriefLogRepository;
 
@@ -65,7 +66,7 @@ export class TaskService {
 
       return task;
     } catch (error) {
-      logger.error('任务创建失败', { userId, taskData, error: error.message });
+      logger.error('任务创建失败', { userId, taskData, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('任务创建失败', 500);
     }
   }
@@ -116,7 +117,7 @@ export class TaskService {
 
       return task;
     } catch (error) {
-      logger.error('办公室任务创建失败', { userId, taskData, error: error.message });
+      logger.error('办公室任务创建失败', { userId, taskData, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('办公室任务创建失败', 500);
     }
   }
@@ -147,7 +148,7 @@ export class TaskService {
 
       return result;
     } catch (error) {
-      logger.error('获取用户任务列表失败', { userId, options, error: error.message });
+      logger.error('获取用户任务列表失败', { userId, options, error: getErrorMessage(error) });
       throw new ApiError('获取任务列表失败', 500);
     }
   }
@@ -168,7 +169,7 @@ export class TaskService {
       logger.debug('任务获取成功', { taskId, userId, title: task.title });
       return task;
     } catch (error) {
-      logger.error('获取任务失败', { userId, taskId, error: error.message });
+      logger.error('获取任务失败', { userId, taskId, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('获取任务失败', 500);
     }
   }
@@ -196,7 +197,7 @@ export class TaskService {
 
       // 如果更新完成状态，记录完成时间
       if (updateData.completed === true && !existingTask.completed) {
-        taskUpdateData.completedAt = new Date().toISOString();
+        (taskUpdateData as any).completed_at = new Date().toISOString();
       }
 
       // 准备变更日志
@@ -259,21 +260,21 @@ export class TaskService {
 
       if (newDueDate && existingDueDate !== newDueDate) {
         // 计算原alarm与dueDate的差值
-        if (existingTask.dueDate && existingTask.alarm) {
+        if (existingTask.dueDate && (existingTask as any).alarm) {
           const oldDueTime = new Date(existingTask.dueDate).getTime();
-          const oldAlarmTime = new Date(existingTask.alarm).getTime();
+          const oldAlarmTime = new Date((existingTask as any).alarm).getTime();
           const timeDifference = oldDueTime - oldAlarmTime; // 差值（毫秒）
 
           // 计算新的alarm时间
-          const newDueTime = new Date(updateData.dueDate).getTime();
+          const newDueTime = new Date(updateData.dueDate!).getTime();
           const newAlarmTime = newDueTime - timeDifference;
-          taskUpdateData.alarm = new Date(newAlarmTime).toISOString();
+          (taskUpdateData as any).alarm = new Date(newAlarmTime).toISOString();
           
           logger.info('自动计算新的提醒时间', {
             oldDueDate: existingTask.dueDate,
-            oldAlarm: existingTask.alarm,
+            oldAlarm: (existingTask as any).alarm,
             newDueDate: updateData.dueDate,
-            newAlarm: taskUpdateData.alarm,
+            newAlarm: (taskUpdateData as any).alarm,
             timeDifference: `${timeDifference / 60000} 分钟`
           });
         }
@@ -323,7 +324,7 @@ export class TaskService {
 
       return updatedTask;
     } catch (error) {
-      logger.error('更新任务失败', { userId, taskId, updateData, error: error.message });
+      logger.error('更新任务失败', { userId, taskId, updateData, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('更新任务失败', 500);
     }
   }
@@ -375,7 +376,7 @@ export class TaskService {
 
       logger.info('任务删除成功', { taskId, userId, title: existingTask.title });
     } catch (error) {
-      logger.error('删除任务失败', { userId, taskId, error: error.message });
+      logger.error('删除任务失败', { userId, taskId, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('删除任务失败', 500);
     }
   }
@@ -438,7 +439,7 @@ export class TaskService {
               if (!data?.dueDate) {
                 throw new ValidationError('需要提供新的截止日期');
               }
-              await this.taskRepository.update(taskId, { due_date: data.dueDate });
+              await this.taskRepository.update(taskId, { dueDate: data.dueDate });
               break;
             
             default:
@@ -450,13 +451,13 @@ export class TaskService {
           failed++;
           errors.push({
             id: taskId,
-            error: error.message || '操作失败'
+            error: getErrorMessage(error) || '操作失败'
           });
           
           logger.error(`批量操作失败 - 任务 ${taskId}`, { 
             taskId, 
             operation, 
-            error: error.message 
+            error: getErrorMessage(error) 
           });
         }
       }
@@ -479,7 +480,7 @@ export class TaskService {
 
       return result;
     } catch (error) {
-      logger.error('批量操作任务失败', { userId, operationData, error: error.message });
+      logger.error('批量操作任务失败', { userId, operationData, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('批量操作失败', 500);
     }
   }
@@ -496,7 +497,7 @@ export class TaskService {
       logger.debug('任务统计获取成功', { userId, stats });
       return stats;
     } catch (error) {
-      logger.error('获取任务统计失败', { userId, error: error.message });
+      logger.error('获取任务统计失败', { userId, error: getErrorMessage(error) });
       throw new ApiError('获取任务统计失败', 500);
     }
   }
@@ -513,7 +514,7 @@ export class TaskService {
       logger.debug('任务分析数据获取成功', { userId, days });
       return analytics;
     } catch (error) {
-      logger.error('获取任务分析数据失败', { userId, days, error: error.message });
+      logger.error('获取任务分析数据失败', { userId, days, error: getErrorMessage(error) });
       throw new ApiError('获取任务分析数据失败', 500);
     }
   }
@@ -530,7 +531,7 @@ export class TaskService {
       logger.debug('任务搜索成功', { userId, query, resultCount: tasks.length });
       return tasks;
     } catch (error) {
-      logger.error('搜索任务失败', { userId, query, limit, error: error.message });
+      logger.error('搜索任务失败', { userId, query, limit, error: getErrorMessage(error) });
       throw new ApiError('搜索任务失败', 500);
     }
   }
@@ -547,7 +548,7 @@ export class TaskService {
       logger.debug('即将到期任务获取成功', { userId, daysAhead, taskCount: tasks.length });
       return tasks;
     } catch (error) {
-      logger.error('获取即将到期任务失败', { userId, daysAhead, error: error.message });
+      logger.error('获取即将到期任务失败', { userId, daysAhead, error: getErrorMessage(error) });
       throw new ApiError('获取即将到期任务失败', 500);
     }
   }
@@ -564,7 +565,7 @@ export class TaskService {
       logger.debug('逾期任务获取成功', { userId, taskCount: tasks.length });
       return tasks;
     } catch (error) {
-      logger.error('获取逾期任务失败', { userId, error: error.message });
+      logger.error('获取逾期任务失败', { userId, error: getErrorMessage(error) });
       throw new ApiError('获取逾期任务失败', 500);
     }
   }
@@ -581,7 +582,7 @@ export class TaskService {
       logger.info('归档已完成任务完成', { userId, daysOld, archivedCount });
       return archivedCount;
     } catch (error) {
-      logger.error('归档已完成任务失败', { userId, daysOld, error: error.message });
+      logger.error('归档已完成任务失败', { userId, daysOld, error: getErrorMessage(error) });
       throw new ApiError('归档已完成任务失败', 500);
     }
   }
@@ -625,7 +626,7 @@ export class TaskService {
 
       return session;
     } catch (error) {
-      logger.error('创建番茄钟会话失败', { userId, sessionData, error: error.message });
+      logger.error('创建番茄钟会话失败', { userId, sessionData, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('创建番茄钟会话失败', 500);
     }
   }
@@ -673,7 +674,7 @@ export class TaskService {
 
       return updatedSession;
     } catch (error) {
-      logger.error('完成番茄钟会话失败', { userId, sessionId, error: error.message });
+      logger.error('完成番茄钟会话失败', { userId, sessionId, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('完成番茄钟会话失败', 500);
     }
   }
@@ -740,7 +741,7 @@ export class TaskService {
 
       return updatedSession;
     } catch (error) {
-      logger.error('结束番茄钟会话失败', { userId, sessionId, endData, error: error.message });
+      logger.error('结束番茄钟会话失败', { userId, sessionId, endData, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('结束番茄钟会话失败', 500);
     }
   }
@@ -775,7 +776,7 @@ export class TaskService {
 
       return result;
     } catch (error) {
-      logger.error('获取番茄钟会话列表失败', { userId, options, error: error.message });
+      logger.error('获取番茄钟会话列表失败', { userId, options, error: getErrorMessage(error) });
       throw new ApiError('获取番茄钟会话列表失败', 500);
     }
   }
@@ -803,7 +804,7 @@ export class TaskService {
       logger.debug('番茄钟统计获取成功', { userId, days, stats });
       return stats;
     } catch (error) {
-      logger.error('获取番茄钟统计失败', { userId, days, error: error.message });
+      logger.error('获取番茄钟统计失败', { userId, days, error: getErrorMessage(error) });
       throw new ApiError('获取番茄钟统计失败', 500);
     }
   }
@@ -820,7 +821,7 @@ export class TaskService {
       logger.debug('活跃番茄钟会话获取成功', { userId, hasActiveSession: !!session });
       return session || null;
     } catch (error) {
-      logger.error('获取活跃番茄钟会话失败', { userId, error: error.message });
+      logger.error('获取活跃番茄钟会话失败', { userId, error: getErrorMessage(error) });
       throw new ApiError('获取活跃番茄钟会话失败', 500);
     }
   }
@@ -946,7 +947,7 @@ export class TaskService {
         taskId,
         sessionId,
         markAsCompleted,
-        error: error.message
+        error: getErrorMessage(error)
       });
       throw error instanceof ApiError ? error : new ApiError('更新任务完成状态失败', 500);
     }
@@ -976,7 +977,7 @@ export class TaskService {
       logger.info('打卡日历数据获取成功', { userId, year, month, totalDays: checkIns.length });
       return checkIns;
     } catch (error) {
-      logger.error('获取打卡日历数据失败', { userId, year, month, error: error.message });
+      logger.error('获取打卡日历数据失败', { userId, year, month, error: getErrorMessage(error) });
       throw new ApiError('获取打卡日历数据失败', 500);
     }
   }
@@ -1025,7 +1026,7 @@ export class TaskService {
       logger.info('补打卡成功', { userId, checkInDate, taskId });
       return task;
     } catch (error) {
-      logger.error('补打卡失败', { userId, checkInDate, error: error.message });
+      logger.error('补打卡失败', { userId, checkInDate, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('补打卡失败', 500);
     }
   }
@@ -1046,7 +1047,7 @@ export class TaskService {
       logger.info('近期任务统计获取成功', { userId, days, recordCount: stats.length });
       return stats;
     } catch (error) {
-      logger.error('获取近期任务统计失败', { userId, days, error: error.message });
+      logger.error('获取近期任务统计失败', { userId, days, error: getErrorMessage(error) });
       throw new ApiError('获取近期任务统计失败', 500);
     }
   }
@@ -1117,13 +1118,13 @@ export class TaskService {
         });
         
         const totalTasks = tasks.filter(t => t.category !== null).length;
-        const completedTasks = tasks.filter(t => t.category !== null && t.completed === 1).length;
+        const completedTasks = tasks.filter(t => t.category !== null && Boolean(t.completed)).length;
         
         const now = new Date();
         const overdueTasks = tasks.filter(t => {
           const dueDate = (t as any).due_date || t.dueDate;
           return t.category !== null && 
-            t.completed === 0 && 
+            !Boolean(t.completed) && 
             dueDate && 
             new Date(dueDate) < now;
         }).length;
@@ -1183,7 +1184,7 @@ export class TaskService {
       logger.info('完成度统计数据获取成功', { userId, weeklyStats: result.weeklyStats });
       return result;
     } catch (error) {
-      logger.error('获取完成度统计数据失败', { userId, error: error.message });
+      logger.error('获取完成度统计数据失败', { userId, error: getErrorMessage(error) });
       throw new ApiError('获取完成度统计数据失败', 500);
     }
   }

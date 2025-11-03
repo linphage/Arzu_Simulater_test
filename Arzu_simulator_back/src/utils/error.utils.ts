@@ -83,6 +83,16 @@ export const errorHandler = (err: Error, req: any, res: any, next: any) => {
   res.status(apiError.statusCode).json(response);
 };
 
+// 类型守护函数：检查错误是否有name属性
+export function isErrorWithName(error: unknown): error is Error & { name: string } {
+  return error instanceof Error && typeof (error as any).name === 'string';
+}
+
+// 类型守护函数：检查错误是否有message属性
+export function isErrorWithMessage(error: unknown): error is Error & { message: string } {
+  return error instanceof Error && typeof error.message === 'string';
+}
+
 // 异步错误捕获包装器
 export const asyncHandler = (fn: Function) => (req: any, res: any, next: any) => {
   Promise.resolve(fn(req, res, next)).catch(next);

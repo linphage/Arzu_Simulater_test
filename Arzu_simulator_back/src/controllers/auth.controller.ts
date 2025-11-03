@@ -4,11 +4,13 @@ import { AuthService } from '../services/auth.service';
 import { ApiError, ValidationError } from '../utils/error.utils';
 import { logger } from '../config/logger';
 import { asyncHandler } from '../utils/error.utils';
+import { getErrorMessage } from '../utils/error-handler';
 
 export interface AuthRequest extends Request {
   user?: {
     id: number;
     username: string;
+    mail: string;
     email: string;
   };
 }
@@ -62,7 +64,7 @@ export class AuthController {
         username, 
         mail, 
         ip: req.ip,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -124,7 +126,7 @@ export class AuthController {
       logger.error('用户登录失败', { 
         username, 
         ip: clientIp,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -169,7 +171,7 @@ export class AuthController {
       logger.error('邮箱登录失败', { 
         mail, 
         ip: req.ip,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -204,7 +206,7 @@ export class AuthController {
     } catch (error) {
       logger.error('刷新访问令牌失败', { 
         ip: req.ip,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -235,7 +237,7 @@ export class AuthController {
     } catch (error) {
       logger.error('用户登出失败', { 
         userId,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -263,7 +265,7 @@ export class AuthController {
     } catch (error) {
       logger.error('获取用户信息失败', { 
         userId,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -289,7 +291,7 @@ export class AuthController {
     } catch (error) {
       logger.error('获取认证统计信息失败', { 
         ip: req.ip,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;
@@ -316,7 +318,7 @@ export class AuthController {
     } catch (error) {
       logger.error('清理过期令牌失败', { 
         ip: req.ip,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       throw error;

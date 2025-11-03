@@ -155,6 +155,17 @@ const apiEndpoints: ApiEndpoint[] = [
                   }
                 }
               }
+            },
+            example: {
+              success: false,
+              message: '输入数据验证失败',
+              errors: [
+                {
+                  field: 'username',
+                  message: '用户名不能为空',
+                  value: ''
+                }
+              ]
             }
           }
         }
@@ -224,6 +235,19 @@ const apiEndpoints: ApiEndpoint[] = [
                       }
                     }
                   }
+                }
+              }
+            },
+            example: {
+              success: true,
+              message: '登录成功',
+              data: {
+                accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
+                refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
+                user: {
+                  id: 1,
+                  username: 'testuser',
+                  email: 'test@example.com'
                 }
               }
             }
@@ -578,7 +602,7 @@ curl -X GET "http://localhost:3001/api/v1/tasks?page=1&limit=10" \\
       });
   }
 
-  res.json({
+  return res.json({
     success: true,
     message: `API使用示例 - ${language.toUpperCase()}`,
     data: {
@@ -605,7 +629,7 @@ router.post('/test', (req, res) => {
   // 这里可以实现一个API测试工具
   // 为了安全考虑，可以限制测试的范围和频率
   
-  res.json({
+  return res.json({
     success: true,
     message: 'API测试功能开发中',
     data: {

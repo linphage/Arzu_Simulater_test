@@ -4,6 +4,7 @@ import { ValidationError } from '../utils/error.utils';
 import { logger } from '../config/logger';
 import { asyncHandler } from '../utils/error.utils';
 import { AuthRequest } from './auth.controller';
+import { getErrorMessage } from '../utils/error-handler';
 
 export class HabitAnalysisController {
   private habitAnalysisService: HabitAnalysisService;
@@ -36,7 +37,7 @@ export class HabitAnalysisController {
       logger.error('获取习惯分析统计数据失败', {
         userId,
         timeframe,
-        error: error.message
+        error: getErrorMessage(error)
       });
 
       throw error;

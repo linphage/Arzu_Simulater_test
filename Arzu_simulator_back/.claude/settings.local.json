@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm uninstall @types/axios)",
+      "Bash(npx tsc:*)",
+      "Bash(find:*)",
+      "Bash(npm run build)",
+      "Bash(npm test)",
+      "Bash(dir:*)",
+      "Bash(echo:*)",
+      "Read(//c/Users/Amber/Desktop/Arzu_Simulater_test_backup/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

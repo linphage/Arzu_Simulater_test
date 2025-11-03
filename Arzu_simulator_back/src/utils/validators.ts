@@ -149,10 +149,10 @@ export const validateRequest = (req: Request, res: Response, next: NextFunction)
   const errors = validationResult(req);
   
   if (!errors.isEmpty()) {
-    const errorDetails = errors.array().map(error => ({
+    const errorDetails = errors.array().map((error: any) => ({
       field: error.type === 'field' ? error.path : error.type,
       message: error.msg,
-      value: error.value
+      value: error.value || undefined
     }));
     
     throw new ValidationError('输入验证失败', errorDetails);

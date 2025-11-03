@@ -230,7 +230,7 @@ export const getTaskStatus = (task: any): string => {
 
 // 优先级排序工具函数
 export const sortByPriority = (tasks: any[]): any[] => {
-  const priorityOrder = { '金': 1, '银': 2, '铜': 3, '石': 4 };
+  const priorityOrder: Record<string, number> = { '金': 1, '银': 2, '铜': 3, '石': 4 };
   return tasks.sort((a, b) => {
     const priorityA = priorityOrder[a.priority] || 999;
     const priorityB = priorityOrder[b.priority] || 999;

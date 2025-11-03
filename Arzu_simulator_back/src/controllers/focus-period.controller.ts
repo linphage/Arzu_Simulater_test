@@ -2,11 +2,14 @@ import { Request, Response } from 'express';
 import { FocusPeriodRepository } from '../repositories/focus-period.repository';
 import { FocusAnalysisService } from '../services/focus-analysis.service';
 import { logger } from '../config/logger';
+import { getErrorMessage } from '../utils/error-handler';
 
 interface AuthRequest extends Request {
   user?: {
     id: number;
     username: string;
+    mail: string;
+    email: string;
   };
 }
 
@@ -59,10 +62,10 @@ export class FocusPeriodController {
     } catch (error: any) {
       logger.error('开始细分时间段失败', { 
         sessionId: req.params.sessionId,
-        error: error.message,
+        error: getErrorMessage(error),
         stack: error.stack
       });
-      res.status(500).json({ message: '开始细分时间段失败', error: error.message });
+      res.status(500).json({ message: '开始细分时间段失败', error: getErrorMessage(error) });
     }
   };
 
@@ -102,7 +105,7 @@ export class FocusPeriodController {
     } catch (error: any) {
       logger.error('结束细分时间段失败', { 
         periodId: req.params.periodId,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       res.status(500).json({ message: '结束细分时间段失败' });
     }
@@ -135,7 +138,7 @@ export class FocusPeriodController {
     } catch (error: any) {
       logger.error('查询会话细分时间段失败', { 
         sessionId: req.params.sessionId,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       res.status(500).json({ message: '查询细分时间段失败' });
     }
@@ -167,7 +170,7 @@ export class FocusPeriodController {
     } catch (error: any) {
       logger.error('查询活跃细分时间段失败', { 
         sessionId: req.params.sessionId,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       res.status(500).json({ message: '查询活跃细分时间段失败' });
     }
@@ -199,7 +202,7 @@ export class FocusPeriodController {
     } catch (error: any) {
       logger.error('查询会话细分时间段统计失败', { 
         sessionId: req.params.sessionId,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       res.status(500).json({ message: '查询细分时间段统计失败' });
     }
@@ -234,12 +237,12 @@ export class FocusPeriodController {
     } catch (error: any) {
       logger.error('获取专注度统计数据失败', { 
         userId: (req as any).user?.id,
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       res.status(500).json({ 
         success: false,
         message: '获取专注度统计数据失败',
-        error: error.message 
+        error: getErrorMessage(error) 
       });
     }
   };

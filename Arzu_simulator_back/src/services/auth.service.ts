@@ -4,8 +4,9 @@ import crypto from 'crypto';
 import { UserRepository, CreateUserData } from '../repositories/user.repository';
 import { authConfig } from '../config';
 import { logger } from '../config/logger';
-import { ApiError, AuthenticationError, ConflictError, ValidationError } from '../utils/error.utils';
+import { ApiError, AuthenticationError, ConflictError, ValidationError, isErrorWithName } from '../utils/error.utils';
 import { runQuery } from '../database/connection';
+import { getErrorMessage } from '../utils/error-handler';
 
 export interface AuthTokens {
   accessToken: string;
@@ -66,7 +67,7 @@ export class AuthService {
       return { userId, username, mail };
 
     } catch (error) {
-      logger.error('用户注册失败', { username, mail, error: error.message });
+      logger.error('用户注册失败', { username, mail, error: getErrorMessage(error) });
       throw error;
     }
   }
@@ -117,7 +118,7 @@ export class AuthService {
       };
 
     } catch (error) {
-      logger.error('用户登录失败', { username, clientIp, error: error.message });
+      logger.error('用户登录失败', { username, clientIp, error: getErrorMessage(error) });
       throw error;
     }
   }
@@ -152,14 +153,14 @@ export class AuthService {
 
       const token = jwt.sign(payload, authConfig.jwtSecret, {
         expiresIn: authConfig.jwtExpiresIn
-      });
+      } as any);
 
       logger.info('邮箱登录成功', { userId: user.user_id, mail });
 
       return { token };
 
     } catch (error) {
-      logger.error('邮箱登录失败', { mail, error: error.message });
+      logger.error('邮箱登录失败', { mail, error: getErrorMessage(error) });
       throw error;
     }
   }
@@ -200,11 +201,11 @@ export class AuthService {
       return tokens;
 
     } catch (error) {
-      logger.error('刷新访问令牌失败', { error: error.message });
-      if (error.name === 'TokenExpiredError') {
+      logger.error('刷新访问令牌失败', { error: getErrorMessage(error) });
+      if (isErrorWithName(error) && error.name === 'TokenExpiredError') {
         throw new AuthenticationError('刷新令牌已过期');
       }
-      if (error.name === 'JsonWebTokenError') {
+      if (isErrorWithName(error) && error.name === 'JsonWebTokenError') {
         throw new AuthenticationError('无效的刷新令牌');
       }
       throw error;
@@ -229,7 +230,7 @@ export class AuthService {
       logger.info('用户登出成功', { userId });
 
     } catch (error) {
-      logger.error('用户登出失败', { userId, error: error.message });
+      logger.error('用户登出失败', { userId, error: getErrorMessage(error) });
       throw error;
     }
   }
@@ -237,7 +238,7 @@ export class AuthService {
   /**
    * 验证访问令牌
    */
-  async validateAccessToken(token: string): Promise<{ userId: number; username: string; email: string }> {
+  async validateAccessToken(token: string): Promise<{ userId: number; username: string; mail: string; email: string }> {
     try {
       const decoded = jwt.verify(token, authConfig.jwtSecret) as any;
       
@@ -250,14 +251,15 @@ export class AuthService {
       return {
         userId: user.id,
         username: user.username,
+        mail: user.mail,
         email: user.email
       };
 
     } catch (error) {
-      if (error.name === 'TokenExpiredError') {
+      if (isErrorWithName(error) && error.name === 'TokenExpiredError') {
         throw new AuthenticationError('访问令牌已过期');
       }
-      if (error.name === 'JsonWebTokenError') {
+      if (isErrorWithName(error) && error.name === 'JsonWebTokenError') {
         throw new AuthenticationError('无效的访问令牌');
       }
       throw error;
@@ -358,11 +360,11 @@ export class AuthService {
 
     const accessToken = jwt.sign(payload, authConfig.jwtSecret, {
       expiresIn: authConfig.jwtExpiresIn
-    });
+    } as any);
 
     const refreshToken = jwt.sign(payload, authConfig.jwtRefreshSecret, {
       expiresIn: authConfig.jwtRefreshExpiresIn
-    });
+    } as any);
 
     return { accessToken, refreshToken };
   }
@@ -440,7 +442,7 @@ export class AuthService {
 
       return result.changes;
     } catch (error) {
-      logger.error('清理过期刷新令牌失败', { error: error.message });
+      logger.error('清理过期刷新令牌失败', { error: getErrorMessage(error) });
       return 0;
     }
   }
@@ -494,7 +496,7 @@ export class AuthService {
         daysSinceRegistration
       };
     } catch (error) {
-      logger.error('获取用户资料失败', { userId, error: error.message });
+      logger.error('获取用户资料失败', { userId, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('获取用户资料失败', 500);
     }
   }

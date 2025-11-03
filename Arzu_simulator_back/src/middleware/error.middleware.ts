@@ -80,7 +80,7 @@ export const errorHandler = (
 
   // 处理Zod验证错误
   if (err instanceof ZodError) {
-    const errors = err.errors.map(error => ({
+    const errors = err.issues.map((error: any) => ({
       field: error.path.join('.'),
       message: error.message,
       code: error.code

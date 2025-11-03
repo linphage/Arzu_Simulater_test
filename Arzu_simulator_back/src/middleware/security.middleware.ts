@@ -147,7 +147,7 @@ export const ipWhitelist = (allowedIPs: string[]) => {
   return (req: Request, res: Response, next: NextFunction): void => {
     const clientIP = req.ip || req.connection.remoteAddress;
     
-    if (!allowedIPs.includes(clientIP)) {
+    if (!clientIP || !allowedIPs.includes(clientIP)) {
       logger.warn('IP not in whitelist', {
         clientIP,
         allowedIPs,

@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node -e \"const sqlite3 = require(''sqlite3'').verbose(); const db = new sqlite3.Database(''./database_new_2025-09-25T08-54-04-778Z.db''); db.all(''SELECT name FROM sqlite_master WHERE type=\"\"table\"\"'', (err, rows) => { if(err) console.error(err); else console.log(JSON.stringify(rows, null, 2)); db.close(); });\")"
+      "Bash(tree:*)",
+      "Bash(dir:*)",
+      "Bash(cat:*)",
+      "Bash(git rm:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

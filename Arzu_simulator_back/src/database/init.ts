@@ -2,6 +2,7 @@ import { logger } from '../config/logger';
 import { runQuery, getDatabase, getQuery } from './connection';
 import fs from 'fs';
 import path from 'path';
+import { getErrorMessage } from '../utils/error-handler';
 
 // 读取SQL文件并执行
 const executeSqlFile = async (filePath: string): Promise<void> => {
@@ -26,7 +27,7 @@ const executeSqlFile = async (filePath: string): Promise<void> => {
     });
     
   } catch (error) {
-    logger.error(`SQL文件执行失败: ${path.basename(filePath)}`, { error: error.message });
+    logger.error(`SQL文件执行失败: ${path.basename(filePath)}`, { error: getErrorMessage(error) });
     throw error;
   }
 };
@@ -49,7 +50,7 @@ export const initDb = async (): Promise<void> => {
     
     logger.info('数据库初始化检查完成');
   } catch (error) {
-    logger.error('数据库初始化检查失败', { error: error.message });
+    logger.error('数据库初始化检查失败', { error: getErrorMessage(error) });
     // 不抛出错误，让应用继续运行
   }
 };
@@ -63,7 +64,7 @@ export const checkDbInitialized = async (): Promise<boolean> => {
       WHERE name IN ('user_id', 'username', 'mail', 'password_hash')
     `);
     
-    const usersFieldsCorrect = usersFieldsResult && usersFieldsResult.count === 4;
+    const usersFieldsCorrect = usersFieldsResult?.count === 4;
     
     // 检查tasks表是否存在
     const tasksTableResult = await getQuery<{ count: number }>(`
@@ -71,7 +72,7 @@ export const checkDbInitialized = async (): Promise<boolean> => {
       WHERE type='table' AND name='tasks'
     `);
     
-    const tasksTableExists = tasksTableResult && tasksTableResult.count === 1;
+    const tasksTableExists = tasksTableResult?.count === 1;
     
     // 数据库已初始化：users字段正确且tasks表存在
     const initialized = usersFieldsCorrect && tasksTableExists;
@@ -79,10 +80,9 @@ export const checkDbInitialized = async (): Promise<boolean> => {
     if (initialized) {
       logger.info('数据库已正确初始化');
     }
-    
     return initialized;
   } catch (error) {
-    logger.error('检查数据库状态时出错', { error: error.message });
+    logger.error('检查数据库状态时出错', { error: getErrorMessage(error) });
     return false;
   }
 };
@@ -103,7 +103,7 @@ export const resetDb = async (): Promise<void> => {
     `);
     
     // 删除所有表
-    for (const table of tables as any[]) {
+    for (const table of (tables as unknown as { name: string }[])) {
       await runQuery(`DROP TABLE IF EXISTS ${table.name}`);
     }
     
@@ -112,7 +112,7 @@ export const resetDb = async (): Promise<void> => {
     
     logger.info('数据库重置完成');
   } catch (error) {
-    logger.error('数据库重置失败', { error: error.message });
+    logger.error('数据库重置失败', { error: getErrorMessage(error) });
     throw error;
   }
 };

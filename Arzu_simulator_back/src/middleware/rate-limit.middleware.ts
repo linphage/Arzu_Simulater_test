@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { securityConfig } from '../config';
 import { logger } from '../config/logger';
 import { ApiError } from '../utils/error.utils';
+import { getErrorMessage } from '../utils/error-handler';
 
 // 内存存储的速率限制器（在生产环境中应使用Redis等持久化存储）
 interface RateLimitStore {
@@ -41,7 +42,7 @@ export const rateLimiter = (
       }
 
       // 构建速率限制键（结合IP地址和用户标识）
-      const userKey = req.user ? `user:${req.user.id}` : `ip:${req.ip}`;
+      const userKey = (req as any).user ? `user:${(req as any).user.id}` : `ip:${req.ip}`;
       const key = `${keyPrefix}:${userKey}`;
       const now = new Date();
 
@@ -107,7 +108,7 @@ export const rateLimiter = (
       logger.error('速率限制中间件错误', { 
         keyPrefix, 
         ip: req.ip, 
-        error: error.message 
+        error: getErrorMessage(error) 
       });
       
       // 如果速率限制出错，允许请求继续（fail-open）

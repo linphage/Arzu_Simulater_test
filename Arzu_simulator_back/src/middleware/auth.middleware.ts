@@ -5,6 +5,7 @@ import { logger } from '../config/logger';
 import { AuthenticationError } from '../utils/error.utils';
 import { AuthService } from '../services/auth.service';
 import { AuthRequest } from '../controllers/auth.controller';
+import { getErrorMessage } from '../utils/error-handler';
 
 /**
  * 认证中间件 - 验证JWT令牌
@@ -59,6 +60,7 @@ export const authenticateToken = async (
     req.user = {
       id: user.userId,
       username: user.username,
+      mail: user.mail,
       email: user.email
     };
 
@@ -74,7 +76,7 @@ export const authenticateToken = async (
     logger.error('认证中间件错误', { 
       ip: req.ip, 
       path: req.path, 
-      error: error.message 
+      error: getErrorMessage(error) 
     });
     
     if (error instanceof AuthenticationError) {
@@ -116,6 +118,7 @@ export const optionalAuthenticate = async (
     req.user = {
       id: user.userId,
       username: user.username,
+      mail: user.mail,
       email: user.email
     };
     
@@ -124,7 +127,7 @@ export const optionalAuthenticate = async (
     logger.debug('可选认证失败', { 
       ip: req.ip, 
       path: req.path, 
-      error: error.message 
+      error: getErrorMessage(error) 
     });
   }
   
@@ -207,7 +210,7 @@ export const validateRefreshToken = async (
   } catch (error) {
     logger.warn('刷新令牌验证失败', { 
       ip: req.ip, 
-      error: error.message 
+      error: getErrorMessage(error) 
     });
     
     res.status(400).json({

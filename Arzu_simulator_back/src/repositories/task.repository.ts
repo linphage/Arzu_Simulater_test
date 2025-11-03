@@ -434,7 +434,7 @@ export class TaskRepository {
         [userId]
       );
 
-      const completionRate = completionResult?.total > 0 
+      const completionRate = completionResult && completionResult.total > 0 
         ? Math.round((completionResult.completed / completionResult.total) * 100)
         : 0;
 
@@ -663,7 +663,7 @@ export class TaskRepository {
    */
   async findDeleted(userId: number, options: TaskQueryParams = {}): Promise<{ tasks: Task[]; total: number }> {
     try {
-      const { page = 1, limit = 10, sort = 'deleted_at', order = 'DESC' } = options;
+      const { page = 1, limit = 10, sortBy = 'createdAt', sortOrder = 'DESC' } = options;
       const offset = (page - 1) * limit;
 
       // 获取总数
@@ -678,7 +678,7 @@ export class TaskRepository {
       const tasks = await allQuery<Task>(
         `SELECT * FROM tasks 
          WHERE user_id = ? AND deleted_at IS NOT NULL 
-         ORDER BY ${sort} ${order}
+         ORDER BY ${sortBy || 'deleted_at'} ${sortOrder || 'DESC'}
          LIMIT ? OFFSET ?`,
         [userId, limit, offset]
       );

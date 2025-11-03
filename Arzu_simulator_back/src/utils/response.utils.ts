@@ -96,10 +96,11 @@ export class ResponseBuilder<T = any> {
  * 快速创建成功响应
  */
 export const successResponse = <T>(message: string, data?: T, pagination?: PaginationInfo) => {
-  return new ResponseBuilder<T>(true, message)
-    .setData(data)
-    .setPagination(pagination!)
-    .build();
+  const builder = new ResponseBuilder<T>(true, message).setData(data as T);
+  if (pagination) {
+    builder.setPagination(pagination);
+  }
+  return builder.build();
 };
 
 /**

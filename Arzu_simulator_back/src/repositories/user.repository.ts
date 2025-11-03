@@ -6,6 +6,7 @@ export interface User {
   id: number;
   username: string;
   mail: string;
+  email: string;
   password_hash: string;
   created_at: string;
   api_ds: string | null;
@@ -13,6 +14,8 @@ export interface User {
   worktime_count: number;
   last_reward_trigger_time: number;
   reward_count: number;
+  is_active: boolean;
+  failed_login_attempts: number;
 }
 
 export interface CreateUserData {
@@ -62,7 +65,7 @@ export class UserRepository {
    */
   async findById(id: number): Promise<User | undefined> {
     const user = await getQuery<User>(
-      'SELECT user_id, user_id as id, username, mail, password_hash, created_at, api_ds, work_count, worktime_count, last_reward_trigger_time, reward_count, is_active, failed_login_attempts, locked_until, last_login_at FROM users WHERE user_id = ?',
+      'SELECT user_id, user_id as id, username, mail, mail as email, password_hash, created_at, api_ds, work_count, worktime_count, last_reward_trigger_time, reward_count, COALESCE(is_active, 1) as is_active, COALESCE(failed_login_attempts, 0) as failed_login_attempts, locked_until, last_login_at FROM users WHERE user_id = ?',
       [id]
     );
     
@@ -80,7 +83,7 @@ export class UserRepository {
    */
   async findByUsername(username: string): Promise<User | undefined> {
     const user = await getQuery<User>(
-      'SELECT user_id, user_id as id, username, mail, password_hash, created_at, api_ds, work_count, worktime_count, last_reward_trigger_time, reward_count, is_active, failed_login_attempts, locked_until, last_login_at FROM users WHERE username = ?',
+      'SELECT user_id, user_id as id, username, mail, mail as email, password_hash, created_at, api_ds, work_count, worktime_count, last_reward_trigger_time, reward_count, COALESCE(is_active, 1) as is_active, COALESCE(failed_login_attempts, 0) as failed_login_attempts, locked_until, last_login_at FROM users WHERE username = ?',
       [username]
     );
     
@@ -98,7 +101,7 @@ export class UserRepository {
    */
   async findByEmail(email: string): Promise<User | undefined> {
     const user = await getQuery<User>(
-      'SELECT user_id, user_id as id, username, mail, password_hash, created_at, api_ds, work_count, worktime_count, last_reward_trigger_time, reward_count, is_active, failed_login_attempts, locked_until, last_login_at FROM users WHERE mail = ?',
+      'SELECT user_id, user_id as id, username, mail, mail as email, password_hash, created_at, api_ds, work_count, worktime_count, last_reward_trigger_time, reward_count, COALESCE(is_active, 1) as is_active, COALESCE(failed_login_attempts, 0) as failed_login_attempts, locked_until, last_login_at FROM users WHERE mail = ?',
       [email]
     );
     

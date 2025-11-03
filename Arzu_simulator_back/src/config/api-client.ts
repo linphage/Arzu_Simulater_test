@@ -3,7 +3,8 @@
  * 为前端应用提供完整的API调用封装
  */
 
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
+import axios from 'axios';
+import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { 
   apiConfig, 
   AUTH_CONSTANTS, 
@@ -15,9 +16,16 @@ import {
 } from './frontend.config';
 
 // 请求配置接口
-interface RequestConfig extends AxiosRequestConfig {
+interface RequestConfig {
+  url?: string;
   retry?: boolean;
   showError?: boolean;
+  method?: string;
+  params?: any;
+  headers?: any;
+  data?: any;
+  timeout?: number;
+  _retry?: boolean;
 }
 
 // API响应接口
@@ -53,7 +61,7 @@ class ApiClient {
   private setupInterceptors(): void {
     // 请求拦截器
     this.client.interceptors.request.use(
-      (config) => {
+      (config: any) => {
         // 添加认证令牌
         const token = this.getAccessToken();
         if (token) {
@@ -65,7 +73,7 @@ class ApiClient {
 
         return config;
       },
-      (error) => Promise.reject(error)
+      (error: any) => Promise.reject(error)
     );
 
     // 响应拦截器
@@ -258,7 +266,7 @@ class ApiClient {
     login: async (credentials: { username: string; password: string }) => {
       const response = await this.request('POST', API_ENDPOINTS.AUTH.LOGIN, credentials);
       if (response.success && response.data) {
-        this.setAuthData(response.data.accessToken, response.data.refreshToken);
+        this.setAuthData((response.data as any).accessToken, (response.data as any).refreshToken);
       }
       return response;
     },
@@ -266,7 +274,7 @@ class ApiClient {
     refreshToken: async (refreshToken: string) => {
       const response = await this.request('POST', API_ENDPOINTS.AUTH.REFRESH, { refreshToken });
       if (response.success && response.data) {
-        this.setAuthData(response.data.accessToken, response.data.refreshToken);
+        this.setAuthData((response.data as any).accessToken, (response.data as any).refreshToken);
       }
       return response;
     },

@@ -100,7 +100,7 @@ export const taskFilterValidation = [
     .isISO8601()
     .withMessage('结束日期必须是有效的ISO 8601格式')
     .custom((value: string, { req }) => {
-      if (req.query.dueDateFrom && new Date(value) < new Date(req.query.dueDateFrom)) {
+      if (req.query?.dueDateFrom && new Date(value) < new Date(req.query.dueDateFrom as string)) {
         throw new Error('结束日期不能早于开始日期');
       }
       return true;
@@ -194,7 +194,7 @@ export const taskStatsValidation = [
     .isISO8601()
     .withMessage('结束日期必须是有效的ISO 8601格式')
     .custom((value: string, { req }) => {
-      if (req.query.dateFrom && new Date(value) < new Date(req.query.dateFrom)) {
+      if (req.query?.dateFrom && new Date(value) < new Date(req.query.dateFrom as string)) {
         throw new Error('结束日期不能早于开始日期');
       }
       return true;
@@ -226,10 +226,10 @@ export const validateTaskRequest = (req: Request, res: Response, next: NextFunct
   const errors = validationResult(req);
   
   if (!errors.isEmpty()) {
-    const errorDetails = errors.array().map(error => ({
+    const errorDetails = errors.array().map((error: any) => ({
       field: error.type === 'field' ? error.path : error.type,
       message: error.msg,
-      value: error.value
+      value: error.value || ''
     }));
     
     throw new ValidationError('输入验证失败', errorDetails);

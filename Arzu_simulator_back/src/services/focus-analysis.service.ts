@@ -2,6 +2,7 @@ import { FocusPeriodRepository } from '../repositories/focus-period.repository';
 import { PomodoroRepository } from '../repositories/pomodoro.repository';
 import { logger } from '../config/logger';
 import { ApiError } from '../utils/error.utils';
+import { getErrorMessage } from '../utils/error-handler';
 
 export class FocusAnalysisService {
   private focusPeriodRepository: FocusPeriodRepository;
@@ -102,7 +103,7 @@ export class FocusAnalysisService {
       });
 
       const totalFocusTime = focusPeriods.reduce((sum, fp) => sum + (fp.duration_min || 0), 0);
-      const totalInterruptions = focusPeriods.filter(fp => fp.is_interrupted === true || fp.is_interrupted === 1).length;
+      const totalInterruptions = focusPeriods.filter(fp => Boolean(fp.is_interrupted)).length;
       const totalPlannedTime = pomodoroSessions.reduce((sum, ps) => sum + ((ps as any).duration_minutes || 0), 0);
 
       logger.info('📊 [专注度统计] 数据汇总', {
@@ -163,7 +164,7 @@ export class FocusAnalysisService {
         });
 
         const dayFocusTime = dayFocusPeriods.reduce((sum, fp) => sum + (fp.duration_min || 0), 0);
-        const dayInterruptions = dayFocusPeriods.filter(fp => fp.is_interrupted === true || fp.is_interrupted === 1).length;
+        const dayInterruptions = dayFocusPeriods.filter(fp => Boolean(fp.is_interrupted)).length;
         const dayPlannedTime = dayPomodoroSessions.reduce((sum, ps) => sum + ((ps as any).duration_minutes || 0), 0);
         const dayFocusIndex = dayPlannedTime > 0 
           ? Math.min(100, Math.round((dayFocusTime / dayPlannedTime) * 100))
@@ -211,7 +212,7 @@ export class FocusAnalysisService {
       logger.info('专注度统计数据获取成功', { userId, timeframe, keyMetrics: result.keyMetrics });
       return result;
     } catch (error) {
-      logger.error('获取专注度统计数据失败', { userId, timeframe, error: error.message });
+      logger.error('获取专注度统计数据失败', { userId, timeframe, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('获取专注度统计数据失败', 500);
     }
   }
