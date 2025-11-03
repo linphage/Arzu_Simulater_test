@@ -1,56 +1,33 @@
+import { Pool, PoolClient, QueryResult } from 'pg';
 import sqlite3 from 'sqlite3';
 import { databaseConfig } from '../config';
 import { logger } from '../config/logger';
 import path from 'path';
 import fs from 'fs';
 
-// 确保日志目录存在
 const logsDir = path.join(process.cwd(), 'logs');
 if (!fs.existsSync(logsDir)) {
   fs.mkdirSync(logsDir, { recursive: true });
 }
 
-// 数据库连接实例
-let db: sqlite3.Database | null = null;
+const DB_TYPE = process.env.DATABASE_URL ? 'postgres' : 'sqlite';
 
-// 创建数据库连接
-export const createDatabaseConnection = (): Promise<sqlite3.Database> => {
+let sqliteDb: sqlite3.Database | null = null;
+let pgPool: Pool | null = null;
+
+const createSqliteConnection = (): Promise<sqlite3.Database> => {
   return new Promise((resolve, reject) => {
     const database = new sqlite3.Database(databaseConfig.path, (err) => {
       if (err) {
-        logger.error('数据库连接失败', { error: err.message });
+        logger.error('SQLite连接失败', { error: err.message });
         reject(err);
       } else {
-        logger.info('数据库连接成功', { path: databaseConfig.path });
+        logger.info('SQLite连接成功', { path: databaseConfig.path });
         
-        // 配置数据库
         database.serialize(() => {
-          // 设置繁忙超时（5秒）
-          database.run('PRAGMA busy_timeout = 5000', (err) => {
-            if (err) {
-              logger.error('设置繁忙超时失败', { error: err.message });
-            } else {
-              logger.debug('繁忙超时已设置为 5000ms');
-            }
-          });
-
-          // 启用 WAL 模式（提高并发性能）
-          database.run('PRAGMA journal_mode = WAL', (err) => {
-            if (err) {
-              logger.error('启用 WAL 模式失败', { error: err.message });
-            } else {
-              logger.debug('WAL 模式已启用');
-            }
-          });
-          
-          // 启用外键约束
-          database.run('PRAGMA foreign_keys = ON', (err) => {
-            if (err) {
-              logger.error('启用外键约束失败', { error: err.message });
-            } else {
-              logger.info('外键约束已启用');
-            }
-          });
+          database.run('PRAGMA busy_timeout = 5000');
+          database.run('PRAGMA journal_mode = WAL');
+          database.run('PRAGMA foreign_keys = ON');
         });
         
         resolve(database);
@@ -59,128 +36,180 @@ export const createDatabaseConnection = (): Promise<sqlite3.Database> => {
   });
 };
 
-// 获取数据库连接
-export const getDatabase = async (): Promise<sqlite3.Database> => {
-  if (!db) {
-    db = await createDatabaseConnection();
-  }
-  return db;
-};
-
-// 关闭数据库连接
-export const closeDatabase = (): Promise<void> => {
-  return new Promise((resolve, reject) => {
-    if (!db) {
-      resolve();
-      return;
-    }
-    
-    db.close((err) => {
-      if (err) {
-        logger.error('关闭数据库连接失败', { error: err.message });
-        reject(err);
-      } else {
-        logger.info('数据库连接已关闭');
-        db = null;
-        resolve();
-      }
-    });
+const createPostgresPool = (): Pool => {
+  const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+    max: 20,
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 10000,
   });
+
+  pool.on('connect', () => {
+    logger.info('PostgreSQL连接成功');
+  });
+
+  pool.on('error', (err) => {
+    logger.error('PostgreSQL连接错误', { error: err.message });
+  });
+
+  return pool;
 };
 
-// 执行SQL查询的Promise包装器
-export const runQuery = (sql: string, params: any[] = []): Promise<sqlite3.RunResult> => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const database = await getDatabase();
-      database.run(sql, params, function(err) {
+export const getDatabase = async (): Promise<sqlite3.Database | Pool> => {
+  if (DB_TYPE === 'postgres') {
+    if (!pgPool) {
+      pgPool = createPostgresPool();
+    }
+    return pgPool;
+  } else {
+    if (!sqliteDb) {
+      sqliteDb = await createSqliteConnection();
+    }
+    return sqliteDb;
+  }
+};
+
+export const closeDatabase = async (): Promise<void> => {
+  if (DB_TYPE === 'postgres' && pgPool) {
+    await pgPool.end();
+    pgPool = null;
+    logger.info('PostgreSQL连接池已关闭');
+  } else if (sqliteDb) {
+    return new Promise((resolve, reject) => {
+      sqliteDb!.close((err) => {
+        if (err) {
+          logger.error('SQLite关闭失败', { error: err.message });
+          reject(err);
+        } else {
+          logger.info('SQLite连接已关闭');
+          sqliteDb = null;
+          resolve();
+        }
+      });
+    });
+  }
+};
+
+export const runQuery = async (sql: string, params: any[] = []): Promise<any> => {
+  const db = await getDatabase();
+  
+  if (DB_TYPE === 'postgres') {
+    const pgSql = sql.replace(/\?/g, (_, i) => `$${params.indexOf(_) + 1}`);
+    let paramIndex = 1;
+    const convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
+    
+    const result = await (db as Pool).query(convertedSql, params);
+    return { lastID: result.rows[0]?.id, changes: result.rowCount };
+  } else {
+    return new Promise((resolve, reject) => {
+      (db as sqlite3.Database).run(sql, params, function(err) {
         if (err) {
           logger.error('SQL执行失败', { sql, params, error: err.message });
           reject(err);
         } else {
-          logger.debug('SQL执行成功', { sql, params, lastID: this.lastID, changes: this.changes });
-          resolve(this);
+          resolve({ lastID: this.lastID, changes: this.changes });
         }
       });
-    } catch (error) {
-      reject(error);
-    }
-  });
+    });
+  }
 };
 
-// 执行SQL查询并获取单行结果
-export const getQuery = <T>(sql: string, params: any[] = []): Promise<T | undefined> => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const database = await getDatabase();
-      database.get(sql, params, (err, row) => {
+export const getQuery = async <T>(sql: string, params: any[] = []): Promise<T | undefined> => {
+  const db = await getDatabase();
+  
+  if (DB_TYPE === 'postgres') {
+    let paramIndex = 1;
+    const convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
+    const result = await (db as Pool).query(convertedSql, params);
+    return result.rows[0] as T;
+  } else {
+    return new Promise((resolve, reject) => {
+      (db as sqlite3.Database).get(sql, params, (err, row) => {
         if (err) {
           logger.error('SQL查询失败', { sql, params, error: err.message });
           reject(err);
         } else {
-          logger.debug('SQL查询成功', { sql, params, rowCount: row ? 1 : 0 });
           resolve(row as T);
         }
       });
-    } catch (error) {
-      reject(error);
-    }
-  });
+    });
+  }
 };
 
-// 执行SQL查询并获取多行结果
-export const allQuery = <T>(sql: string, params: any[] = []): Promise<T[]> => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const database = await getDatabase();
-      database.all(sql, params, (err, rows) => {
+export const allQuery = async <T>(sql: string, params: any[] = []): Promise<T[]> => {
+  const db = await getDatabase();
+  
+  if (DB_TYPE === 'postgres') {
+    let paramIndex = 1;
+    const convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
+    const result = await (db as Pool).query(convertedSql, params);
+    return result.rows as T[];
+  } else {
+    return new Promise((resolve, reject) => {
+      (db as sqlite3.Database).all(sql, params, (err, rows) => {
         if (err) {
           logger.error('SQL查询失败', { sql, params, error: err.message });
           reject(err);
         } else {
-          logger.debug('SQL查询成功', { sql, params, rowCount: rows.length });
           resolve(rows as T[]);
         }
       });
-    } catch (error) {
-      reject(error);
-    }
-  });
+    });
+  }
 };
 
-// 执行事务
-export const executeTransaction = async (callback: (db: sqlite3.Database) => Promise<void>): Promise<void> => {
-  const database = await getDatabase();
+export const executeTransaction = async (callback: (client: any) => Promise<void>): Promise<void> => {
+  const db = await getDatabase();
   
-  return new Promise((resolve, reject) => {
-    database.serialize(() => {
-      database.run('BEGIN TRANSACTION', (err) => {
-        if (err) {
-          logger.error('开始事务失败', { error: err.message });
-          reject(err);
-          return;
-        }
-        
-        callback(database)
-          .then(() => {
-            database.run('COMMIT', (err) => {
-              if (err) {
-                logger.error('提交事务失败', { error: err.message });
-                database.run('ROLLBACK');
-                reject(err);
-              } else {
-                logger.info('事务提交成功');
-                resolve();
-              }
+  if (DB_TYPE === 'postgres') {
+    const client = await (db as Pool).connect();
+    try {
+      await client.query('BEGIN');
+      await callback(client);
+      await client.query('COMMIT');
+      logger.info('PostgreSQL事务提交成功');
+    } catch (error) {
+      await client.query('ROLLBACK');
+      logger.error('PostgreSQL事务回滚', { error });
+      throw error;
+    } finally {
+      client.release();
+    }
+  } else {
+    const database = db as sqlite3.Database;
+    return new Promise((resolve, reject) => {
+      database.serialize(() => {
+        database.run('BEGIN TRANSACTION', (err) => {
+          if (err) {
+            logger.error('开始事务失败', { error: err.message });
+            reject(err);
+            return;
+          }
+          
+          callback(database)
+            .then(() => {
+              database.run('COMMIT', (err) => {
+                if (err) {
+                  logger.error('提交事务失败', { error: err.message });
+                  database.run('ROLLBACK');
+                  reject(err);
+                } else {
+                  logger.info('事务提交成功');
+                  resolve();
+                }
+              });
+            })
+            .catch((error) => {
+              logger.error('事务执行失败', { error: error.message });
+              database.run('ROLLBACK', () => {
+                reject(error);
+              });
             });
-          })
-          .catch((error) => {
-            logger.error('事务执行失败', { error: error.message });
-            database.run('ROLLBACK', () => {
-              reject(error);
-            });
-          });
+        });
       });
     });
-  });
+  }
 };
+
+export { DB_TYPE };

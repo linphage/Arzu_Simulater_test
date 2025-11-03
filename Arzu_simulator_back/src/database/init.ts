@@ -1,86 +1,99 @@
 import { logger } from '../config/logger';
-import { runQuery, getDatabase, getQuery } from './connection';
+import { runQuery, getDatabase, getQuery, DB_TYPE } from './connection';
+import { Pool } from 'pg';
+import sqlite3 from 'sqlite3';
 import fs from 'fs';
 import path from 'path';
 import { getErrorMessage } from '../utils/error-handler';
 
-// 读取SQL文件并执行
 const executeSqlFile = async (filePath: string): Promise<void> => {
   try {
     const sql = fs.readFileSync(filePath, 'utf8');
     const db = await getDatabase();
     
-    // 直接执行整个SQL文件
-    await new Promise<void>((resolve, reject) => {
-      db.exec(sql, function(err) {
-        if (err) {
-          logger.error('SQL文件执行失败', { 
-            file: path.basename(filePath), 
-            error: err.message 
-          });
-          reject(err);
-        } else {
-          logger.info(`SQL文件执行成功: ${path.basename(filePath)}`);
-          resolve();
-        }
+    if (DB_TYPE === 'postgres') {
+      const pool = db as Pool;
+      await pool.query(sql);
+      logger.info(`PostgreSQL文件执行成功: ${path.basename(filePath)}`);
+    } else {
+      await new Promise<void>((resolve, reject) => {
+        (db as sqlite3.Database).exec(sql, function(err) {
+          if (err) {
+            logger.error('SQLite文件执行失败', { 
+              file: path.basename(filePath), 
+              error: err.message 
+            });
+            reject(err);
+          } else {
+            logger.info(`SQLite文件执行成功: ${path.basename(filePath)}`);
+            resolve();
+          }
+        });
       });
-    });
-    
+    }
   } catch (error) {
     logger.error(`SQL文件执行失败: ${path.basename(filePath)}`, { error: getErrorMessage(error) });
     throw error;
   }
 };
 
-// 初始化数据库 - 适配loginplan.md规范
 export const initDb = async (): Promise<void> => {
   try {
-    logger.info('开始初始化数据库...');
+    logger.info(`开始初始化${DB_TYPE}数据库...`);
     
-    // 检查数据库是否已存在且结构正确
     const dbExists = await checkDbInitialized();
     if (dbExists) {
       logger.info('数据库已正确初始化，跳过迁移');
       return;
     }
     
-    // 如果数据库未初始化，提示用户手动运行迁移
-    logger.warn('数据库未初始化！请手动运行迁移脚本：node scripts/run-migration.js');
-    logger.warn('或确保数据库文件已包含所有必需的表结构');
+    if (DB_TYPE === 'postgres') {
+      logger.info('执行PostgreSQL初始化脚本...');
+      const sqlPath = path.join(__dirname, 'init-postgres.sql');
+      await executeSqlFile(sqlPath);
+      logger.info('PostgreSQL数据库初始化完成');
+    } else {
+      logger.warn('SQLite数据库未初始化！请手动运行迁移脚本：node scripts/run-migration.js');
+    }
     
     logger.info('数据库初始化检查完成');
   } catch (error) {
-    logger.error('数据库初始化检查失败', { error: getErrorMessage(error) });
-    // 不抛出错误，让应用继续运行
+    logger.error('数据库初始化失败', { error: getErrorMessage(error) });
   }
 };
 
-// 检查数据库是否需要初始化 - 检查loginplan.md规范的表结构
 export const checkDbInitialized = async (): Promise<boolean> => {
   try {
-    // 检查是否存在users表且包含loginplan.md规范的字段
-    const usersFieldsResult = await getQuery<{ count: number }>(`
-      SELECT COUNT(*) as count FROM pragma_table_info('users') 
-      WHERE name IN ('user_id', 'username', 'mail', 'password_hash')
-    `);
-    
-    const usersFieldsCorrect = usersFieldsResult?.count === 4;
-    
-    // 检查tasks表是否存在
-    const tasksTableResult = await getQuery<{ count: number }>(`
-      SELECT COUNT(*) as count FROM sqlite_master 
-      WHERE type='table' AND name='tasks'
-    `);
-    
-    const tasksTableExists = tasksTableResult?.count === 1;
-    
-    // 数据库已初始化：users字段正确且tasks表存在
-    const initialized = usersFieldsCorrect && tasksTableExists;
-    
-    if (initialized) {
-      logger.info('数据库已正确初始化');
+    if (DB_TYPE === 'postgres') {
+      const result = await getQuery<{ exists: boolean }>(`
+        SELECT EXISTS (
+          SELECT FROM information_schema.tables 
+          WHERE table_schema = 'public' 
+          AND table_name = 'users'
+        ) as exists
+      `);
+      return result?.exists || false;
+    } else {
+      const usersFieldsResult = await getQuery<{ count: number }>(`
+        SELECT COUNT(*) as count FROM pragma_table_info('users') 
+        WHERE name IN ('user_id', 'username', 'mail', 'password_hash')
+      `);
+      
+      const usersFieldsCorrect = usersFieldsResult?.count === 4;
+      
+      const tasksTableResult = await getQuery<{ count: number }>(`
+        SELECT COUNT(*) as count FROM sqlite_master 
+        WHERE type='table' AND name='tasks'
+      `);
+      
+      const tasksTableExists = tasksTableResult?.count === 1;
+      const initialized = usersFieldsCorrect && tasksTableExists;
+      
+      if (initialized) {
+        logger.info('SQLite数据库已正确初始化');
+      }
+      return initialized;
     }
-    return initialized;
   } catch (error) {
     logger.error('检查数据库状态时出错', { error: getErrorMessage(error) });
     return false;
