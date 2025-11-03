@@ -108,7 +108,6 @@ export function RegisterScreen({ onBackToLogin, onRegisterSuccess }: RegisterScr
         data-name="注册页背景"
         style={{
           width: '100vw',
-          height: '100vh',
           height: '100dvh',
           left: '50%',
           transform: 'translateX(-50%)'
@@ -120,9 +119,7 @@ export function RegisterScreen({ onBackToLogin, onRegisterSuccess }: RegisterScr
         className="responsive-container relative overflow-hidden flex flex-col items-center justify-center" 
         data-name="注册页面"
         style={{
-          height: '100vh',
           height: '100dvh',
-          minHeight: '100vh',
           minHeight: '100dvh',
           padding: '32px 20px',
           background: '#FFFFFF'

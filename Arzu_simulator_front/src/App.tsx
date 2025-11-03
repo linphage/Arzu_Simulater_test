@@ -767,7 +767,6 @@ export default function App() {
         data-name="全屏背景"
         style={{
           width: '100vw',
-          height: '100vh',
           height: '100dvh',
           left: '50%',
           transform: 'translateX(-50%)'
@@ -779,9 +778,7 @@ export default function App() {
         className="responsive-container bg-[#DAE8F1] relative overflow-hidden" 
         data-name="首页"
         style={{
-          height: '100vh',
           height: '100dvh',
-          minHeight: '100vh',
           minHeight: '100dvh'
         }}
       >
