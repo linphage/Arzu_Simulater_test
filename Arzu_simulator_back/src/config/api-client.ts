@@ -212,8 +212,9 @@ class ApiClient {
    * 重定向到登录页面
    */
   private redirectToLogin(): void {
-    // 在实际应用中，这里应该重定向到登录页面
-    window.location.href = '/login';
+    if (typeof window !== 'undefined') {
+      window.location.href = '/login';
+    }
   }
 
   /**
