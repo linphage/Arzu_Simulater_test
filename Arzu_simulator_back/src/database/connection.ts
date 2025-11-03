@@ -49,7 +49,7 @@ const createPostgresPool = (): Pool => {
     logger.info('PostgreSQL连接成功');
   });
 
-  pool.on('error', (err) => {
+  pool.on('error', (err: Error) => {
     logger.error('PostgreSQL连接错误', { error: err.message });
   });
 
