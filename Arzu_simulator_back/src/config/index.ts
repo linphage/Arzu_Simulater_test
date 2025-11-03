@@ -23,7 +23,7 @@ export const serverConfig = {
 
 // 数据库配置
 export const databaseConfig = {
-  path: process.env.DB_PATH || './database.db',
+  path: process.env.DB_PATH || path.join(process.cwd(), 'database.db'),
 };
 
 // 认证配置

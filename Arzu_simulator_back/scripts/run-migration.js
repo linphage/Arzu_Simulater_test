@@ -14,10 +14,12 @@ const dbPath = path.join(__dirname, '..', envDbPath);
 const args = process.argv.slice(2);
 const migrationFile = args[0] || 'migrate-database.sql';
 
-// 如果指定了迁移文件，从 migrations 目录中读取
+// 确定 SQL 文件路径
 let sqlPath;
-if (args[0]) {
-  sqlPath = path.join(__dirname, '../src/database/migrations', migrationFile);
+if (path.isAbsolute(migrationFile)) {
+  sqlPath = migrationFile;
+} else if (migrationFile.includes('/') || migrationFile.includes('\\')) {
+  sqlPath = path.join(__dirname, '..', migrationFile);
 } else {
   sqlPath = path.join(__dirname, migrationFile);
 }

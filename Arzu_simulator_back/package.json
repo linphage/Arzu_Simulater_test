@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "init-db": "node scripts/run-migration.js scripts/final-migration.sql",
     "cleanup": "node scripts/cleanup-active-sessions.js",
     "predev": "npm run cleanup",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "prestart": "npm run cleanup",
+    "prestart": "npm run init-db && npm run cleanup",
     "build": "tsc",
     "start": "node dist/server.js",
     "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles",
