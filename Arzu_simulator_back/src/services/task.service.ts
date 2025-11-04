@@ -710,6 +710,22 @@ export class TaskService {
         throw new ValidationError('番茄钟会话已结束');
       }
 
+      // 🔧 自动结束该会话的所有未结束的 focus periods
+      const focusPeriodRepo = new (require('../repositories/focus-period.repository').FocusPeriodRepository)();
+      const activePeriod = await focusPeriodRepo.getActivePeriod(sessionId);
+      if (activePeriod) {
+        const endTime = endData.completedAt || new Date().toISOString();
+        await focusPeriodRepo.endPeriod(activePeriod.period_id, {
+          end_time: endTime,
+          is_interrupted: !endData.completed // 如果会话未完成，标记为中断
+        });
+        logger.info('自动结束活跃的focus period', { 
+          sessionId, 
+          periodId: activePeriod.period_id,
+          isInterrupted: !endData.completed
+        });
+      }
+
       // 如果需要更新duration_minutes，计算实际累计时长
       let actualDuration: number | undefined;
       if (endData.updateDuration) {
