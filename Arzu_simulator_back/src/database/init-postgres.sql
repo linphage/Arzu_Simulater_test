@@ -65,7 +65,7 @@ CREATE INDEX IF NOT EXISTS idx_pomodoro_task ON pomodoro_sessions(task_id);
 
 -- 4. focus_periods 表
 CREATE TABLE IF NOT EXISTS focus_periods (
-  id SERIAL PRIMARY KEY,
+  period_id SERIAL PRIMARY KEY,
   session_id INTEGER NOT NULL,
   user_id INTEGER,
   task_id INTEGER,
@@ -85,13 +85,16 @@ CREATE INDEX IF NOT EXISTS idx_focus_user ON focus_periods(user_id);
 
 -- 5. task_brieflogs 表
 CREATE TABLE IF NOT EXISTS task_brieflogs (
-  task_brieflog_id SERIAL PRIMARY KEY,
-  user_id INTEGER NOT NULL,
+  debrief_id SERIAL PRIMARY KEY,
+  session_id INTEGER,
   task_id INTEGER,
-  content TEXT,
-  log_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-  FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE SET NULL
+  user_id INTEGER NOT NULL,
+  brief_type INTEGER NOT NULL,
+  brief_content TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (session_id) REFERENCES pomodoro_sessions(id) ON DELETE SET NULL,
+  FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
 -- 6. gift_card 表（公用奖励卡）
