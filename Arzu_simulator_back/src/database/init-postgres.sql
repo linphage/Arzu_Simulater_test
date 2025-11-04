@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS focus_periods (
   start_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   end_time TIMESTAMP,
   duration INTEGER,
-  duration_min INTEGER,
+  duration_min NUMERIC(10, 1),
   is_interrupted BOOLEAN DEFAULT false,
   completed BOOLEAN DEFAULT false,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
