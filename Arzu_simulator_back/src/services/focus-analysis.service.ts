@@ -68,18 +68,45 @@ export class FocusAnalysisService {
         timeframe,
         dateRange: { start: startStr, end: endStr },
         allFocusPeriodsCount: allFocusPeriods.length,
-        allPomodoroSessionsCount: allPomodoroSessions.sessions.length
+        allPomodoroSessionsCount: allPomodoroSessions.sessions.length,
+        sampleFocusPeriod: allFocusPeriods[0] ? {
+          period_id: (allFocusPeriods[0] as any).period_id,
+          created_at: allFocusPeriods[0].created_at,
+          duration_min: allFocusPeriods[0].duration_min,
+          start_time: (allFocusPeriods[0] as any).start_time,
+          end_time: (allFocusPeriods[0] as any).end_time
+        } : null
       });
 
       const focusPeriods = allFocusPeriods.filter(fp => {
-        if (!fp.created_at) return false;
-        if (!fp.duration_min || fp.duration_min > 300) return false;
+        if (!fp.created_at) {
+          logger.debug('📊 [专注度统计] Focus period 过滤: created_at 为空', { period_id: (fp as any).period_id });
+          return false;
+        }
+        if (!fp.duration_min || fp.duration_min > 300) {
+          logger.debug('📊 [专注度统计] Focus period 过滤: duration_min 无效', { 
+            period_id: (fp as any).period_id, 
+            duration_min: fp.duration_min 
+          });
+          return false;
+        }
         const createdAtStr = String(fp.created_at);
         const createdDateStr = createdAtStr.includes('T') 
           ? createdAtStr 
           : createdAtStr.replace(' ', 'T') + 'Z';
         const createdDate = new Date(createdDateStr);
-        return createdDate >= start && createdDate <= end;
+        const inRange = createdDate >= start && createdDate <= end;
+        
+        logger.debug('📊 [专注度统计] Focus period 时间检查', {
+          period_id: (fp as any).period_id,
+          created_at: createdAtStr,
+          createdDate: createdDate.toISOString(),
+          rangeStart: start.toISOString(),
+          rangeEnd: end.toISOString(),
+          inRange
+        });
+        
+        return inRange;
       });
 
       const pomodoroSessions = allPomodoroSessions.sessions.filter(ps => {

@@ -69,18 +69,31 @@ export class FocusPeriodRepository {
       // 计算时长（分钟，保留一位小数）
       // SQLite datetime 存储的是 UTC 时间，但格式为 "YYYY-MM-DD HH:MM:SS"（无时区标识）
       // 需要手动添加 'Z' 后缀，让 JavaScript 正确解析为 UTC
-      const startTimeUTC = period.start_time.includes('T') 
-        ? period.start_time 
-        : period.start_time.replace(' ', 'T') + 'Z';
+      // PostgreSQL 返回的可能是 Date 对象或 ISO 字符串
+      const startTimeStr = String(period.start_time);
+      const startTimeUTC = startTimeStr.includes('T') 
+        ? startTimeStr 
+        : startTimeStr.replace(' ', 'T') + 'Z';
       
-      const endTimeUTC = endTime.includes('T') 
-        ? endTime 
-        : endTime.replace(' ', 'T') + 'Z';
+      const endTimeStr = String(endTime);
+      const endTimeUTC = endTimeStr.includes('T') 
+        ? endTimeStr 
+        : endTimeStr.replace(' ', 'T') + 'Z';
       
       const startMs = new Date(startTimeUTC).getTime();
       const endMs = new Date(endTimeUTC).getTime();
       const diffMs = endMs - startMs;
       const durationMin = Math.round(diffMs / 60000 * 10) / 10;
+
+      logger.debug('计算细分时间段时长', {
+        periodId,
+        startTime: startTimeStr,
+        endTime: endTimeStr,
+        startMs,
+        endMs,
+        diffMs,
+        durationMin
+      });
 
       await runQuery(
         `UPDATE focus_periods 
