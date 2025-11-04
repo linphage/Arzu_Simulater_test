@@ -810,7 +810,7 @@ export class TaskRepository {
         `SELECT DISTINCT DATE(completed_at) as completed_date
          FROM tasks
          WHERE user_id = ? 
-           AND completed = 1
+           AND completed = true
            AND category IS NOT NULL
            AND completed_at IS NOT NULL
            AND DATE(completed_at) BETWEEN ? AND ?
@@ -925,10 +925,10 @@ export class TaskRepository {
             SUM(CASE WHEN category = '勤政' THEN 1 ELSE 0 END) as 勤政,
             SUM(CASE WHEN category = '恕己' THEN 1 ELSE 0 END) as 恕己,
             SUM(CASE WHEN category = '爱人' THEN 1 ELSE 0 END) as 爱人,
-            MAX(TIME(completed_at)) as latest_time
+            MAX(CAST(completed_at AS TIME)) as latest_time
            FROM tasks
            WHERE user_id = ?
-             AND completed = 1
+             AND completed = true
              AND category IS NOT NULL
              AND DATE(completed_at) = ?
              AND deleted_at IS NULL`,
