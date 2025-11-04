@@ -107,6 +107,9 @@ const convertSqliteToPostgres = (sql: string): string => {
   
   converted = converted.replace(/datetime\(\?,\s*'localtime'\)/gi, '?::TIMESTAMP');
   
+  converted = converted.replace(/COALESCE\(is_active,\s*1\)/gi, 'COALESCE(is_active, true)');
+  converted = converted.replace(/COALESCE\(is_active,\s*0\)/gi, 'COALESCE(is_active, false)');
+  
   return converted;
 };
 
