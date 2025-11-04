@@ -116,6 +116,12 @@ const convertSqliteToPostgres = (sql: string): string => {
   
   converted = converted.replace(/completed\s*=\s*1/gi, 'completed = true');
   converted = converted.replace(/completed\s*=\s*0/gi, 'completed = false');
+  converted = converted.replace(/is_interrupted\s*=\s*1/gi, 'is_interrupted = true');
+  converted = converted.replace(/is_interrupted\s*=\s*0/gi, 'is_interrupted = false');
+  converted = converted.replace(/interrupted\s*=\s*1/gi, 'interrupted = true');
+  converted = converted.replace(/interrupted\s*=\s*0/gi, 'interrupted = false');
+  converted = converted.replace(/abandoned\s*=\s*1/gi, 'abandoned = true');
+  converted = converted.replace(/abandoned\s*=\s*0/gi, 'abandoned = false');
   
   converted = converted.replace(/CAST\(([^)]+)\s+AS\s+TIME\)/gi, 'CAST($1 AS TIME)');
   

@@ -32,7 +32,7 @@ export class FocusPeriodRepository {
 
       const result = await runQuery(
         `INSERT INTO focus_periods (session_id, start_time, created_at) 
-         VALUES (?, datetime(?), datetime('now'))`,
+         VALUES (?, ?, datetime('now'))`,
         [session_id, startTime]
       );
 
@@ -84,11 +84,11 @@ export class FocusPeriodRepository {
 
       await runQuery(
         `UPDATE focus_periods 
-         SET end_time = datetime(?), 
+         SET end_time = ?, 
              duration_min = ?,
              is_interrupted = ?
          WHERE period_id = ?`,
-        [endTime, durationMin, is_interrupted ? 1 : 0, periodId]
+        [endTime, durationMin, is_interrupted, periodId]
       );
 
       logger.info('细分时间段结束', { 
@@ -195,7 +195,7 @@ export class FocusPeriodRepository {
       }>(`
         SELECT 
           COUNT(*) as totalPeriods,
-          SUM(CASE WHEN is_interrupted = 1 THEN 1 ELSE 0 END) as interruptedPeriods,
+          SUM(CASE WHEN is_interrupted = true THEN 1 ELSE 0 END) as interruptedPeriods,
           SUM(COALESCE(duration_min, 0)) as totalFocusMinutes
         FROM focus_periods
         WHERE session_id = ?
