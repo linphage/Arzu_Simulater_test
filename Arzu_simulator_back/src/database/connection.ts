@@ -119,6 +119,13 @@ const convertSqliteToPostgres = (sql: string): string => {
     }
   }
   
+  if (converted.includes('datetime')) {
+    logger.warn('SQL conversion may be incomplete', { 
+      original: sql.substring(0, 200),
+      converted: converted.substring(0, 200)
+    });
+  }
+  
   return converted;
 };
 
