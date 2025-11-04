@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend } from 'recharts';
-import { API_CONFIG } from '../config/api';
+import axiosInstance from '../utils/axiosInstance';
 
 interface HabitAnalysisViewProps {
   // Props no longer needed as we fetch data from API
@@ -43,27 +43,11 @@ export function HabitAnalysisView(_props: HabitAnalysisViewProps) {
         setLoading(true);
         setError(null);
         
-        const token = localStorage.getItem('accessToken');
-        if (!token) {
-          throw new Error('未找到认证令牌');
-        }
-
-        const response = await fetch(
-          `${API_CONFIG.BASE_URL}/api/v1/tasks/pomodoro/habit-stats?timeframe=${selectedTimeframe}`,
-          {
-            headers: {
-              'Authorization': `Bearer ${token}`,
-              'Content-Type': 'application/json'
-            }
-          }
+        const response = await axiosInstance.get(
+          `/api/v1/tasks/pomodoro/habit-stats?timeframe=${selectedTimeframe}`
         );
 
-        if (!response.ok) {
-          throw new Error('获取习惯分析数据失败');
-        }
-
-        const data = await response.json();
-        setHabitStats(data.data);
+        setHabitStats(response.data.data);
       } catch (err) {
         console.error('获取习惯分析数据失败:', err);
         setError((err as Error).message);
