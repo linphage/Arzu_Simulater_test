@@ -54,20 +54,27 @@ export const initDb = async (): Promise<void> => {
       }
       
       const migrationsDir = path.join(__dirname, 'migrations');
+      logger.info(`迁移脚本目录: ${migrationsDir}`);
+      
       if (fs.existsSync(migrationsDir)) {
         const migrationFiles = fs.readdirSync(migrationsDir)
           .filter(file => file.endsWith('.sql'))
           .sort();
         
+        logger.info(`找到 ${migrationFiles.length} 个迁移脚本: ${migrationFiles.join(', ')}`);
+        
         for (const file of migrationFiles) {
           try {
             const migrationPath = path.join(migrationsDir, file);
+            logger.info(`执行迁移脚本: ${file}`);
             await executeSqlFile(migrationPath);
             logger.info(`迁移脚本执行成功: ${file}`);
           } catch (error) {
-            logger.warn(`迁移脚本执行失败（可能已应用）: ${file}`, { error: getErrorMessage(error) });
+            logger.error(`迁移脚本执行失败: ${file}`, { error: getErrorMessage(error) });
           }
         }
+      } else {
+        logger.warn(`迁移脚本目录不存在: ${migrationsDir}`);
       }
     } else {
       if (!dbExists) {
