@@ -67,7 +67,7 @@ CREATE INDEX IF NOT EXISTS idx_pomodoro_task ON pomodoro_sessions(task_id);
 CREATE TABLE IF NOT EXISTS focus_periods (
   id SERIAL PRIMARY KEY,
   session_id INTEGER NOT NULL,
-  user_id INTEGER NOT NULL,
+  user_id INTEGER,
   task_id INTEGER,
   start_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   end_time TIMESTAMP,
