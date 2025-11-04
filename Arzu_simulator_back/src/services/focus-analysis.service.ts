@@ -131,9 +131,9 @@ export class FocusAnalysisService {
         return inRange;
       });
 
-      const totalFocusTime = focusPeriods.reduce((sum, fp) => sum + (fp.duration_min || 0), 0);
+      const totalFocusTime = focusPeriods.reduce((sum, fp) => sum + (parseFloat(String(fp.duration_min)) || 0), 0);
       const totalInterruptions = focusPeriods.filter(fp => Boolean(fp.is_interrupted)).length;
-      const totalPlannedTime = pomodoroSessions.reduce((sum, ps) => sum + ((ps as any).duration_minutes || 0), 0);
+      const totalPlannedTime = pomodoroSessions.reduce((sum, ps) => sum + (parseInt(String((ps as any).duration_minutes)) || 0), 0);
 
       logger.info('📊 [专注度统计] 数据汇总', {
         userId,
@@ -194,9 +194,9 @@ export class FocusAnalysisService {
           return startedDate >= currentDate && startedDate < nextDate;
         });
 
-        const dayFocusTime = dayFocusPeriods.reduce((sum, fp) => sum + (fp.duration_min || 0), 0);
+        const dayFocusTime = dayFocusPeriods.reduce((sum, fp) => sum + (parseFloat(String(fp.duration_min)) || 0), 0);
         const dayInterruptions = dayFocusPeriods.filter(fp => Boolean(fp.is_interrupted)).length;
-        const dayPlannedTime = dayPomodoroSessions.reduce((sum, ps) => sum + ((ps as any).duration_minutes || 0), 0);
+        const dayPlannedTime = dayPomodoroSessions.reduce((sum, ps) => sum + (parseInt(String((ps as any).duration_minutes)) || 0), 0);
         const dayFocusIndex = dayPlannedTime > 0 
           ? Math.min(100, Math.round((dayFocusTime / dayPlannedTime) * 100))
           : 0;
