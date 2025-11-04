@@ -74,9 +74,10 @@ export class FocusAnalysisService {
       const focusPeriods = allFocusPeriods.filter(fp => {
         if (!fp.created_at) return false;
         if (!fp.duration_min || fp.duration_min > 300) return false;
-        const createdDateStr = fp.created_at.includes('T') 
-          ? fp.created_at 
-          : fp.created_at.replace(' ', 'T') + 'Z';
+        const createdAtStr = String(fp.created_at);
+        const createdDateStr = createdAtStr.includes('T') 
+          ? createdAtStr 
+          : createdAtStr.replace(' ', 'T') + 'Z';
         const createdDate = new Date(createdDateStr);
         return createdDate >= start && createdDate <= end;
       });
@@ -84,15 +85,16 @@ export class FocusAnalysisService {
       const pomodoroSessions = allPomodoroSessions.sessions.filter(ps => {
         const startedAt = (ps as any).started_at || ps.startedAt;
         if (!startedAt) return false;
-        const startedDateStr = startedAt.includes('T') 
-          ? startedAt 
-          : startedAt.replace(' ', 'T') + 'Z';
+        const startedAtStr = String(startedAt);
+        const startedDateStr = startedAtStr.includes('T') 
+          ? startedAtStr 
+          : startedAtStr.replace(' ', 'T') + 'Z';
         const startedDate = new Date(startedDateStr);
         const inRange = startedDate >= start && startedDate <= end;
         
         logger.debug('📊 [专注度统计] 会话时间检查', {
           sessionId: (ps as any).id,
-          startedAt,
+          startedAt: startedAtStr,
           startedDate: startedDate.toISOString(),
           rangeStart: start.toISOString(),
           rangeEnd: end.toISOString(),
@@ -146,9 +148,10 @@ export class FocusAnalysisService {
 
         const dayFocusPeriods = focusPeriods.filter(fp => {
           if (!fp.created_at || !fp.duration_min || fp.duration_min > 300) return false;
-          const createdDateStr = fp.created_at.includes('T') 
-            ? fp.created_at 
-            : fp.created_at.replace(' ', 'T') + 'Z';
+          const createdAtStr = String(fp.created_at);
+          const createdDateStr = createdAtStr.includes('T') 
+            ? createdAtStr 
+            : createdAtStr.replace(' ', 'T') + 'Z';
           const createdDate = new Date(createdDateStr);
           return createdDate >= currentDate && createdDate < nextDate;
         });
@@ -156,9 +159,10 @@ export class FocusAnalysisService {
         const dayPomodoroSessions = pomodoroSessions.filter(ps => {
           const startedAt = (ps as any).started_at || ps.startedAt;
           if (!startedAt) return false;
-          const startedDateStr = startedAt.includes('T') 
-            ? startedAt 
-            : startedAt.replace(' ', 'T') + 'Z';
+          const startedAtStr = String(startedAt);
+          const startedDateStr = startedAtStr.includes('T') 
+            ? startedAtStr 
+            : startedAtStr.replace(' ', 'T') + 'Z';
           const startedDate = new Date(startedDateStr);
           return startedDate >= currentDate && startedDate < nextDate;
         });
