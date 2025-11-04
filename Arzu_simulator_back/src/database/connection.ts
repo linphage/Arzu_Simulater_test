@@ -110,6 +110,15 @@ const convertSqliteToPostgres = (sql: string): string => {
   converted = converted.replace(/COALESCE\(is_active,\s*1\)/gi, 'COALESCE(is_active, true)');
   converted = converted.replace(/COALESCE\(is_active,\s*0\)/gi, 'COALESCE(is_active, false)');
   
+  if (/^\s*INSERT\s+INTO/i.test(converted) && !/RETURNING/i.test(converted)) {
+    const trimmed = converted.trim();
+    if (trimmed.endsWith(';')) {
+      converted = trimmed.slice(0, -1) + ' RETURNING *;';
+    } else {
+      converted = trimmed + ' RETURNING *';
+    }
+  }
+  
   return converted;
 };
 
@@ -123,7 +132,11 @@ export const runQuery = async (sql: string, params: any[] = []): Promise<any> =>
     convertedSql = convertSqliteToPostgres(convertedSql);
     
     const result = await (db as Pool).query(convertedSql, params);
-    return { lastID: result.rows[0]?.id || result.rows[0]?.user_id, changes: result.rowCount };
+    const firstRow = result.rows[0];
+    const lastID = firstRow?.id || firstRow?.user_id || firstRow?.task_id || firstRow?.gift_id || 
+                   firstRow?.task_brieflog_id || firstRow?.pomodoro_session_id;
+    
+    return { lastID, changes: result.rowCount };
   } else {
     return new Promise((resolve, reject) => {
       (db as sqlite3.Database).run(sql, params, function(err) {
