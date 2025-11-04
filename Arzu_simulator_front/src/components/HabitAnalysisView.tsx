@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { API_CONFIG } from '../config/api';
 
 interface HabitAnalysisViewProps {
   // Props no longer needed as we fetch data from API
@@ -48,7 +49,7 @@ export function HabitAnalysisView(_props: HabitAnalysisViewProps) {
         }
 
         const response = await fetch(
-          `http://localhost:3002/api/v1/tasks/pomodoro/habit-stats?timeframe=${selectedTimeframe}`,
+          `${API_CONFIG.BASE_URL}/api/v1/tasks/pomodoro/habit-stats?timeframe=${selectedTimeframe}`,
           {
             headers: {
               'Authorization': `Bearer ${token}`,
