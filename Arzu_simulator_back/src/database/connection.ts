@@ -91,16 +91,36 @@ export const closeDatabase = async (): Promise<void> => {
   }
 };
 
+const convertSqliteToPostgres = (sql: string): string => {
+  let converted = sql;
+  
+  converted = converted.replace(/datetime\('now'\)/gi, 'CURRENT_TIMESTAMP');
+  converted = converted.replace(/datetime\("now"\)/gi, 'CURRENT_TIMESTAMP');
+  
+  converted = converted.replace(/datetime\(\?\)/gi, 'CAST(? AS TIMESTAMP)');
+  converted = converted.replace(/datetime\('now',\s*'([^']+)'\)/gi, (match, modifier) => {
+    return `(CURRENT_TIMESTAMP + INTERVAL '${modifier.replace(/^-/, '-').replace(/\s+/, ' ')}')`;
+  });
+  converted = converted.replace(/datetime\("now",\s*"([^"]+)"\)/gi, (match, modifier) => {
+    return `(CURRENT_TIMESTAMP + INTERVAL '${modifier.replace(/^-/, '-').replace(/\s+/, ' ')}')`;
+  });
+  
+  converted = converted.replace(/datetime\(\?,\s*'localtime'\)/gi, '?::TIMESTAMP');
+  
+  return converted;
+};
+
 export const runQuery = async (sql: string, params: any[] = []): Promise<any> => {
   const db = await getDatabase();
   
   if (DB_TYPE === 'postgres') {
     const pgSql = sql.replace(/\?/g, (_, i) => `$${params.indexOf(_) + 1}`);
     let paramIndex = 1;
-    const convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
+    let convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
+    convertedSql = convertSqliteToPostgres(convertedSql);
     
     const result = await (db as Pool).query(convertedSql, params);
-    return { lastID: result.rows[0]?.id, changes: result.rowCount };
+    return { lastID: result.rows[0]?.id || result.rows[0]?.user_id, changes: result.rowCount };
   } else {
     return new Promise((resolve, reject) => {
       (db as sqlite3.Database).run(sql, params, function(err) {
@@ -120,7 +140,8 @@ export const getQuery = async <T>(sql: string, params: any[] = []): Promise<T | 
   
   if (DB_TYPE === 'postgres') {
     let paramIndex = 1;
-    const convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
+    let convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
+    convertedSql = convertSqliteToPostgres(convertedSql);
     const result = await (db as Pool).query(convertedSql, params);
     return result.rows[0] as T;
   } else {
@@ -142,7 +163,8 @@ export const allQuery = async <T>(sql: string, params: any[] = []): Promise<T[]>
   
   if (DB_TYPE === 'postgres') {
     let paramIndex = 1;
-    const convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
+    let convertedSql = sql.replace(/\?/g, () => `$${paramIndex++}`);
+    convertedSql = convertSqliteToPostgres(convertedSql);
     const result = await (db as Pool).query(convertedSql, params);
     return result.rows as T[];
   } else {
