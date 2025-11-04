@@ -759,8 +759,8 @@ export class TaskRepository {
         const completionTime = completedAt || new Date().toISOString();
         await runQuery(
           `UPDATE tasks 
-           SET completed = 1,
-               completed_at = datetime(?),
+           SET completed = true,
+               completed_at = ?,
                focus_time = ?,
                pomodoro_count = pomodoro_count + 1,
                updated_at = datetime('now')
