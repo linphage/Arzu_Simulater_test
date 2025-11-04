@@ -98,6 +98,10 @@ const convertSqliteToPostgres = (sql: string): string => {
   converted = converted.replace(/datetime\("now"\)/gi, 'CURRENT_TIMESTAMP');
   
   converted = converted.replace(/datetime\(\?\)/gi, 'CAST(? AS TIMESTAMP)');
+  converted = converted.replace(/datetime\(\$\d+\)/gi, (match) => {
+    return match.replace('datetime', 'CAST').replace(')', ' AS TIMESTAMP)');
+  });
+  
   converted = converted.replace(/datetime\('now',\s*'([^']+)'\)/gi, (match, modifier) => {
     return `(CURRENT_TIMESTAMP + INTERVAL '${modifier.replace(/^-/, '-').replace(/\s+/, ' ')}')`;
   });
