@@ -30,15 +30,27 @@ export class FocusPeriodRepository {
       const { session_id, start_time } = data;
       const startTime = start_time || new Date().toISOString();
 
+      // 从 pomodoro_sessions 获取 user_id 和 task_id
+      const session = await getQuery<{ user_id: number; task_id: number | null }>(
+        'SELECT user_id, task_id FROM pomodoro_sessions WHERE id = ?',
+        [session_id]
+      );
+
+      if (!session) {
+        throw new Error('番茄钟会话不存在');
+      }
+
       const result = await runQuery(
-        `INSERT INTO focus_periods (session_id, start_time, created_at) 
-         VALUES (?, ?, datetime('now'))`,
-        [session_id, startTime]
+        `INSERT INTO focus_periods (session_id, user_id, task_id, start_time, created_at) 
+         VALUES (?, ?, ?, ?, datetime('now'))`,
+        [session_id, session.user_id, session.task_id, startTime]
       );
 
       logger.info('细分时间段创建成功', { 
         periodId: result.lastID, 
         sessionId: session_id,
+        userId: session.user_id,
+        taskId: session.task_id,
         startTime
       });
 
