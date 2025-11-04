@@ -42,18 +42,37 @@ export const initDb = async (): Promise<void> => {
     logger.info(`开始初始化${DB_TYPE}数据库...`);
     
     const dbExists = await checkDbInitialized();
-    if (dbExists) {
-      logger.info('数据库已正确初始化，跳过迁移');
-      return;
-    }
     
     if (DB_TYPE === 'postgres') {
-      logger.info('执行PostgreSQL初始化脚本...');
-      const sqlPath = path.join(__dirname, 'init-postgres.sql');
-      await executeSqlFile(sqlPath);
-      logger.info('PostgreSQL数据库初始化完成');
+      if (!dbExists) {
+        logger.info('执行PostgreSQL初始化脚本...');
+        const sqlPath = path.join(__dirname, 'init-postgres.sql');
+        await executeSqlFile(sqlPath);
+        logger.info('PostgreSQL数据库初始化完成');
+      } else {
+        logger.info('PostgreSQL数据库已存在，运行迁移脚本...');
+      }
+      
+      const migrationsDir = path.join(__dirname, 'migrations');
+      if (fs.existsSync(migrationsDir)) {
+        const migrationFiles = fs.readdirSync(migrationsDir)
+          .filter(file => file.endsWith('.sql'))
+          .sort();
+        
+        for (const file of migrationFiles) {
+          try {
+            const migrationPath = path.join(migrationsDir, file);
+            await executeSqlFile(migrationPath);
+            logger.info(`迁移脚本执行成功: ${file}`);
+          } catch (error) {
+            logger.warn(`迁移脚本执行失败（可能已应用）: ${file}`, { error: getErrorMessage(error) });
+          }
+        }
+      }
     } else {
-      logger.warn('SQLite数据库未初始化！请手动运行迁移脚本：node scripts/run-migration.js');
+      if (!dbExists) {
+        logger.warn('SQLite数据库未初始化！请手动运行迁移脚本：node scripts/run-migration.js');
+      }
     }
     
     logger.info('数据库初始化检查完成');
