@@ -1,5 +1,21 @@
+// 自动检测环境并使用相应的API URL
+const getBaseURL = () => {
+  // 如果有环境变量，优先使用
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  
+  // 在生产环境中，使用当前域名
+  if (import.meta.env.PROD) {
+    return window.location.origin;
+  }
+  
+  // 开发环境默认使用本地后端
+  return 'http://localhost:3002';
+};
+
 export const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_URL || 'http://localhost:3002',
+  BASE_URL: getBaseURL(),
   ENDPOINTS: {
     LOGIN: '/api/v1/auth/login',
     REGISTER: '/api/v1/auth/register',
