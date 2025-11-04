@@ -9,7 +9,7 @@
     "predev": "npm run cleanup",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "prestart": "npm run init-db && npm run cleanup",
-    "build": "tsc && (cp -r src/database/*.sql dist/database/ 2>/dev/null || xcopy /Y /I src\\database\\*.sql dist\\database\\ 2>nul || true) && (cp -r src/database/migrations/*.sql dist/database/migrations/ 2>/dev/null || xcopy /Y /I src\\database\\migrations\\*.sql dist\\database\\migrations\\ 2>nul || true)",
+    "build": "tsc && node scripts/copy-sql-files.js",
     "start": "node dist/server.js",
     "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
