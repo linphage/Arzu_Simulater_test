@@ -40,6 +40,8 @@ const executeSqlFile = async (filePath: string): Promise<void> => {
 export const initDb = async (): Promise<void> => {
   try {
     logger.info(`开始初始化${DB_TYPE}数据库...`);
+    logger.info(`当前工作目录: ${process.cwd()}`);
+    logger.info(`__dirname: ${__dirname}`);
     
     const dbExists = await checkDbInitialized();
     
@@ -55,6 +57,7 @@ export const initDb = async (): Promise<void> => {
       
       const migrationsDir = path.join(__dirname, 'migrations');
       logger.info(`迁移脚本目录: ${migrationsDir}`);
+      logger.info(`检查目录是否存在...`);
       
       if (fs.existsSync(migrationsDir)) {
         const migrationFiles = fs.readdirSync(migrationsDir)
@@ -75,6 +78,14 @@ export const initDb = async (): Promise<void> => {
         }
       } else {
         logger.warn(`迁移脚本目录不存在: ${migrationsDir}`);
+        
+        logger.info('尝试列出 __dirname 中的内容:');
+        try {
+          const files = fs.readdirSync(__dirname);
+          logger.info(`__dirname 内容: ${files.join(', ')}`);
+        } catch (e) {
+          logger.error('无法读取 __dirname', { error: getErrorMessage(e) });
+        }
       }
     } else {
       if (!dbExists) {
