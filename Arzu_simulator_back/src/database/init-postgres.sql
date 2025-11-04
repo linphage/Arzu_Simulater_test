@@ -66,15 +66,21 @@ CREATE INDEX IF NOT EXISTS idx_pomodoro_task ON pomodoro_sessions(task_id);
 -- 4. focus_periods 表
 CREATE TABLE IF NOT EXISTS focus_periods (
   id SERIAL PRIMARY KEY,
+  session_id INTEGER NOT NULL,
   user_id INTEGER NOT NULL,
   task_id INTEGER,
   start_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   end_time TIMESTAMP,
   duration INTEGER,
+  duration_min INTEGER,
+  is_interrupted BOOLEAN DEFAULT false,
   completed BOOLEAN DEFAULT false,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (session_id) REFERENCES pomodoro_sessions(id) ON DELETE CASCADE,
   FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
   FOREIGN KEY (task_id) REFERENCES tasks(id) ON DELETE SET NULL
 );
+CREATE INDEX IF NOT EXISTS idx_focus_session ON focus_periods(session_id);
 CREATE INDEX IF NOT EXISTS idx_focus_user ON focus_periods(user_id);
 
 -- 5. task_brieflogs 表
