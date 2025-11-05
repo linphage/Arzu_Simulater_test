@@ -513,7 +513,7 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
               className="absolute bottom-[48px] z-20"
               style={{ transform: 'translateY(80px)', right: '9px' }}
             >
-              <div className="flex-none" style={{ marginLeft: '-7px' }}>
+              <div className="flex-none">
                 <div
                   className="bg-center bg-contain bg-no-repeat"
                   data-name="角色插图"
@@ -521,7 +521,7 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
                     backgroundImage: `url('${img200031211}')`,
                     width: '253.422px',
                     height: '337.896px',
-                    transform: 'scale(0.8)'
+                    transform: 'scale(0.8) translateX(5px)'
                   }}
                 />
               </div>
