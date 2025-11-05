@@ -3,6 +3,7 @@ import { FixedBottomNavigation } from './BottomNavigation';
 import { Switch } from './ui/switch';
 import { Button } from './ui/button';
 import { Separator } from './ui/separator';
+import axiosInstance from '../utils/axiosInstance';
 
 interface CompletedTask {
   id: string;
@@ -77,27 +78,10 @@ export function SettingsView({
     const fetchUserStats = async () => {
       try {
         setLoading(true);
-        const token = localStorage.getItem('accessToken');
-        if (!token) {
-          console.error('未找到认证令牌');
-          return;
-        }
-
-        const response = await fetch('http://localhost:3002/api/v1/users/stats', {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          }
-        });
-
-        if (!response.ok) {
-          throw new Error('获取用户统计数据失败');
-        }
-
-        const data = await response.json();
-        if (data.success && data.data) {
-          setUserInfo(data.data.userInfo);
-          setStatistics(data.data.statistics);
+        const response = await axiosInstance.get('/api/v1/users/stats');
+        if (response.data.success && response.data.data) {
+          setUserInfo(response.data.data.userInfo);
+          setStatistics(response.data.data.statistics);
         }
       } catch (error) {
         console.error('获取用户统计数据失败:', error);
