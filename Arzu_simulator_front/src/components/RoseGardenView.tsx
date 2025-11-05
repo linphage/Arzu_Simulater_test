@@ -345,47 +345,9 @@ function StatusBar() {
 
 
 
-function Frame7420() {
-  return (
-    <div className="bg-[rgba(55,146,245,0)] box-border content-stretch flex flex-row gap-2.5 items-start justify-start opacity-0 px-3.5 py-[3px] relative rounded shrink-0">
-      <div className="capitalize leading-[0] not-italic relative shrink-0 text-[#666666] text-left text-nowrap"
-        style={{
-          fontSize: '12px',
-          fontWeight: '500',
-          fontFamily: "'PingFang SC', sans-serif"
-        }}
-      >
-        <p className="block leading-[normal] whitespace-pre">保存</p>
-      </div>
-    </div>
-  );
-}
-
-function Frame6326() {
-  return (
-    <div
-      className="absolute box-border content-stretch flex flex-row gap-1.5 items-center justify-center left-1/2 p-0 translate-x-[-50%] translate-y-[-50%]"
-      style={{ top: "calc(50% + 0.5px)" }}
-    >
-      <div
-        className="capitalize leading-[0] relative shrink-0 text-[#3c3c3c] text-center text-nowrap"
-        style={{ 
-          fontVariationSettings: "'wght' 400",
-          fontSize: '16px',
-          fontWeight: '500',
-          fontFamily: "'ABeeZee', 'Noto Sans SC', 'Noto Sans JP', sans-serif"
-        }}
-      >
-        <p className="block leading-[normal] whitespace-pre">贤者的花圃</p>
-      </div>
-    </div>
-  );
-}
-
 function Frame6259({ onBack }: { onBack: () => void }) {
   return (
     <div className="absolute box-border content-stretch flex flex-row h-[51px] items-center justify-between left-0 pl-2.5 pr-[15px] py-0 top-11 w-[412px]">
-      <Frame7420 />
     </div>
   );
 }
