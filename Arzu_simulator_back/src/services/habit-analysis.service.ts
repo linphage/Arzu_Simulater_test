@@ -129,8 +129,9 @@ export class HabitAnalysisService {
           return false;
         }
         
-        const createdAtStr = taskCreatedAt.includes('Z') ? taskCreatedAt : taskCreatedAt + 'Z';
-        const createdDate = new Date(createdAtStr);
+        const createdDate = taskCreatedAt instanceof Date 
+          ? taskCreatedAt 
+          : new Date(typeof taskCreatedAt === 'string' && taskCreatedAt.includes('Z') ? taskCreatedAt : taskCreatedAt + 'Z');
         const inRange = createdDate >= start && createdDate <= end;
         
         if (!inRange) {
@@ -224,8 +225,9 @@ export class HabitAnalysisService {
 
       briefLogs.forEach(log => {
         if (!log.created_at) return;
-        const timeStr = log.created_at.includes('Z') ? log.created_at : log.created_at + 'Z';
-        const createdDate = new Date(timeStr);
+        const createdDate = log.created_at instanceof Date
+          ? log.created_at
+          : new Date(typeof log.created_at === 'string' && log.created_at.includes('Z') ? log.created_at : log.created_at + 'Z');
         const utcHour = createdDate.getUTCHours();
         const cst8Hour = (utcHour + 8) % 24;
         const slotIndex = Math.floor(cst8Hour / 2);
