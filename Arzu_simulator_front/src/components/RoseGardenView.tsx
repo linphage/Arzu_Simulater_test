@@ -386,7 +386,6 @@ function Frame6259({ onBack }: { onBack: () => void }) {
   return (
     <div className="absolute box-border content-stretch flex flex-row h-[51px] items-center justify-between left-0 pl-2.5 pr-[15px] py-0 top-11 w-[412px]">
       <Frame7420 />
-      <Frame6326 />
     </div>
   );
 }
@@ -467,11 +466,6 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
       >
         {/* 浅绿色背景区域 - 从屏幕顶端开始覆盖整个区域，底部28px圆角 */}
         <div className="absolute inset-0 bg-[#FAFAFA] rounded-b-[28px] border-[3px] border-[#3a3f47] border-b-0 z-0" style={{ bottom: '248px' }} />
-        
-        {/* 状态栏 */}
-        <div className="relative z-20">
-          <StatusBar />
-        </div>
         
         {/* 头部导航 */}
         <div className="relative z-20">
