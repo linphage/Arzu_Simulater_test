@@ -521,7 +521,7 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
                     backgroundImage: `url('${img200031211}')`,
                     width: '253.422px',
                     height: '337.896px',
-                    transform: 'scale(0.8) translateX(5px)'
+                    transform: 'scale(0.84) translateX(5px)'
                   }}
                 />
               </div>
