@@ -506,7 +506,7 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
           </div>
 
           {/* 底部固定区域 - 包含按钮区和装饰元素 */}
-          <div className="flex-shrink-0 relative bg-[#354827] z-10" style={{ height: '248px' }}>
+          <div className="flex-shrink-0 relative bg-[#354827] z-10" style={{ height: '248px', overflow: 'visible' }}>
             
             {/* 角色装饰图片 - 右侧固定，底部与导航栏顶部相贴 */}
             <div 
