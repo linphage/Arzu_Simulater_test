@@ -511,7 +511,7 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
             {/* 角色装饰图片 - 右侧固定，底部与导航栏顶部相贴 */}
             <div 
               className="absolute z-20"
-              style={{ bottom: '50px', right: '-19px', transform: 'translateX(10px)' }}
+              style={{ bottom: '50px', right: '-19px', transform: 'translateX(15px)' }}
             >
               <div className="flex-none">
                 <div
