@@ -225,9 +225,9 @@ export class HabitAnalysisService {
 
       briefLogs.forEach(log => {
         if (!log.created_at) return;
-        const createdDate = log.created_at instanceof Date
-          ? log.created_at
-          : new Date(typeof log.created_at === 'string' && log.created_at.includes('Z') ? log.created_at : log.created_at + 'Z');
+        const createdDate = typeof log.created_at === 'string'
+          ? new Date(log.created_at.includes('Z') ? log.created_at : log.created_at + 'Z')
+          : new Date(log.created_at);
         const utcHour = createdDate.getUTCHours();
         const cst8Hour = (utcHour + 8) % 24;
         const slotIndex = Math.floor(cst8Hour / 2);
