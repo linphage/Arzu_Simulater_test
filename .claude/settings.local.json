@@ -14,7 +14,10 @@
       "Bash(npm install)",
       "Bash(node -e:*)",
       "Bash(find:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(curl:*)",
+      "Bash(git restore:*)",
+      "Bash(git revert:*)"
     ],
     "deny": [],
     "ask": []

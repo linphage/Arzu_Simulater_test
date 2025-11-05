@@ -102,6 +102,48 @@ export function RegisterScreen({ onBackToLogin, onRegisterSuccess }: RegisterScr
 
   return (
     <div className="mobile-fullscreen mobile-app-container">
+      <style>{`
+        #agree-terms {
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #3A3F47;
+          border-radius: 4px;
+          background-color: #FFFFFF;
+          cursor: pointer;
+          position: relative;
+          transition: all 0.2s ease;
+        }
+        
+        #agree-terms:hover {
+          border-color: #1E3A8A;
+          box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.1);
+        }
+        
+        #agree-terms:checked {
+          background-color: #1E3A8A;
+          border-color: #1E3A8A;
+        }
+        
+        #agree-terms:checked::after {
+          content: '';
+          position: absolute;
+          left: 6px;
+          top: 2px;
+          width: 4px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+        }
+        
+        #agree-terms:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      `}</style>
       {/* 全屏背景容器 */}
       <div 
         className="absolute inset-0 bg-[#DAE8F1] w-full h-full" 
@@ -327,16 +369,13 @@ export function RegisterScreen({ onBackToLogin, onRegisterSuccess }: RegisterScr
                 type="checkbox"
                 checked={agreedToTerms}
                 onChange={(e) => setAgreedToTerms(e.target.checked)}
-                className="mt-1 w-4 h-4 flex-shrink-0"
-                style={{
-                  accentColor: '#1E3A8A'
-                }}
+                className="mt-1 flex-shrink-0"
                 disabled={isLoading}
                 required
               />
               <label 
                 htmlFor="agree-terms" 
-                className="text-[#3A3F47] opacity-80 font-['ABeeZee:Regular',_'Noto_Sans_SC:Regular',_sans-serif]"
+                className="text-[#3A3F47] opacity-80 font-['ABeeZee:Regular',_'Noto_Sans_SC:Regular',_sans-serif] cursor-pointer"
                 style={{
                   fontSize: '12px',
                   fontWeight: '400',

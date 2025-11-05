@@ -435,10 +435,10 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
         </div>
 
         {/* 主体布局容器 - 使用flex布局 */}
-        <div className="flex flex-col h-full relative z-10" style={{ paddingTop: '70px' }}>
+        <div className="flex flex-col h-full relative z-10" style={{ paddingTop: '55px' }}>
           
           {/* 登录天数显示文字 - 确保显示在浅绿色背景之上，与标题保持8px间距 */}
-          <div className="flex justify-center px-4 relative z-10" style={{ marginTop: '8px' }}>
+          <div className="flex justify-center px-4 relative z-10" style={{ marginTop: '-17px' }}>
             <p 
               className="text-[#3a3f47] text-center"
               style={{
@@ -453,7 +453,7 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
           </div>
           
           {/* 主内容视图 - 与登录天数文字保持8px间距，内容区域自适应 */}
-          <div className="flex-1 relative min-h-0 overflow-hidden z-10" style={{ marginTop: '8px' }}>
+          <div className="flex-1 relative min-h-0 overflow-hidden z-10" style={{ marginTop: '-17px' }}>
             <div 
               className="absolute left-1/2 transform -translate-x-1/2 rounded-[28px] overflow-hidden"
               style={{ 
