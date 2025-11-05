@@ -123,7 +123,7 @@ function Component8({ onClick, isActive }: { onClick: () => void; isActive: bool
 
 function Component9({ onClick, isActive }: { onClick: () => void; isActive: boolean }) {
   return (
-    <div className="absolute h-[51px] left-[142px] top-[51px] w-[52px]" data-name="专注度按钮">
+    <div className="absolute h-[51px] left-[142px] top-0 w-[52px]" data-name="专注度按钮">
       <div 
         className={`unified-button absolute left-0 top-[11px] min-w-fit cursor-pointer touch-friendly ${
           isActive ? 'bg-[#4CAF50] text-white border-[#4CAF50]' : 'bg-[#f7e5a2] text-[#3a3f47] border-[#3A3F47]'
