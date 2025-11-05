@@ -513,7 +513,7 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
               className="absolute right-[-20px] bottom-[48px] z-20"
               style={{ transform: 'translateY(80px)' }}
             >
-              <div className="flex-none" style={{ marginLeft: '-2px' }}>
+              <div className="flex-none" style={{ marginLeft: '-12px' }}>
                 <div
                   className="bg-center bg-contain bg-no-repeat"
                   data-name="角色插图"
