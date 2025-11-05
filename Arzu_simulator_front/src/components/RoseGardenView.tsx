@@ -6,7 +6,6 @@ import { FixedBottomNavigation } from './BottomNavigation';
 import { CalendarView } from './CalendarView';
 import { CompletionView } from './CompletionView';
 import { FocusAnalysisView } from './FocusAnalysisView';
-import { HabitAnalysisView } from './HabitAnalysisView';
 import { TaskCreationModal } from './TaskCreationModal';
 import axiosInstance from '../utils/axiosInstance';
 
@@ -50,7 +49,7 @@ interface RoseGardenViewProps {
   taskStats?: TaskStats[];
 }
 
-type SubView = 'calendar' | 'completion' | 'focus' | 'analysis' | 'relaxation';
+type SubView = 'calendar' | 'completion' | 'focus' | 'relaxation';
 
 
 
@@ -156,43 +155,9 @@ function Component9({ onClick, isActive }: { onClick: () => void; isActive: bool
   );
 }
 
-function Component10({ onClick, isActive }: { onClick: () => void; isActive: boolean }) {
-  return (
-    <div className="absolute h-[51px] left-0 top-[51px] w-[74px]" data-name="习惯分析按钮">
-      <div 
-        className={`unified-button absolute left-0 top-[11px] min-w-fit cursor-pointer touch-friendly ${
-          isActive ? 'bg-[#4CAF50] text-white border-[#4CAF50]' : 'bg-[#f7e5a2] text-[#3a3f47] border-[#3A3F47]'
-        }`}
-        onClick={onClick}
-        style={{
-          fontSize: '14px',
-          fontWeight: '500',
-          borderRadius: '6px',
-          boxShadow: 'none',
-          height: '35px',
-          padding: '0 12px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <span
-          style={{
-            fontSize: '14px',
-            fontWeight: '500',
-            fontFamily: "'ABeeZee', 'Noto Sans SC', 'Noto Sans JP', sans-serif"
-          }}
-        >
-          习惯分析
-        </span>
-      </div>
-    </div>
-  );
-}
-
 function Component11({ onClick, isActive, onSpecialClick }: { onClick: () => void; isActive: boolean; onSpecialClick: () => void }) {
   return (
-    <div className="absolute h-[51px] left-[93px] top-[51px] w-[74px]" data-name="一壶水烟按钮">
+    <div className="absolute h-[51px] left-0 top-[51px] w-[74px]" data-name="一壶水烟按钮">
       <div 
         className={`unified-button absolute left-0 top-[11px] min-w-fit cursor-pointer touch-friendly ${
           isActive ? 'bg-[#4CAF50] text-white border-[#4CAF50]' : 'bg-[#fbd5f2] text-[#3a3f47] border-[#3A3F47]'
@@ -234,7 +199,6 @@ function Component12({ currentView, onViewChange, onRelaxationClick }: { current
       <Component7 onClick={() => onViewChange('calendar')} isActive={currentView === 'calendar'} />
       <Component8 onClick={() => onViewChange('completion')} isActive={currentView === 'completion'} />
       <Component9 onClick={() => onViewChange('focus')} isActive={currentView === 'focus'} />
-      <Component10 onClick={() => onViewChange('analysis')} isActive={currentView === 'analysis'} />
       <Component11 onClick={() => onViewChange('relaxation')} isActive={currentView === 'relaxation'} onSpecialClick={onRelaxationClick} />
     </div>
   );
@@ -458,8 +422,6 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
         return <CompletionView tasks={tasks} completedTasks={completedTasks} />;
       case 'focus':
         return <FocusAnalysisView tasks={tasks} completedTasks={completedTasks} taskStats={taskStats} />;
-      case 'analysis':
-        return <HabitAnalysisView />;
       case 'relaxation':
         return (
           <div className="h-full bg-[#FAFAFA] flex items-center justify-center">
