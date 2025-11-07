@@ -10,7 +10,7 @@ let failedRequestsQueue: Array<{
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -40,8 +40,8 @@ axiosInstance.interceptors.response.use(
   async (error: AxiosError) => {
     const originalRequest = error.config as InternalAxiosRequestConfig & { _retry?: boolean };
 
-    // 如果是 401 错误且不是 refresh 接口
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    // 如果是 401 错误且不是 refresh 接口本身
+    if (error.response?.status === 401 && !originalRequest._retry && !originalRequest.url?.includes('/auth/refresh')) {
       
       // 如果正在刷新 token，将请求加入队列
       if (isRefreshing) {
@@ -70,22 +70,31 @@ axiosInstance.interceptors.response.use(
           throw new Error('No refresh token available');
         }
 
-        console.log('🔄 访问令牌过期，正在刷新...');
+        console.log('🔄 [自动刷新] 访问令牌已过期，正在自动刷新...');
 
-        // 调用刷新接口
+        // 使用原生 axios 调用刷新接口（避免循环调用拦截器）
         const response = await axios.post(`${API_BASE_URL}/api/v1/auth/refresh`, {
           refreshToken,
+        }, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
         });
 
         const { accessToken: newAccessToken, refreshToken: newRefreshToken } = response.data.data;
+
+        if (!newAccessToken) {
+          throw new Error('刷新令牌返回的 accessToken 为空');
+        }
 
         // 更新本地存储
         localStorage.setItem('accessToken', newAccessToken);
         if (newRefreshToken) {
           localStorage.setItem('refreshToken', newRefreshToken);
+          console.log('🔄 [自动刷新] 同时更新了 refreshToken');
         }
 
-        console.log('✅ 访问令牌刷新成功');
+        console.log('✅ [自动刷新] 访问令牌刷新成功，继续原请求');
 
         // 更新原请求的 token
         if (originalRequest.headers) {
@@ -100,8 +109,8 @@ axiosInstance.interceptors.response.use(
 
         // 重新发送原请求
         return axiosInstance(originalRequest);
-      } catch (refreshError) {
-        console.error('❌ 刷新访问令牌失败:', refreshError);
+      } catch (refreshError: any) {
+        console.error('❌ [自动刷新] 刷新访问令牌失败:', refreshError.response?.data || refreshError.message);
 
         // 清空队列
         failedRequestsQueue.forEach((req) => {
@@ -114,11 +123,19 @@ axiosInstance.interceptors.response.use(
         localStorage.removeItem('refreshToken');
         localStorage.removeItem('userInfo');
 
-        // 延迟重定向到登录页，给用户一些时间保存数据
+        // 触发全局登出事件（让番茄钟等组件有机会保存数据）
+        window.dispatchEvent(new CustomEvent('auth:logout', { 
+          detail: { reason: 'token_expired' } 
+        }));
+
+        // 延迟重定向到登录页，给组件时间保存数据
+        console.warn('⚠️ [自动刷新] 刷新令牌也已过期或无效，3秒后将跳转到登录页...');
         setTimeout(() => {
-          console.warn('⚠️ Token刷新失败，即将跳转到登录页...');
-          window.location.href = '/';
-        }, 1000);
+          // 检查是否还在当前页面（避免用户已手动跳转）
+          if (!window.location.pathname.includes('/login')) {
+            window.location.href = '/';
+          }
+        }, 3000);
 
         return Promise.reject(refreshError);
       } finally {

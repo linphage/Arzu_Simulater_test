@@ -78,6 +78,15 @@ export class FocusPeriodRepository {
         throw new Error('细分时间段不存在');
       }
 
+      // 检查是否已结束
+      if (period.end_time) {
+        logger.warn('细分时间段已结束，跳过重复操作', { 
+          periodId, 
+          existingEndTime: period.end_time 
+        });
+        return;
+      }
+
       // 计算时长（分钟，保留一位小数）
       // SQLite datetime 存储的是 UTC 时间，但格式为 "YYYY-MM-DD HH:MM:SS"（无时区标识）
       // 需要手动添加 'Z' 后缀，让 JavaScript 正确解析为 UTC
@@ -95,7 +104,28 @@ export class FocusPeriodRepository {
       const startMs = new Date(startTimeUTC).getTime();
       const endMs = new Date(endTimeUTC).getTime();
       const diffMs = endMs - startMs;
-      const durationMin = Math.round(diffMs / 60000 * 10) / 10;
+      let durationMin = Math.round(diffMs / 60000 * 10) / 10;
+
+      // 🔧 防御性检查：验证 duration_min 是否合理
+      const MAX_DURATION = 120; // 最大 120 分钟
+      if (durationMin < 0) {
+        logger.error('计算的时长为负数，数据异常', {
+          periodId,
+          startTime: startTimeStr,
+          endTime: endTimeStr,
+          durationMin
+        });
+        durationMin = 0;
+      } else if (durationMin > MAX_DURATION) {
+        logger.warn('计算的时长超过合理范围，自动限制', {
+          periodId,
+          originalDuration: durationMin,
+          cappedDuration: MAX_DURATION,
+          startTime: startTimeStr,
+          endTime: endTimeStr
+        });
+        durationMin = MAX_DURATION;
+      }
 
       logger.debug('计算细分时间段时长', {
         periodId,
@@ -301,6 +331,145 @@ export class FocusPeriodRepository {
         userId, 
         startDate, 
         endDate, 
+        error: error.message 
+      });
+      throw error;
+    }
+  }
+
+  /**
+   * 获取用户所有未结束的细分时间段（跨会话）
+   * 用于检测僵尸记录
+   */
+  async getUnfinishedPeriodsByUser(userId: number): Promise<FocusPeriod[]> {
+    try {
+      const periods = await allQuery<FocusPeriod>(
+        `SELECT fp.* 
+         FROM focus_periods fp
+         INNER JOIN pomodoro_sessions ps ON fp.session_id = ps.id
+         WHERE ps.user_id = ? 
+           AND fp.end_time IS NULL
+         ORDER BY fp.start_time ASC`,
+        [userId]
+      );
+
+      if (periods.length > 0) {
+        logger.warn('发现用户有未结束的细分时间段', { 
+          userId, 
+          unfinishedCount: periods.length,
+          periodIds: periods.map(p => p.period_id)
+        });
+      }
+
+      return periods;
+    } catch (error: any) {
+      logger.error('查询用户未结束的细分时间段失败', { 
+        userId, 
+        error: error.message 
+      });
+      throw error;
+    }
+  }
+
+  /**
+   * 自动清理僵尸细分时间段
+   * 将超时的未结束 period 标记为中断并设置合理的结束时间
+   * @param userId 用户ID
+   * @param maxDurationMinutes 最大允许时长（分钟），默认120分钟
+   * @returns 清理的记录数
+   */
+  async cleanupZombiePeriods(userId: number, maxDurationMinutes: number = 120): Promise<number> {
+    try {
+      const unfinishedPeriods = await this.getUnfinishedPeriodsByUser(userId);
+      
+      if (unfinishedPeriods.length === 0) {
+        return 0;
+      }
+
+      const now = new Date();
+      let cleanedCount = 0;
+
+      for (const period of unfinishedPeriods) {
+        const startTime = new Date(period.start_time);
+        const elapsedMinutes = (now.getTime() - startTime.getTime()) / 60000;
+
+        // 如果已经超过最大时长，自动结束
+        if (elapsedMinutes > maxDurationMinutes) {
+          // 设置结束时间为开始时间 + 最大时长（避免出现超长时段）
+          const endTime = new Date(startTime.getTime() + maxDurationMinutes * 60000);
+          
+          await this.endPeriod(period.period_id, {
+            end_time: endTime.toISOString(),
+            is_interrupted: true
+          });
+
+          cleanedCount++;
+
+          logger.warn('自动清理僵尸细分时间段', { 
+            periodId: period.period_id,
+            sessionId: period.session_id,
+            userId,
+            elapsedMinutes: Math.round(elapsedMinutes),
+            cappedDuration: maxDurationMinutes
+          });
+        }
+      }
+
+      if (cleanedCount > 0) {
+        logger.info('僵尸细分时间段清理完成', { 
+          userId, 
+          cleanedCount,
+          totalUnfinished: unfinishedPeriods.length
+        });
+      }
+
+      return cleanedCount;
+    } catch (error: any) {
+      logger.error('清理僵尸细分时间段失败', { 
+        userId, 
+        error: error.message 
+      });
+      throw error;
+    }
+  }
+
+  /**
+   * 验证并修正异常的 duration_min 值
+   * @param periodId 时间段ID
+   * @param maxDurationMinutes 最大允许时长，默认120分钟
+   */
+  async validateAndFixDuration(periodId: number, maxDurationMinutes: number = 120): Promise<void> {
+    try {
+      const period = await this.findById(periodId);
+      
+      if (!period || !period.duration_min) {
+        return;
+      }
+
+      // 如果 duration_min 超过合理范围
+      if (period.duration_min > maxDurationMinutes) {
+        logger.warn('发现异常的 duration_min 值，进行修正', { 
+          periodId,
+          originalDuration: period.duration_min,
+          maxAllowed: maxDurationMinutes
+        });
+
+        // 将其限制为最大值
+        await runQuery(
+          `UPDATE focus_periods 
+           SET duration_min = ? 
+           WHERE period_id = ?`,
+          [maxDurationMinutes, periodId]
+        );
+
+        logger.info('异常 duration_min 已修正', { 
+          periodId,
+          fixedDuration: maxDurationMinutes
+        });
+      }
+    } catch (error: any) {
+      logger.error('验证并修正 duration_min 失败', { 
+        periodId, 
         error: error.message 
       });
       throw error;

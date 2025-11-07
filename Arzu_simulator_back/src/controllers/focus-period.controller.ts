@@ -30,12 +30,38 @@ export class FocusPeriodController {
     try {
       const { sessionId } = req.params;
       const { start_time } = req.body;
+      const userId = (req as any).user?.id;
 
-      // 检查是否已有活跃的细分时间段
+      if (!userId) {
+        res.status(401).json({ message: '用户未认证' });
+        return;
+      }
+
+      // 🔧 防御性检查1：清理该用户的僵尸 focus_period（超过2小时未结束的）
+      const cleanedCount = await this.focusPeriodRepository.cleanupZombiePeriods(userId, 120);
+      if (cleanedCount > 0) {
+        logger.warn('启动新时间段前清理了僵尸记录', { 
+          userId, 
+          sessionId, 
+          cleanedCount 
+        });
+      }
+
+      // 🔧 防御性检查2：检查当前会话是否已有活跃的细分时间段
       const activePeriod = await this.focusPeriodRepository.getActivePeriod(Number(sessionId));
       if (activePeriod) {
+        logger.warn('当前会话已有活跃的细分时间段', {
+          sessionId,
+          activePeriodId: activePeriod.period_id,
+          userId
+        });
+        
         res.status(400).json({
-          message: '当前会话已有活跃的细分时间段，请先结束当前时间段'
+          success: false,
+          message: '当前会话已有活跃的细分时间段，请先结束当前时间段',
+          data: {
+            active_period: activePeriod
+          }
         });
         return;
       }
@@ -48,10 +74,11 @@ export class FocusPeriodController {
       logger.info('细分时间段开始', { 
         sessionId, 
         periodId,
-        userId: (req as any).user?.userId 
+        userId
       });
 
       res.status(201).json({
+        success: true,
         message: '细分时间段已开始',
         data: {
           period_id: periodId,
@@ -65,7 +92,11 @@ export class FocusPeriodController {
         error: getErrorMessage(error),
         stack: error.stack
       });
-      res.status(500).json({ message: '开始细分时间段失败', error: getErrorMessage(error) });
+      res.status(500).json({ 
+        success: false,
+        message: '开始细分时间段失败', 
+        error: getErrorMessage(error) 
+      });
     }
   };
 

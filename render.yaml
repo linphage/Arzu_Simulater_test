@@ -27,6 +27,10 @@ services:
       - key: PORT
         value: 3001
       
+      # 时区配置 - 设置为东八区（中国标准时间）
+      - key: TZ
+        value: Asia/Shanghai
+      
       # JWT 密钥 - 生产环境请使用 Secret Files 或在 Dashboard 中设置
       - key: JWT_SECRET
         generateValue: true  # Render 自动生成随机值

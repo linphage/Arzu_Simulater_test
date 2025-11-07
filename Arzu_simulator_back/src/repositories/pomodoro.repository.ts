@@ -223,6 +223,7 @@ export class PomodoroRepository {
 
   /**
    * 计算session的实际累计专注时长（从关联的focus_periods累加）
+   * 返回整数分钟数（四舍五入）
    */
   async calculateSessionActualDuration(sessionId: number): Promise<number> {
     try {
@@ -232,7 +233,7 @@ export class PomodoroRepository {
         WHERE session_id = ?
       `, [sessionId]);
 
-      const totalMinutes = Math.round((result?.total || 0) * 10) / 10;
+      const totalMinutes = Math.round(result?.total || 0);
       logger.debug('计算会话实际时长', { sessionId, totalMinutes });
       return totalMinutes;
     } catch (error: any) {

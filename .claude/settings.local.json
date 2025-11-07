@@ -17,7 +17,9 @@
       "Bash(node:*)",
       "Bash(curl:*)",
       "Bash(git restore:*)",
-      "Bash(git revert:*)"
+      "Bash(git revert:*)",
+      "Bash(echo $DATABASE_URL)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []
