@@ -229,13 +229,29 @@ export default function App() {
   }, [isLoggedIn]);
 
   // 日期格式转换辅助函数
+  // 后端已设置TZ=Asia/Shanghai，返回的时间是东八区时间
+  // 直接按字面值解析，不进行时区转换
+  const parseDateWithoutTimezone = (dateStr: string): Date => {
+    // 处理各种可能的格式
+    // "2025-11-07T15:00:00.000Z" → "2025-11-07 15:00:00"
+    // "2025-11-07 15:00:00" → "2025-11-07 15:00:00"
+    let normalized = dateStr
+      .replace('T', ' ')           // 替换T为空格
+      .replace('Z', '')            // 移除Z时区标识
+      .replace(/\.\d{3}/, '')      // 移除毫秒
+      .trim();
+    
+    // 使用 Date 构造函数直接解析，浏览器会将其视为本地时间
+    return new Date(normalized);
+  };
+
   const formatDateToChinese = (isoDate: string): string => {
-    const date = new Date(isoDate);
+    const date = parseDateWithoutTimezone(isoDate);
     return `${date.getMonth() + 1}月${date.getDate()}日`;
   };
 
   const formatTimeToChinese = (isoDate: string): string => {
-    const date = new Date(isoDate);
+    const date = parseDateWithoutTimezone(isoDate);
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const period = hours < 12 ? '上午' : hours < 18 ? '下午' : '晚上';
