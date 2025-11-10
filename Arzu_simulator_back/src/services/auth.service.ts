@@ -126,7 +126,7 @@ export class AuthService {
   /**
    * 根据邮箱登录 - 适配loginplan.md规范
    */
-  async loginByEmail(mail: string, password: string): Promise<{ token: string }> {
+  async loginByEmail(mail: string, password: string): Promise<{ token: string; refreshToken?: string }> {
     try {
       logger.info('开始邮箱登录', { mail });
 
@@ -144,20 +144,24 @@ export class AuthService {
         throw new AuthenticationError('邮箱或密码无效');
       }
 
-      // 生成JWT令牌
-      const payload = {
-        userId: user.user_id,
-        mail: user.mail,
-        username: user.username
-      };
+      // 检查账户状态
+      await this.checkAccountStatus(user);
 
-      const token = jwt.sign(payload, authConfig.jwtSecret, {
-        expiresIn: authConfig.jwtExpiresIn
-      } as any);
+      // 处理成功登录
+      await this.handleSuccessfulLogin(user.user_id);
+
+      // 生成令牌（包含accessToken和refreshToken）
+      const tokens = await this.generateTokens(user);
+
+      // 存储刷新令牌
+      await this.storeRefreshToken(user.user_id, tokens.refreshToken);
 
       logger.info('邮箱登录成功', { userId: user.user_id, mail });
 
-      return { token };
+      return { 
+        token: tokens.accessToken,
+        refreshToken: tokens.refreshToken
+      };
 
     } catch (error) {
       logger.error('邮箱登录失败', { mail, error: getErrorMessage(error) });

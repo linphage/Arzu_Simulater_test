@@ -72,11 +72,22 @@ export class FocusPeriodRepository {
       const { end_time, is_interrupted } = data;
       const endTime = end_time || new Date().toISOString();
 
+      logger.info('开始结束细分时间段', { periodId, endTime, is_interrupted });
+
       // 先获取开始时间以计算duration_min
       const period = await this.findById(periodId);
       if (!period) {
-        throw new Error('细分时间段不存在');
+        const error = new Error('细分时间段不存在');
+        logger.error('细分时间段不存在', { periodId });
+        throw error;
       }
+
+      logger.debug('查找到的period记录', { 
+        period_id: period.period_id,
+        session_id: period.session_id,
+        start_time: period.start_time,
+        end_time: period.end_time
+      });
 
       // 检查是否已结束
       if (period.end_time) {
@@ -88,31 +99,49 @@ export class FocusPeriodRepository {
       }
 
       // 计算时长（分钟，保留一位小数）
-      // SQLite datetime 存储的是 UTC 时间，但格式为 "YYYY-MM-DD HH:MM:SS"（无时区标识）
-      // 需要手动添加 'Z' 后缀，让 JavaScript 正确解析为 UTC
-      // PostgreSQL 返回的可能是 Date 对象或 ISO 字符串
-      const startTimeStr = String(period.start_time);
-      const startTimeUTC = startTimeStr.includes('T') 
-        ? startTimeStr 
-        : startTimeStr.replace(' ', 'T') + 'Z';
-      
-      const endTimeStr = String(endTime);
-      const endTimeUTC = endTimeStr.includes('T') 
-        ? endTimeStr 
-        : endTimeStr.replace(' ', 'T') + 'Z';
-      
-      const startMs = new Date(startTimeUTC).getTime();
-      const endMs = new Date(endTimeUTC).getTime();
+      const parseAsLocalTime = (timeStr: string | Date): number => {
+        if (timeStr instanceof Date) {
+          return timeStr.getTime();
+        }
+        
+        let normalized = String(timeStr)
+          .replace('T', ' ')
+          .replace('Z', '')
+          .replace(/\.\d{3}/, '')
+          .trim();
+        
+        const parsed = new Date(normalized);
+        if (isNaN(parsed.getTime())) {
+          logger.error('时间解析失败', { timeStr, normalized });
+          throw new Error(`无法解析时间: ${timeStr}`);
+        }
+        
+        return parsed.getTime();
+      };
+
+      const startMs = parseAsLocalTime(period.start_time);
+      const endMs = parseAsLocalTime(endTime);
       const diffMs = endMs - startMs;
       let durationMin = Math.round(diffMs / 60000 * 10) / 10;
 
+      logger.debug('时间计算详情', {
+        periodId,
+        start_time: period.start_time,
+        end_time: endTime,
+        startMs,
+        endMs,
+        diffMs,
+        durationMin_raw: diffMs / 60000,
+        durationMin_rounded: durationMin
+      });
+
       // 🔧 防御性检查：验证 duration_min 是否合理
-      const MAX_DURATION = 120; // 最大 120 分钟
+      const MAX_DURATION = 120;
       if (durationMin < 0) {
         logger.error('计算的时长为负数，数据异常', {
           periodId,
-          startTime: startTimeStr,
-          endTime: endTimeStr,
+          startTime: period.start_time,
+          endTime,
           durationMin
         });
         durationMin = 0;
@@ -120,24 +149,20 @@ export class FocusPeriodRepository {
         logger.warn('计算的时长超过合理范围，自动限制', {
           periodId,
           originalDuration: durationMin,
-          cappedDuration: MAX_DURATION,
-          startTime: startTimeStr,
-          endTime: endTimeStr
+          cappedDuration: MAX_DURATION
         });
         durationMin = MAX_DURATION;
       }
 
-      logger.debug('计算细分时间段时长', {
+      logger.info('准备更新数据库', {
         periodId,
-        startTime: startTimeStr,
-        endTime: endTimeStr,
-        startMs,
-        endMs,
-        diffMs,
-        durationMin
+        endTime,
+        durationMin,
+        is_interrupted
       });
 
-      await runQuery(
+      // 执行数据库更新
+      const result = await runQuery(
         `UPDATE focus_periods 
          SET end_time = ?, 
              duration_min = ?,
@@ -146,17 +171,24 @@ export class FocusPeriodRepository {
         [endTime, durationMin, is_interrupted, periodId]
       );
 
-      logger.info('细分时间段结束', { 
+      logger.info('细分时间段结束成功', { 
         periodId, 
         endTime,
         durationMin,
-        isInterrupted: is_interrupted
+        isInterrupted: is_interrupted,
+        changes: result.changes
       });
+
     } catch (error: any) {
-      logger.error('细分时间段结束失败', { 
+      logger.error('细分时间段结束失败 - 详细错误', { 
         periodId, 
-        data, 
-        error: error.message 
+        data,
+        error: {
+          message: error.message,
+          stack: error.stack,
+          code: error.code,
+          detail: error.detail
+        }
       });
       throw error;
     }
