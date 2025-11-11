@@ -20,6 +20,8 @@ export interface Task {
   focusTime?: number;
   pomodoroCount: number;
   dueDate?: string; // ISO 8601格式
+  repeatDays?: string | number; // JSON数组字符串 或 数字（兼容旧数据）
+  parentTaskId?: number | null; // 父任务ID（模板任务为null，实例任务指向模板）
   createdAt: string;
   updatedAt: string;
 }
@@ -32,7 +34,7 @@ export interface CreateTaskDto {
   priority?: TaskPriority;
   dueDate?: string; // ISO 8601格式
   alarm?: string; // ISO 8601格式 - 提醒时间
-  repeatDays?: number; // 位掩码 - 重复日期
+  repeatDays?: number | string | number[]; // 支持多种格式：数字、JSON字符串、数组
 }
 
 // 更新任务DTO
@@ -44,6 +46,7 @@ export interface UpdateTaskDto {
   completed?: boolean;
   dueDate?: string; // ISO 8601格式
   alarm?: string; // ISO 8601格式 - 提醒时间
+  repeatDays?: number | string | number[]; // 支持多种格式
   changeReason?: string; // 修改原因（用于记录到brieflogs）
 }
 

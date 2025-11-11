@@ -1,6 +1,7 @@
 import { TaskRepository } from '../repositories/task.repository';
 import { PomodoroRepository } from '../repositories/pomodoro.repository';
 import { BriefLogRepository, CreateBriefLogDto, BriefType } from '../repositories/brieflog.repository';
+import { TaskGenerationService } from './taskGeneration.service';
 import { logger } from '../config/logger';
 import { 
   Task, 
@@ -33,6 +34,52 @@ export class TaskService {
   /**
    * 创建任务
    */
+  /**
+   * 将位掩码格式的 repeatDays 转换为数组格式
+   * 例如: 124 (01111100) -> [2,3,4,5,6] (周二到周六)
+   */
+  private convertBitmaskToArray(bitmask: number): number[] {
+    const days: number[] = [];
+    for (let i = 0; i < 7; i++) {
+      if (bitmask & (1 << i)) {
+        days.push(i);
+      }
+    }
+    return days;
+  }
+
+  /**
+   * 标准化 repeatDays 格式为数组
+   */
+  private normalizeRepeatDays(repeatDays: number | string | number[] | undefined): number[] | null {
+    if (repeatDays === undefined || repeatDays === null || repeatDays === 0) {
+      return null;
+    }
+
+    // 如果是数组，直接返回
+    if (Array.isArray(repeatDays)) {
+      return repeatDays.length > 0 ? repeatDays : null;
+    }
+
+    // 如果是字符串，尝试解析
+    if (typeof repeatDays === 'string') {
+      try {
+        const parsed = JSON.parse(repeatDays);
+        return Array.isArray(parsed) && parsed.length > 0 ? parsed : null;
+      } catch {
+        return null;
+      }
+    }
+
+    // 如果是数字，转换位掩码
+    if (typeof repeatDays === 'number') {
+      const converted = this.convertBitmaskToArray(repeatDays);
+      return converted.length > 0 ? converted : null;
+    }
+
+    return null;
+  }
+
   async createTask(userId: number, taskData: CreateTaskDto): Promise<Task> {
     try {
       logger.info('开始创建任务', { userId, taskData });
@@ -54,6 +101,25 @@ export class TaskService {
       const task = await this.taskRepository.findById(taskId);
       if (!task) {
         throw new Error('任务创建成功但无法获取');
+      }
+
+      // 如果是重复任务，立即生成本周的实例
+      if (taskData.repeatDays) {
+        const repeatDaysArray = this.normalizeRepeatDays(taskData.repeatDays);
+        
+        if (repeatDaysArray && repeatDaysArray.length > 0) {
+          logger.info('检测到重复任务，开始生成本周实例', { taskId, repeatDays: repeatDaysArray });
+          
+          try {
+            await TaskGenerationService.generateWeeklyTasks(task, 'this_week');
+            logger.info('本周任务实例生成成功', { taskId });
+          } catch (genError) {
+            logger.error('生成任务实例失败（但不影响模板创建）', { 
+              taskId, 
+              error: getErrorMessage(genError) 
+            });
+          }
+        }
       }
 
       logger.info('任务创建成功', { 
@@ -315,6 +381,39 @@ export class TaskService {
         throw new Error('任务更新成功但无法获取');
       }
 
+      // 如果是模板任务且修改了重复相关字段，重新生成任务实例
+      const isTemplate = !existingTask.parentTaskId; // 模板任务没有父任务
+      const repeatFieldsChanged = updateData.repeatDays !== undefined || updateData.dueDate !== undefined;
+      
+      if (isTemplate && repeatFieldsChanged) {
+        const repeatDays = updateData.repeatDays || existingTask.repeatDays;
+        
+        if (repeatDays) {
+          const repeatDaysArray = typeof repeatDays === 'string'
+            ? JSON.parse(repeatDays)
+            : (typeof repeatDays === 'number' ? [repeatDays] : repeatDays);
+          
+          if (Array.isArray(repeatDaysArray) && repeatDaysArray.length > 0) {
+            logger.info('模板任务更新，重新生成任务实例', { taskId, repeatDays: repeatDaysArray });
+            
+            try {
+              // 先删除未来未完成的实例
+              await TaskGenerationService.deleteFutureInstances(taskId, userId);
+              
+              // 重新生成本周任务
+              await TaskGenerationService.generateWeeklyTasks(updatedTask, 'this_week');
+              
+              logger.info('任务实例重新生成成功', { taskId });
+            } catch (genError) {
+              logger.error('重新生成任务实例失败（但不影响模板更新）', { 
+                taskId, 
+                error: getErrorMessage(genError) 
+              });
+            }
+          }
+        }
+      }
+
       logger.info('任务更新成功', { 
         taskId, 
         userId, 
@@ -331,16 +430,20 @@ export class TaskService {
 
   /**
    * 删除任务（带数据隔离验证和删除日志记录）
+   * @param deleteInstances 如果是模板任务，是否同时删除未来未完成的实例
    */
-  async deleteTask(userId: number, taskId: number, deleteReason?: string): Promise<void> {
+  async deleteTask(userId: number, taskId: number, deleteReason?: string, deleteInstances: boolean = false): Promise<void> {
     try {
-      logger.info('开始删除任务', { userId, taskId, deleteReason });
+      logger.info('开始删除任务', { userId, taskId, deleteReason, deleteInstances });
 
       // 验证任务是否存在且属于当前用户
       const existingTask = await this.taskRepository.findByIdAndUserId(taskId, userId);
       if (!existingTask) {
         throw new NotFoundError('任务不存在或无权限访问');
       }
+
+      // 检查是否为模板任务
+      const isTemplate = !existingTask.parentTaskId;
 
       // 获取最近的番茄钟会话（如果有）
       let latestSessionId: number | undefined = undefined;
@@ -374,7 +477,20 @@ export class TaskService {
         await this.taskRepository.delete(taskId);
       });
 
-      logger.info('任务删除成功', { taskId, userId, title: existingTask.title });
+      // 如果是模板任务，且需要删除实例
+      if (isTemplate && deleteInstances) {
+        try {
+          await TaskGenerationService.deleteTemplate(taskId, userId, true);
+          logger.info('模板任务的未来实例已删除', { taskId });
+        } catch (genError) {
+          logger.error('删除模板任务实例失败', { 
+            taskId, 
+            error: getErrorMessage(genError) 
+          });
+        }
+      }
+
+      logger.info('任务删除成功', { taskId, userId, title: existingTask.title, isTemplate, deleteInstances });
     } catch (error) {
       logger.error('删除任务失败', { userId, taskId, error: getErrorMessage(error) });
       throw error instanceof ApiError ? error : new ApiError('删除任务失败', 500);

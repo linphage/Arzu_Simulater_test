@@ -282,18 +282,35 @@ export default function App() {
         taskData.dateTime?.repeat || '无',
         taskData.dateTime?.selectedWeekdays || []
       );
-      
-      const newTask: TaskData = {
-        id: response.data.id.toString(),
-        title: taskData.title,
-        content: taskData.content,
-        taskType: taskData.taskType || '勤政',
-        priority: taskData.priority || '铜卡',
-        dateTime: taskData.dateTime
-      };
 
       console.log('✅ 任务创建成功，后端返回ID:', response.data.id);
-      setTasks(prev => [newTask, ...prev]);
+      
+      // 重新获取所有未完成任务（包括新生成的重复任务实例）
+      const tasksResponse = await taskService.getUserTasks({ 
+        completed: false, 
+        limit: 100 
+      });
+      
+      if (tasksResponse.success && tasksResponse.data) {
+        const loadedTasks = tasksResponse.data.tasks.map((task: any) => ({
+          id: task.id.toString(),
+          title: task.title,
+          content: task.description,
+          taskType: task.category,
+          priority: task.priority === '金' ? '金卡' : task.priority === '银' ? '银卡' : task.priority === '铜' ? '铜卡' : '石卡',
+          focusTime: task.focus_time || 0,
+          dateTime: task.due_date ? {
+            date: formatDateToChinese(task.due_date),
+            startTime: formatTimeToChinese(task.due_date)
+          } : undefined,
+          isCompleted: task.completed,
+          completedAt: task.completed_at ? new Date(task.completed_at) : undefined
+        }));
+        
+        setTasks(loadedTasks);
+        console.log(`🔄 [刷新任务列表] 成功加载 ${loadedTasks.length} 个任务（包括重复任务实例）`);
+      }
+      
       setIsTaskModalOpen(false);
     } catch (error: any) {
       console.error('❌ 创建任务失败:', error);
