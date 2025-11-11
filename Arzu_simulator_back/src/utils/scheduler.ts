@@ -25,7 +25,7 @@ export function startScheduledTasks() {
       logger.info('开始执行每周重复任务生成...');
 
       // 1. 查找所有"模板"任务（parent_task_id 为 NULL 且 repeat_days 不为空）
-      const templateTasks = await allQuery(
+      const templateTasks = await allQuery<any>(
         `SELECT * FROM tasks 
          WHERE parent_task_id IS NULL 
          AND repeat_days IS NOT NULL 
