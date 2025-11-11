@@ -312,4 +312,14 @@ router.delete(
   taskController.deleteTask
 );
 
+// 完成任务（带总结） - PUT /api/tasks/:id/complete
+router.put(
+  '/:id/complete',
+  authenticateToken,
+  rateLimiter('complete-task', 20, 60 * 1000),
+  taskIdParamValidation,
+  validateTaskRequest,
+  taskController.completeTask
+);
+
 export default router;

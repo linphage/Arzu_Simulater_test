@@ -214,6 +214,9 @@ export function EditablePomodoroView({ onBack, onSaveTask }: EditablePomodoroVie
   const [currentSessionId, setCurrentSessionId] = useState<number | null>(null);
   const [currentPeriodId, setCurrentPeriodId] = useState<number | null>(null);
 
+  // 🔧 localStorage key for persisting active period
+  const ACTIVE_PERIOD_KEY = 'activePeriod_editable';
+
   // 任务编辑状态
   const [isEditing, setIsEditing] = useState(false);
   const [taskTitle, setTaskTitle] = useState('新工作任务');
@@ -494,6 +497,19 @@ export function EditablePomodoroView({ onBack, onSaveTask }: EditablePomodoroVie
       console.error('❌ 创建brieflog失败:', error);
     }
     
+    // 🔧 FIX: 先关闭旧的细分时间段，再开始新的
+    if (currentPeriodId && currentSessionId) {
+      try {
+        await focusPeriodService.endPeriod(currentSessionId, currentPeriodId, {
+          is_interrupted: true
+        });
+        console.log('✅ 继续工作 - 先关闭旧的细分时间段', { periodId: currentPeriodId, sessionId: currentSessionId });
+        setCurrentPeriodId(null);
+      } catch (error) {
+        console.error('❌ 关闭旧的细分时间段失败:', error);
+      }
+    }
+    
     if (currentSessionId) {
       try {
         const period = await focusPeriodService.startPeriod(currentSessionId);
@@ -525,6 +541,19 @@ export function EditablePomodoroView({ onBack, onSaveTask }: EditablePomodoroVie
       console.error('❌ 创建brieflog失败:', error);
     }
     
+    // 🔧 FIX: 先关闭当前的细分时间段（如果存在）
+    if (currentPeriodId && currentSessionId) {
+      try {
+        await focusPeriodService.endPeriod(currentSessionId, currentPeriodId, {
+          is_interrupted: true
+        });
+        console.log('✅ 离开 - 细分时间段已关闭', { periodId: currentPeriodId, sessionId: currentSessionId });
+        setCurrentPeriodId(null);
+      } catch (error) {
+        console.error('❌ 关闭细分时间段失败:', error);
+      }
+    }
+    
     const elapsedTime = getCurrentPhaseTime() - timeLeft;
     setTotalInvestedTime(prev => prev + elapsedTime);
     
@@ -547,6 +576,19 @@ export function EditablePomodoroView({ onBack, onSaveTask }: EditablePomodoroVie
       }
     } catch (error) {
       console.error('❌ 创建brieflog失败:', error);
+    }
+    
+    // 🔧 FIX: 先关闭当前的细分时间段（如果存在）
+    if (currentPeriodId && currentSessionId) {
+      try {
+        await focusPeriodService.endPeriod(currentSessionId, currentPeriodId, {
+          is_interrupted: false  // 正常完成
+        });
+        console.log('✅ 我做完了 - 细分时间段已关闭', { periodId: currentPeriodId, sessionId: currentSessionId });
+        setCurrentPeriodId(null);
+      } catch (error) {
+        console.error('❌ 关闭细分时间段失败:', error);
+      }
     }
     
     if (taskTitle.trim() !== '' && taskContent.trim() !== '') {
@@ -658,7 +700,60 @@ export function EditablePomodoroView({ onBack, onSaveTask }: EditablePomodoroVie
     };
     
     initSession();
+
+    // 🔧 检查并清理跨天未关闭的 period
+    const checkAndCleanupStalePeriod = async () => {
+      try {
+        const storedPeriod = localStorage.getItem(ACTIVE_PERIOD_KEY);
+        if (storedPeriod) {
+          const { periodId, sessionId: storedSessionId, startTime } = JSON.parse(storedPeriod);
+          const elapsed = Date.now() - new Date(startTime).getTime();
+          const MAX_DURATION_MS = 2 * 60 * 60 * 1000; // 2小时
+          
+          if (elapsed > MAX_DURATION_MS) {
+            console.warn('⚠️ 发现超时未关闭的 period，正在自动关闭...', {
+              periodId,
+              sessionId: storedSessionId,
+              elapsedHours: (elapsed / (60 * 60 * 1000)).toFixed(2)
+            });
+            
+            // 设置结束时间为开始时间 + 2小时（最大允许时长）
+            const cappedEndTime = new Date(new Date(startTime).getTime() + MAX_DURATION_MS).toISOString();
+            
+            await focusPeriodService.endPeriod(storedSessionId, periodId, {
+              end_time: cappedEndTime,
+              is_interrupted: true
+            });
+            
+            localStorage.removeItem(ACTIVE_PERIOD_KEY);
+            console.log('✅ 超时 period 已自动关闭并限制时长', { periodId, cappedDuration: '2小时' });
+          }
+        }
+      } catch (error) {
+        console.error('❌ 清理超时 period 失败:', error);
+        // 如果清理失败，也要移除localStorage记录，避免永久卡住
+        localStorage.removeItem(ACTIVE_PERIOD_KEY);
+      }
+    };
+
+    checkAndCleanupStalePeriod();
   }, []);
+
+  // 🔧 监听 currentPeriodId 变化，持久化到 localStorage
+  useEffect(() => {
+    if (currentPeriodId && currentSessionId) {
+      const periodData = {
+        periodId: currentPeriodId,
+        sessionId: currentSessionId,
+        startTime: new Date().toISOString()
+      };
+      localStorage.setItem(ACTIVE_PERIOD_KEY, JSON.stringify(periodData));
+      console.log('💾 Period 已保存到 localStorage', periodData);
+    } else {
+      localStorage.removeItem(ACTIVE_PERIOD_KEY);
+      console.log('🗑️ Period 已从 localStorage 移除');
+    }
+  }, [currentPeriodId, currentSessionId]);
 
   // 页面关闭前处理（突然离开番茄钟）
   useEffect(() => {
@@ -670,6 +765,7 @@ export function EditablePomodoroView({ onBack, onSaveTask }: EditablePomodoroVie
             is_interrupted: true
           });
           console.log('✅ 页面关闭 - 细分时间段中断', { periodId: currentPeriodId, sessionId: currentSessionId });
+          localStorage.removeItem(ACTIVE_PERIOD_KEY);
         } catch (error) {
           console.error('❌ 结束细分时间段失败:', error);
         }

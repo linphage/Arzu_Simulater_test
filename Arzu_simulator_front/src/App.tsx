@@ -3,6 +3,7 @@ import { LoginScreen } from './components/LoginScreen';
 import { TaskCreationModal } from './components/TaskCreationModal';
 import { TaskEditModal } from './components/TaskEditModal';
 import { TaskDeleteModal } from './components/TaskDeleteModal';
+import { CompletionSummaryModal } from './components/CompletionSummaryModal';
 import { TaskCard } from './components/TaskCard';
 import { RewardCard } from './components/RewardCard';
 import { SimpleToggle } from './components/SimpleToggle';
@@ -19,6 +20,7 @@ import { WeeklyTaskReminder, WeeklyRestCountdown, WeeklyOverdueRate } from './co
 import { BackgroundElements } from './components/BackgroundElements';
 import { taskService } from './services/taskService';
 import { rewardService } from './services/rewardService';
+import { brieflogService } from './services/brieflogService';
 
 interface TaskData {
   id: string;
@@ -68,6 +70,9 @@ export default function App() {
   const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
   const [isTaskEditModalOpen, setIsTaskEditModalOpen] = useState(false);
   const [isTaskDeleteModalOpen, setIsTaskDeleteModalOpen] = useState(false);
+  const [isCompletionModalOpen, setIsCompletionModalOpen] = useState(false);
+  const [completingTask, setCompletingTask] = useState<TaskData | null>(null);
+  const [isCompletionLoading, setIsCompletionLoading] = useState(false);
   const [editingTask, setEditingTask] = useState<TaskData | null>(null);
   const [deletingTask, setDeletingTask] = useState<TaskData | null>(null);
   const [tasks, setTasks] = useState<TaskData[]>([]);
@@ -186,6 +191,33 @@ export default function App() {
     setIsLoggedIn(true);
     
     console.log('📊 [分析] 用户登录事件已记录');
+  };
+
+  // 🔧 清理所有未关闭的 localStorage period 记录
+  const cleanupAllActivePeriods = () => {
+    try {
+      const keysToRemove: string[] = [];
+      
+      // 遍历所有 localStorage keys
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('activePeriod_')) {
+          keysToRemove.push(key);
+        }
+      }
+      
+      // 移除所有 activePeriod 相关的 keys
+      keysToRemove.forEach(key => {
+        localStorage.removeItem(key);
+        console.log(`🗑️ [清理] 已移除 localStorage: ${key}`);
+      });
+      
+      if (keysToRemove.length > 0) {
+        console.log(`✅ [清理] 共清理了 ${keysToRemove.length} 个活跃 period 记录`);
+      }
+    } catch (error) {
+      console.error('❌ [清理] 清理 localStorage 失败:', error);
+    }
   };
 
   // 🔄 登录后加载用户任务和奖励卡数据
@@ -397,6 +429,48 @@ export default function App() {
     setIsWeeklyView(isRight);
   };
 
+  const handleCompleteTask = (task: TaskData) => {
+    setCompletingTask(task);
+    setIsCompletionModalOpen(true);
+  };
+
+  const handleCompletionSubmit = async (summary: string) => {
+    if (!completingTask) return;
+
+    setIsCompletionLoading(true);
+    try {
+      console.log('🎯 提交任务完成总结:', { taskId: completingTask.id, summary });
+      
+      // 创建 brief_type: 8 的 brieflog
+      await brieflogService.createBriefLog({
+        task_id: parseInt(completingTask.id),
+        brief_type: 8,
+        brief_content: summary
+      });
+
+      // 标记任务为已完成
+      await taskService.completeTask(completingTask.id);
+
+      // 更新本地状态
+      setTasks(prevTasks =>
+        prevTasks.map(task =>
+          task.id === completingTask.id
+            ? { ...task, isCompleted: true, completedAt: new Date() }
+            : task
+        )
+      );
+
+      console.log('✅ 任务完成并记录总结成功');
+      setIsCompletionModalOpen(false);
+      setCompletingTask(null);
+    } catch (error: any) {
+      console.error('❌ 完成任务失败:', error);
+      alert(`完成任务失败: ${error.message || error}`);
+    } finally {
+      setIsCompletionLoading(false);
+    }
+  };
+
   const handleTaskClick = (task: TaskData) => {
     // 如果任务已完成，不允许进入番茄钟界面
     if (task.isCompleted) {
@@ -473,6 +547,9 @@ export default function App() {
     if (window.confirm('⚠️ 确定要重置所有数据吗？\n\n这将会：\n• 清空所有任务\n• 清空已完成任务\n• 清空任务统计\n• 退出登录\n\n此操作不可恢复！')) {
       console.log('🔄 正在重置所有数据...');
       
+      // 🔧 先清理所有活跃 period
+      cleanupAllActivePeriods();
+      
       // 重置所有状态到初始值
       setTasks([]);
       setCompletedTasks([]);
@@ -495,6 +572,21 @@ export default function App() {
       console.log('✅ 所有数据已重置完成');
       alert('✅ 数据重置完成！应用已返回初始状态。');
     }
+  };
+
+  // 🔧 退出登录函数
+  const handleLogout = () => {
+    console.log('🚪 [用户操作] 退出登录');
+    
+    // 🔧 先清理所有活跃 period
+    cleanupAllActivePeriods();
+    
+    // 退出登录
+    setIsLoggedIn(false);
+    setCurrentView('home');
+    setSelectedTask(null);
+    
+    console.log('✅ 已退出登录');
   };
 
   const handleTaskComplete = (taskId: string, focusTime: number) => {
@@ -784,7 +876,7 @@ export default function App() {
         onRoseGardenClick={handleRoseGardenClick}
         onParliamentClick={handleBackFromPomodoro}
         onResetAllData={handleResetAllData}
-        onLogout={() => setIsLoggedIn(false)}
+        onLogout={handleLogout}
         onManualReward={handleManualReward}
         tasks={tasks}
         completedTasks={completedTasks}
@@ -906,6 +998,7 @@ export default function App() {
                             onDelete={() => handleShowDeleteModal(task)}
                             onTaskClick={handleTaskClick}
                             onEdit={handleEditTask}
+                            onCompleteClick={handleCompleteTask}
                           />
                         ))}
                         
@@ -927,6 +1020,7 @@ export default function App() {
                             onDelete={() => handleShowDeleteModal(task)}
                             onTaskClick={handleTaskClick}
                             onEdit={handleEditTask}
+                            onCompleteClick={handleCompleteTask}
                           />
                         ))}
                       </>
@@ -967,6 +1061,15 @@ export default function App() {
           task={deletingTask}
           onClose={handleCloseDeleteModal}
           onConfirm={handleConfirmDelete}
+        />
+
+        {/* Completion Summary Modal */}
+        <CompletionSummaryModal
+          isOpen={isCompletionModalOpen}
+          onClose={() => setIsCompletionModalOpen(false)}
+          onSubmit={handleCompletionSubmit}
+          isLoading={isCompletionLoading}
+          taskTitle={completingTask?.title}
         />
       </div>
     </div>

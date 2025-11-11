@@ -299,6 +299,14 @@ export const taskService = {
     const result = response.data;
     console.log('✅ 任务完成状态更新成功:', result);
     return result;
+  },
+
+  async completeTask(taskId: string): Promise<TaskResponse> {
+    console.log('📝 发送任务完成请求:', { taskId });
+    const response = await axiosInstance.put(`/api/v1/tasks/${taskId}/complete`);
+    const result = response.data;
+    console.log('✅ 任务标记为已完成:', result);
+    return result;
   }
 };
 

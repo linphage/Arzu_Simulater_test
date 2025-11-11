@@ -938,6 +938,56 @@ export class TaskController {
       throw error;
     }
   });
+
+  /**
+   * 完成任务（简化版，仅标记为已完成）
+   * PUT /api/tasks/:id/complete
+   */
+  completeTask = asyncHandler(async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
+    const userId = req.user!.id;
+    const taskId = parseInt(req.params.id);
+
+    logger.info('收到任务完成请求', { userId, taskId, ip: req.ip });
+
+    try {
+      // 调用任务服务更新任务为已完成
+      const task = await this.taskService.taskRepository.findById(taskId);
+      
+      if (!task) {
+        throw new NotFoundError('任务不存在');
+      }
+
+      if (task.userId !== userId) {
+        throw new UnauthorizedError('无权操作此任务');
+      }
+
+      if (task.completed) {
+        throw new ValidationError('任务已经完成');
+      }
+
+      // 更新任务状态
+      const completedAt = new Date().toISOString();
+      await this.taskService.taskRepository.update(taskId, {
+        completed: true,
+        completedAt: completedAt
+      });
+
+      logger.info('任务已标记为完成', { userId, taskId });
+
+      res.json({
+        success: true,
+        message: '任务已完成',
+        data: {
+          taskId,
+          completed: true,
+          completedAt
+        }
+      });
+    } catch (error) {
+      logger.error('完成任务失败', { userId, taskId, ip: req.ip, error: getErrorMessage(error) });
+      throw error;
+    }
+  });
 }
 
 export default TaskController;

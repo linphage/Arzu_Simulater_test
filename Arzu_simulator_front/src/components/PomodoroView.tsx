@@ -367,6 +367,9 @@ export function PomodoroView({ task, onBack, onTaskComplete, onTaskInterrupted, 
   const [isInitialized, setIsInitialized] = useState(false);
   const [completedSessionId, setCompletedSessionId] = useState<number | null>(null);
 
+  // 🔧 localStorage key for persisting active period
+  const ACTIVE_PERIOD_KEY = `activePeriod_${task.id}`;
+
   // refs
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const startTimeRef = useRef<number>(0);
@@ -442,6 +445,43 @@ export function PomodoroView({ task, onBack, onTaskComplete, onTaskInterrupted, 
 
     checkActiveSession();
 
+    // 🔧 检查并清理跨天未关闭的 period
+    const checkAndCleanupStalePeriod = async () => {
+      try {
+        const storedPeriod = localStorage.getItem(ACTIVE_PERIOD_KEY);
+        if (storedPeriod) {
+          const { periodId, sessionId: storedSessionId, startTime } = JSON.parse(storedPeriod);
+          const elapsed = Date.now() - new Date(startTime).getTime();
+          const MAX_DURATION_MS = 2 * 60 * 60 * 1000; // 2小时
+          
+          if (elapsed > MAX_DURATION_MS) {
+            console.warn('⚠️ 发现超时未关闭的 period，正在自动关闭...', {
+              periodId,
+              sessionId: storedSessionId,
+              elapsedHours: (elapsed / (60 * 60 * 1000)).toFixed(2)
+            });
+            
+            // 设置结束时间为开始时间 + 2小时（最大允许时长）
+            const cappedEndTime = new Date(new Date(startTime).getTime() + MAX_DURATION_MS).toISOString();
+            
+            await focusPeriodService.endPeriod(storedSessionId, periodId, {
+              end_time: cappedEndTime,
+              is_interrupted: true
+            });
+            
+            localStorage.removeItem(ACTIVE_PERIOD_KEY);
+            console.log('✅ 超时 period 已自动关闭并限制时长', { periodId, cappedDuration: '2小时' });
+          }
+        }
+      } catch (error) {
+        console.error('❌ 清理超时 period 失败:', error);
+        // 如果清理失败，也要移除localStorage记录，避免永久卡住
+        localStorage.removeItem(ACTIVE_PERIOD_KEY);
+      }
+    };
+
+    checkAndCleanupStalePeriod();
+
     // 组件卸载时的清理逻辑
     return () => {
       // 如果有活跃的细分时间段，结束它（意外离开）
@@ -450,12 +490,30 @@ export function PomodoroView({ task, onBack, onTaskComplete, onTaskInterrupted, 
           is_interrupted: true
         }).then(() => {
           console.log('🧹 组件卸载 - 细分时间段中断', { periodId: currentPeriodId, sessionId });
+          localStorage.removeItem(ACTIVE_PERIOD_KEY);
         }).catch((error) => {
           console.error('❌ 组件卸载时结束细分时间段失败:', error);
         });
       }
     };
   }, []);
+
+  // 🔧 监听 currentPeriodId 变化，持久化到 localStorage
+  useEffect(() => {
+    if (currentPeriodId && sessionId) {
+      const periodData = {
+        periodId: currentPeriodId,
+        sessionId,
+        startTime: new Date().toISOString(),
+        taskId: task.id
+      };
+      localStorage.setItem(ACTIVE_PERIOD_KEY, JSON.stringify(periodData));
+      console.log('💾 Period 已保存到 localStorage', periodData);
+    } else {
+      localStorage.removeItem(ACTIVE_PERIOD_KEY);
+      console.log('🗑️ Period 已从 localStorage 移除');
+    }
+  }, [currentPeriodId, sessionId, task.id]);
 
   // 处理浏览器关闭/刷新时自动结束活跃时间段和会话
   useEffect(() => {
@@ -904,6 +962,19 @@ export function PomodoroView({ task, onBack, onTaskComplete, onTaskInterrupted, 
       console.error('❌ 创建brieflog失败:', error);
     }
     
+    // 🔧 FIX: 先关闭旧的细分时间段，再开始新的
+    if (currentPeriodId && sessionId) {
+      try {
+        await focusPeriodService.endPeriod(sessionId, currentPeriodId, {
+          is_interrupted: true
+        });
+        console.log('✅ 继续工作 - 先关闭旧的细分时间段', { periodId: currentPeriodId, sessionId });
+        setCurrentPeriodId(null);
+      } catch (error) {
+        console.error('❌ 关闭旧的细分时间段失败:', error);
+      }
+    }
+    
     // 🔧 开始新的细分时间段（用户选择继续工作）
     if (sessionId && pomodoroState === 'focus' && timerStatus !== 'stopped') {
       try {
@@ -936,6 +1007,19 @@ export function PomodoroView({ task, onBack, onTaskComplete, onTaskInterrupted, 
       console.log('✅ brief_type=6 (离开备注) 记录成功');
     } catch (error) {
       console.error('❌ 创建brieflog失败:', error);
+    }
+    
+    // 🔧 FIX: 先关闭当前的细分时间段（如果存在）
+    if (currentPeriodId && sessionId) {
+      try {
+        await focusPeriodService.endPeriod(sessionId, currentPeriodId, {
+          is_interrupted: true
+        });
+        console.log('✅ 离开 - 细分时间段已关闭', { periodId: currentPeriodId, sessionId });
+        setCurrentPeriodId(null);
+      } catch (error) {
+        console.error('❌ 关闭细分时间段失败:', error);
+      }
     }
     
     // 场景1：点击"离开"按钮（中断）
@@ -988,6 +1072,19 @@ export function PomodoroView({ task, onBack, onTaskComplete, onTaskInterrupted, 
       console.log('✅ brief_type=7 (任务完成备注) 记录成功');
     } catch (error) {
       console.error('❌ 创建brieflog失败:', error);
+    }
+    
+    // 🔧 FIX: 先关闭当前的细分时间段（如果存在）
+    if (currentPeriodId && sessionId) {
+      try {
+        await focusPeriodService.endPeriod(sessionId, currentPeriodId, {
+          is_interrupted: false  // 正常完成
+        });
+        console.log('✅ 我做完了 - 细分时间段已关闭', { periodId: currentPeriodId, sessionId });
+        setCurrentPeriodId(null);
+      } catch (error) {
+        console.error('❌ 关闭细分时间段失败:', error);
+      }
     }
     
     // 场景2：点击"我做完了"按钮（完成任务）

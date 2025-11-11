@@ -25,9 +25,10 @@ interface TaskCardProps {
   onDelete?: (taskId: string) => void;
   onTaskClick?: (task: TaskData) => void;
   onEdit?: (task: TaskData) => void;
+  onCompleteClick?: (task: TaskData) => void;
 }
 
-export function TaskCard({ task, onDelete, onTaskClick, onEdit }: TaskCardProps) {
+export function TaskCard({ task, onDelete, onTaskClick, onEdit, onCompleteClick }: TaskCardProps) {
   // Get priority color scheme
   const getPriorityColors = (priority: string) => {
     switch (priority) {
@@ -99,11 +100,17 @@ export function TaskCard({ task, onDelete, onTaskClick, onEdit }: TaskCardProps)
     }
   };
 
+  const handleCompleteClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // 阻止冒泡到卡片点击事件
+    if (!task.isCompleted && onCompleteClick) {
+      onCompleteClick(task);
+    }
+  };
+
   const handleCardClick = () => {
     if (onTaskClick && !task.isCompleted) {
       onTaskClick(task);
     }
-    // 如果任务已完成，不执行任何操作
   };
 
   return (
@@ -128,8 +135,9 @@ export function TaskCard({ task, onDelete, onTaskClick, onEdit }: TaskCardProps)
         
         {/* Checkbox */}
         <div
-          className="box-border content-stretch flex flex-row items-center justify-center p-[2px] relative rounded-lg shrink-0 size-6"
+          className={`box-border content-stretch flex flex-row items-center justify-center p-[2px] relative rounded-lg shrink-0 size-6 ${!task.isCompleted ? 'cursor-pointer hover:bg-gray-100' : ''}`}
           data-name="Border"
+          onClick={handleCompleteClick}
         >
           <div
             aria-hidden="true"
