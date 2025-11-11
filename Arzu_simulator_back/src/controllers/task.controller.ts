@@ -959,12 +959,14 @@ export class TaskController {
       }
 
       // 确保类型一致性：将两个值都转换为字符串进行比较
-      const taskUserIdStr = String(task.userId);
+      // 注意：数据库返回的字段名是 user_id (蛇形命名)，而不是 userId (驼峰命名)
+      const taskUserId = (task as any).user_id || task.userId;
+      const taskUserIdStr = String(taskUserId);
       const currentUserIdStr = String(userId);
       
       logger.info('权限检查', { 
-        taskUserId: task.userId, 
-        taskUserIdType: typeof task.userId,
+        taskUserId,
+        taskUserIdType: typeof taskUserId,
         currentUserId: userId,
         currentUserIdType: typeof userId,
         taskUserIdStr,
@@ -973,7 +975,7 @@ export class TaskController {
       });
 
       if (taskUserIdStr !== currentUserIdStr) {
-        logger.warn('无权操作此任务', { taskUserId: task.userId, currentUserId: userId });
+        logger.warn('无权操作此任务', { taskUserId, currentUserId: userId });
         throw new AuthorizationError('无权操作此任务');
       }
 
