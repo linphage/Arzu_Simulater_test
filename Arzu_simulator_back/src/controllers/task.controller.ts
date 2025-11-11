@@ -947,17 +947,33 @@ export class TaskController {
     const userId = req.user!.id;
     const taskId = parseInt(req.params.id);
 
-    logger.info('收到任务完成请求', { userId, taskId, ip: req.ip });
+    logger.info('收到任务完成请求', { userId, taskId, userIdType: typeof userId, ip: req.ip });
 
     try {
       // 调用任务服务更新任务为已完成
       const task = await this.taskService.taskRepository.findById(taskId);
       
       if (!task) {
+        logger.warn('任务不存在', { taskId, userId });
         throw new NotFoundError('任务不存在');
       }
 
-      if (task.userId !== userId) {
+      // 确保类型一致性：将两个值都转换为字符串进行比较
+      const taskUserIdStr = String(task.userId);
+      const currentUserIdStr = String(userId);
+      
+      logger.info('权限检查', { 
+        taskUserId: task.userId, 
+        taskUserIdType: typeof task.userId,
+        currentUserId: userId,
+        currentUserIdType: typeof userId,
+        taskUserIdStr,
+        currentUserIdStr,
+        isMatch: taskUserIdStr === currentUserIdStr
+      });
+
+      if (taskUserIdStr !== currentUserIdStr) {
+        logger.warn('无权操作此任务', { taskUserId: task.userId, currentUserId: userId });
         throw new AuthorizationError('无权操作此任务');
       }
 
