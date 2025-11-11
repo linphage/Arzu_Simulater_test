@@ -220,6 +220,7 @@ export class TaskRepository {
       'alarm': 'alarm',
       'repeatDays': 'repeat_days',
       'completed': 'completed',
+      'completedAt': 'completed_at',
       'pomodoroCount': 'pomodoro_count'
     };
 
