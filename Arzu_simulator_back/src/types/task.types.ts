@@ -44,6 +44,7 @@ export interface UpdateTaskDto {
   category?: TaskCategory;
   priority?: TaskPriority;
   completed?: boolean;
+  completedAt?: string; // ISO 8601格式 - 完成时间
   dueDate?: string; // ISO 8601格式
   alarm?: string; // ISO 8601格式 - 提醒时间
   repeatDays?: number | string | number[]; // 支持多种格式

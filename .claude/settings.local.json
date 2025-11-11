@@ -20,7 +20,8 @@
       "Bash(git revert:*)",
       "Bash(echo $DATABASE_URL)",
       "Bash(npm install:*)",
-      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" -U postgres -d arzu_simulator_local -c:*)"
+      "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" -U postgres -d arzu_simulator_local -c:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": [],
     "ask": []

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { validationResult } from 'express-validator';
 import { TaskService } from '../services/task.service';
-import { ApiError, ValidationError, NotFoundError } from '../utils/error.utils';
+import { ApiError, ValidationError, NotFoundError, AuthorizationError } from '../utils/error.utils';
 import { logger } from '../config/logger';
 import { asyncHandler } from '../utils/error.utils';
 import { AuthRequest } from './auth.controller';
@@ -958,7 +958,7 @@ export class TaskController {
       }
 
       if (task.userId !== userId) {
-        throw new UnauthorizedError('无权操作此任务');
+        throw new AuthorizationError('无权操作此任务');
       }
 
       if (task.completed) {
