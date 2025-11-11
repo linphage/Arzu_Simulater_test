@@ -101,10 +101,21 @@ export function TaskCard({ task, onDelete, onTaskClick, onEdit, onCompleteClick 
   };
 
   const handleCompleteClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // 阻止冒泡到卡片点击事件
-    if (!task.isCompleted && onCompleteClick) {
-      onCompleteClick(task);
+    e.stopPropagation();
+    console.log('🎯 点击完成框:', { taskId: task.id, taskTitle: task.title, isCompleted: task.isCompleted });
+    
+    if (task.isCompleted) {
+      console.log('⚠️ 任务已完成,忽略点击');
+      return;
     }
+    
+    if (!onCompleteClick) {
+      console.log('⚠️ onCompleteClick未定义');
+      return;
+    }
+    
+    console.log('✅ 触发完成模态框');
+    onCompleteClick(task);
   };
 
   const handleCardClick = () => {
@@ -135,7 +146,7 @@ export function TaskCard({ task, onDelete, onTaskClick, onEdit, onCompleteClick 
         
         {/* Checkbox */}
         <div
-          className={`box-border content-stretch flex flex-row items-center justify-center p-[2px] relative rounded-lg shrink-0 size-6 ${!task.isCompleted ? 'cursor-pointer hover:bg-gray-100' : ''}`}
+          className={`box-border content-stretch flex flex-row items-center justify-center p-[2px] relative rounded-lg shrink-0 size-6 ${!task.isCompleted ? 'cursor-pointer hover:bg-gray-100 transition-colors' : 'cursor-default'}`}
           data-name="Border"
           onClick={handleCompleteClick}
         >
