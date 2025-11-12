@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ChatView } from './components/ChatView';
 import { LoginScreen } from './components/LoginScreen';
 import { TaskCreationModal } from './components/TaskCreationModal';
 import { TaskEditModal } from './components/TaskEditModal';
@@ -79,7 +80,7 @@ export default function App() {
   const [completedTasks, setCompletedTasks] = useState<CompletedTask[]>([]);
   const [taskStats, setTaskStats] = useState<TaskStats[]>([]);
   const [isWeeklyView, setIsWeeklyView] = useState(false);
-  const [currentView, setCurrentView] = useState<'home' | 'pomodoro' | 'editablePomodoro' | 'roseGarden' | 'settings' | 'reward'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'pomodoro' | 'editablePomodoro' | 'roseGarden' | 'settings' | 'reward' | 'chat'>('home');
   const [selectedTask, setSelectedTask] = useState<TaskData | null>(null);
   const [selectedReward, setSelectedReward] = useState<RewardCard | null>(null);
   
@@ -542,6 +543,10 @@ export default function App() {
     setCurrentView('settings');
   };
 
+  const handleChatClick = () => {
+    setCurrentView('chat');
+  };
+
   // 重置所有数据的函数
   const handleResetAllData = () => {
     if (window.confirm('⚠️ 确定要重置所有数据吗？\n\n这将会：\n• 清空所有任务\n• 清空已完成任务\n• 清空任务统计\n• 退出登录\n\n此操作不可恢复！')) {
@@ -849,9 +854,19 @@ export default function App() {
         onOfficeClick={handleOfficeClick}
         onSettingsClick={handleSettingsClick}
         onAddTaskClick={handleAddTask}
+        onChatClick={handleChatClick}
         tasks={tasks}
         completedTasks={completedTasks}
         taskStats={taskStats}
+      />
+    );
+  }
+
+  // 如果在聊天视图，显示聊天页面
+  if (currentView === 'chat') {
+    return (
+      <ChatView
+        onBack={handleBackFromPomodoro}
       />
     );
   }

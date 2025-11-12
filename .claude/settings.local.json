@@ -21,7 +21,10 @@
       "Bash(echo $DATABASE_URL)",
       "Bash(npm install:*)",
       "Bash(\"C:\\Program Files\\PostgreSQL\\17\\bin\\psql.exe\" -U postgres -d arzu_simulator_local -c:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []

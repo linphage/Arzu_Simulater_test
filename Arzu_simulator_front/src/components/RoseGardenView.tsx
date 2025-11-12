@@ -44,12 +44,13 @@ interface RoseGardenViewProps {
   onOfficeClick: () => void;
   onSettingsClick: () => void;
   onAddTaskClick: () => void;
+  onChatClick?: () => void;
   tasks?: Task[];
   completedTasks?: CompletedTask[];
   taskStats?: TaskStats[];
 }
 
-type SubView = 'calendar' | 'completion' | 'focus' | 'relaxation';
+type SubView = 'calendar' | 'completion' | 'focus';
 
 
 
@@ -155,17 +156,14 @@ function Component9({ onClick, isActive }: { onClick: () => void; isActive: bool
   );
 }
 
-function Component11({ onClick, isActive, onSpecialClick }: { onClick: () => void; isActive: boolean; onSpecialClick: () => void }) {
+function Component11({ onClick, isActive }: { onClick: () => void; isActive: boolean }) {
   return (
     <div className="absolute h-[51px] left-0 top-[51px] w-[74px]" data-name="一壶水烟按钮">
       <div 
         className={`unified-button absolute left-0 top-[11px] min-w-fit cursor-pointer touch-friendly ${
           isActive ? 'bg-[#4CAF50] text-white border-[#4CAF50]' : 'bg-[#fbd5f2] text-[#3a3f47] border-[#3A3F47]'
         }`}
-        onClick={() => {
-          onClick();
-          onSpecialClick();
-        }}
+        onClick={onClick}
         style={{
           fontSize: '14px',
           fontWeight: '500',
@@ -193,13 +191,13 @@ function Component11({ onClick, isActive, onSpecialClick }: { onClick: () => voi
 }
 
 // 红框按钮区域组件 - 现在使用相对定位，便于底部固定
-function Component12({ currentView, onViewChange, onRelaxationClick }: { currentView: SubView; onViewChange: (view: SubView) => void; onRelaxationClick: () => void }) {
+function Component12({ currentView, onViewChange, onChatClick }: { currentView: SubView; onViewChange: (view: SubView) => void; onChatClick: () => void }) {
   return (
     <div className="relative w-[193px] h-[102px]" data-name="按钮区">
       <Component7 onClick={() => onViewChange('calendar')} isActive={currentView === 'calendar'} />
       <Component8 onClick={() => onViewChange('completion')} isActive={currentView === 'completion'} />
       <Component9 onClick={() => onViewChange('focus')} isActive={currentView === 'focus'} />
-      <Component11 onClick={() => onViewChange('relaxation')} isActive={currentView === 'relaxation'} onSpecialClick={onRelaxationClick} />
+      <Component11 onClick={onChatClick} isActive={false} />
     </div>
   );
 }
@@ -352,9 +350,8 @@ function Frame6259({ onBack }: { onBack: () => void }) {
   );
 }
 
-export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSettingsClick, onAddTaskClick, tasks = [], completedTasks = [], taskStats = [] }: RoseGardenViewProps) {
+export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSettingsClick, onAddTaskClick, onChatClick, tasks = [], completedTasks = [], taskStats = [] }: RoseGardenViewProps) {
   const [currentView, setCurrentView] = useState<SubView>('calendar');
-  const [showNepheleModal, setShowNepheleModal] = useState(false);
   const [daysSinceRegistration, setDaysSinceRegistration] = useState(0);
 
   useEffect(() => {
@@ -383,21 +380,6 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
         return <CompletionView tasks={tasks} completedTasks={completedTasks} />;
       case 'focus':
         return <FocusAnalysisView tasks={tasks} completedTasks={completedTasks} taskStats={taskStats} />;
-      case 'relaxation':
-        return (
-          <div className="h-full bg-[#FAFAFA] flex items-center justify-center">
-            <p 
-              className="text-[#3a3f47]"
-              style={{
-                fontSize: '14px',
-                fontWeight: '400',
-                fontFamily: "'ABeeZee', 'Noto Sans SC', 'Noto Sans JP', sans-serif"
-              }}
-            >
-              一壶水烟视图开发中...
-            </p>
-          </div>
-        );
       default:
         return <CalendarView tasks={tasks} />;
     }
@@ -494,7 +476,7 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
               <Component12 
                 currentView={currentView} 
                 onViewChange={setCurrentView} 
-                onRelaxationClick={() => setShowNepheleModal(true)} 
+                onChatClick={onChatClick || (() => {})} 
               />
             </div>
 
@@ -510,75 +492,6 @@ export function RoseGardenView({ onBack, onParliamentClick, onOfficeClick, onSet
             </div>
           </div>
         </div>
-
-        {/* 奈费勒AI弹窗 */}
-        {showNepheleModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
-            <div className="unified-content bg-white w-full max-w-[280px] relative">
-              {/* 关闭按钮 */}
-              <button
-                onClick={() => setShowNepheleModal(false)}
-                className="unified-button-icon absolute right-2 top-2 bg-transparent hover:bg-gray-100 transition-colors"
-                style={{
-                  fontSize: '14px',
-                  fontWeight: '500',
-                  border: 'none',
-                  boxShadow: 'none'
-                }}
-              >
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                  <path d="M18 6L6 18M6 6l12 12" stroke="#3a3f47" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </button>
-
-              {/* 标题 */}
-              <div className="flex items-center mb-3 pr-6">
-                <div className="w-6 h-6 bg-gradient-to-r from-[#fbd5f2] to-[#e8f5e8] rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                  <div className="w-2 h-2 bg-[#3a3f47] rounded-full"></div>
-                </div>
-                <h3 
-                  className="text-[#3a3f47]"
-                  style={{
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    fontFamily: "'ABeeZee', 'Noto Sans SC', 'Noto Sans JP', sans-serif"
-                  }}
-                >
-                  奈费勒AI助手
-                </h3>
-              </div>
-
-              {/* 内容 */}
-              <div className="unified-content bg-gradient-to-r from-[#fbd5f2] to-[#e8f5e8] mb-3" style={{ border: 'none' }}>
-                <p 
-                  className="text-[#3a3f47] leading-relaxed"
-                  style={{
-                    fontSize: '12px',
-                    fontWeight: '400',
-                    fontFamily: "'ABeeZee', 'Noto Sans SC', 'Noto Sans JP', sans-serif"
-                  }}
-                >
-                  军师傅还在和奈费勒AI 搏斗！后期会接入，直接以聊天形式一边跟奈费勒谈恋爱一边让奈费勒当你的人生教练，嘿嘿！！
-                </p>
-              </div>
-
-              {/* 确定按钮 */}
-              <button
-                onClick={() => setShowNepheleModal(false)}
-                className="unified-button w-full bg-[#4CAF50] text-white hover:bg-[#45a049] transition-colors"
-                style={{
-                  fontSize: '12px',
-                  fontWeight: '500',
-                  fontFamily: "'ABeeZee', 'Noto Sans SC', 'Noto Sans JP', sans-serif"
-                }}
-              >
-                期待中...
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* 任务创建弹窗由App.tsx统一管理 */}
       </div>
     </div>
   );
